@@ -1,0 +1,22 @@
+{
+	"extends": "eslint-config-airbnb",
+	// "plugins": ["jest"],
+	"env": {
+		// "jest/globals": true
+	},
+	"rules": {
+		// style
+		"linebreak-style": "off",
+		// "semi": "off",
+		"no-tabs": "off",
+		"indent": [
+			"error",
+			"tab"
+		],
+		// development easy
+		"prefer-const": "warn",
+		"no-unused-vars": "warn",
+		// required
+		"unicorn/prefer-node-protocol": "off",
+	}
+}

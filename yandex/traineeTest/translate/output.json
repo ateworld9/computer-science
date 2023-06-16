@@ -1,0 +1,92 @@
+{
+  "objectRu": {
+    "key": "ru:key",
+    "key2": "ru:key2",
+    "key3": 10,
+    "key4": {
+      "innerKey": "innerKey",
+      "innerObj": {
+        "test": 123,
+        "key": null,
+        "someOtherKey": []
+      }
+    },
+    "array": [
+      "ru:array1",
+      "ru:array2",
+      "ru:array3",
+      {
+        "key": "ru:array4"
+      }
+    ]
+  },
+  "object2Ru": {
+    "options": {
+      "key": "ru:key",
+      "key2": "ru:key2",
+      "key3": 10,
+      "key4": {
+        "innerKey": "innerKey",
+        "innerObj": {
+          "test": 123,
+          "key": null,
+          "someOtherKey": []
+        }
+      },
+      "array": [
+        "ru:array1",
+        "ru:array2",
+        "ru:array3",
+        {
+          "key": "ru:array4"
+        }
+      ]
+    },
+    "key": "ru:object2key"
+  },
+  "objectEn": {
+    "key": "ru:key",
+    "key2": "ru:key2",
+    "key3": 10,
+    "key4": {
+      "innerKey": "innerKey",
+      "innerObj": {
+        "test": 123,
+        "key": null,
+        "someOtherKey": []
+      }
+    },
+    "array": [
+      "ru:array1",
+      "ru:array2",
+      "ru:array3",
+      {
+        "key": "ru:array4"
+      }
+    ]
+  },
+  "object2En": {
+    "options": {
+      "key": "ru:key",
+      "key2": "ru:key2",
+      "key3": 10,
+      "key4": {
+        "innerKey": "innerKey",
+        "innerObj": {
+          "test": 123,
+          "key": null,
+          "someOtherKey": []
+        }
+      },
+      "array": [
+        "ru:array1",
+        "ru:array2",
+        "ru:array3",
+        {
+          "key": "ru:array4"
+        }
+      ]
+    },
+    "key": "ru:object2key"
+  }
+}
