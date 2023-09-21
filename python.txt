@@ -1,1 +1,0 @@
-(x \oplus y) \wedge z = (x \wedge z) \oplus (y \wedge z) 

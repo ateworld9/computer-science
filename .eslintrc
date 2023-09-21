@@ -1,13 +1,59 @@
 {
 	"extends": "eslint-config-airbnb",
-	// "plugins": ["jest"],
+	"parserOptions": {
+		"ecmaVersion": 2022,
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"sourceType": "module"
+	},
 	"env": {
-		// "jest/globals": true
+		"es2021": true,
+		"node": true
 	},
 	"rules": {
 		// style
-		"linebreak-style": "off",
-		// "semi": "off",
+		"max-len": [
+			"error",
+			{
+				"code": 120
+			}
+		],
+		"linebreak-style": "off", // CRLF LF
+		"semi": [
+			"error",
+			"never"
+		],
+		"semi-spacing": [
+			"error",
+			{
+				"before": false,
+				"after": true
+			}
+		],
+		"arrow-parens": [
+			"error",
+			"as-needed",
+			{
+				"requireForBlockBody": true
+			}
+		],
+		// "array-element-newline": [
+		// 	"off",
+		// 	{
+		// 		"multiline": true,
+		// 		"minItems": 3
+		// 	}
+		// ],
+		// "object-curly-newline": [
+		// 	"error",
+		// 	{
+		// 		"multiline": true,
+		// 		"consistent": true
+		// 	}
+		// ],
+		"prefer-template": "off",
+		"no-else-return": "warn",
 		"no-tabs": "off",
 		"indent": [
 			"error",
@@ -16,7 +62,8 @@
 		// development easy
 		"prefer-const": "warn",
 		"no-unused-vars": "warn",
+		"import/extensions": "off",
 		// required
-		"unicorn/prefer-node-protocol": "off",
+		"unicorn/prefer-node-protocol": "off"
 	}
 }
