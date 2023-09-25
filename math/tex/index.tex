@@ -1,0 +1,253 @@
+\documentclass[a4paper, 12 pt]{article}
+% perl latexindent.pl C:\Users\Dmitriy\Desktop\programming\LATEX\index.tex
+\usepackage[english, russian]{babel}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+
+\usepackage{geometry} % настройки страницы
+\geometry{top=25mm}
+\geometry{bottom=30mm}
+\geometry{left=20mm}
+\geometry{right=20mm}
+\linespread{1}
+\setlength{\parindent}{50pt}
+\setlength{\parskip}{12pt}
+
+\usepackage{titleps} % колонтитулы
+\newpagestyle{main}{
+	% \setheadrule{0.4pt}
+	% \sethead{лево}{центр}{право}
+	\setfootrule{0.4pt}
+	\setfoot{\thepage}{}{}
+}
+\pagestyle{main}
+
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{svg}
+\svgpath{{images/}}
+\usepackage{float}
+
+\usepackage{array}
+\usepackage{arraycols}
+
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+% TikZ pgfplots luaLaTeX  PlantUML 
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{patterns}
+\usetikzlibrary{intersections}
+\usepackage{pgfplots} % графики
+\pgfplotsset{compat=1.9} 
+
+\begin{document}
+
+\section*{Греческий алфавит}
+\begin{flushleft}
+	\verb|\alpha|      --- $\alpha$      $\alpha$      \\
+	\verb|\beta|       --- $\beta$       $\beta$       \\
+	\verb|\gamma|      --- $\gamma$      $\Gamma$      \\
+	\verb|\delta|      --- $\delta$      $\Delta$      \\
+	\verb|\epsilon|    --- $\epsilon$    $\epsilon$    \\
+	\verb|\varepsilon| --- $\varepsilon$ $\varepsilon$ \\
+	\verb|\zeta|       --- $\zeta$       $\zeta$       \\
+	\verb|\eta|        --- $\eta$        $\eta$        \\
+	\verb|\theta|      --- $\theta$      $\Theta$      \\
+	\verb|\vartheta|   --- $\vartheta$   $\vartheta$   \\
+	\verb|\iota|       --- $\iota$       $\iota$       \\
+	\verb|\kappa|      --- $\kappa$      $\kappa$      \\
+	\verb|\lambda|     --- $\lambda$     $\Lambda$     \\
+	\verb|\mu|         --- $\mu$         $\mu$         \\
+	\verb|\nu|         --- $\nu$         $\nu$         \\
+	\verb|\xi|         --- $\xi$         $\Xi$         \\
+	\verb|\pi|         --- $\pi$         $\Pi$         \\
+	\verb|\varpi|      --- $\varpi$      $\varpi$      \\
+	\verb|\rho|        --- $\rho$        $\rho$        \\
+	\verb|\varrho|     --- $\varrho$     $\varrho$     \\
+	\verb|\sigma|      --- $\sigma$      $\Sigma$      \\
+	\verb|\varsigma|   --- $\varsigma$   $\varsigma$   \\
+	\verb|\tau|        --- $\tau$        $\tau$        \\
+	\verb|\upsilon|    --- $\upsilon$    $\Upsilon$    \\
+	\verb|\psi|        --- $\psi$        $\Psi$        \\
+	\verb|\omega|      --- $\omega$      $\Omega$      \\
+\end{flushleft}
+
+\part{Введение в Математику}
+\section{Множества чисел}
+\begin{flushleft}
+	\verb|\mathbb{P}| $\mathbb{P}$ --- Простые числа        --- $2,3,5,7,11,13 \cdots$ делятся только на себя и на 1.\\
+	\verb|\mathbb{N}| $\mathbb{N}$ --- Натуральные числа    --- $1, 2, 3$                \\
+	\verb|\mathbb{Z}| $\mathbb{Z}$ --- Целые                --- $-3, 0, 3$               \\
+	\verb|\mathbb{Q}| $\mathbb{Q}$ --- Рациональные числа   --- $-3.25, \frac{3}{5} $    \\
+	\verb|\mathbb{R}| $\mathbb{R}$ --- Вещественные (Действительные) числа   --- $\pi$ все числа на числовой прямой.\\
+	\verb|\mathbb{I}| $\mathbb{I}$ --- Иррациональные числа --- $\sqrt[2]{2}$						 \\
+	\verb|\mathbb{W}| $\mathbb{W}$ --- Целые числа          ---                          \\
+	\verb|\mathbb{C}| $\mathbb{C}$ --- Комплексные числа    ---             \\
+
+	\verb|\mathbb{H}| $\mathbb{H}$ --- quaternions using     \\
+	\verb|\mathbb{O}| $\mathbb{O}$ --- octonions using       \\
+	\verb|\mathbb{S}| $\mathbb{S}$ --- sedenions using       \\
+\end{flushleft}
+
+\begin{figure}[H]
+	\centering
+	\includesvg[width=0.75\textwidth]{sets_of_numbers}%
+	\caption{Множества чисел (Диаграмма Эйлера)}\label{fig:sets_of_numbers}
+\end{figure}
+
+\subsection{Операции над числами}
+\begin{flushleft}
+	\begin{itemize}
+		\item Закон перестановочный (комутативный) --- Перемена мест слагаемых не влияет на результат суммы
+		      \[a+b=b+a\]
+		\item Перестановочный (комутативный) закон произведения
+		      \[a \cdot b = b \cdot a\]
+		\item Закон сочетатательный (ассоциативный)
+		      \[(a+b)+c=a+(b+c)=a+b+c\]
+		\item Cочетатательный (ассоциативный) закон произведения
+		      \[(a \cdot b) \cdot c=a \cdot (b \cdot c)=a \cdot b \cdot c\]
+		\item Дистрибутивный закон
+		      \[a\cdot(b+c)=a\cdot b+a\cdot c\]
+
+	\end{itemize}
+\end{flushleft}
+
+\section{Степени и их свойства}
+\begin{flushleft}
+	\[a^{1}=a\]
+	\[a^{0}=1\]
+	\[a^{n}a^{m}=a^{n+m}\]
+	\[a^{n^{m}}=a^{m^{n}}=a^{n\cdot m}\]
+	\[a^{n-1}=\frac{1}{a^{n}}\]
+	\[\sqrt[n]{a}=a^{\frac{1}{n}} \]
+	\[n \in \mathbb{N}; -b^{2n}=b^{2n} \]
+	\[-b^{2n+1}=-b^{2n+1}\]
+\end{flushleft}
+
+\section{Формулы сокращенного умножения}
+\begin{flushleft}
+	\[{(a+b)}^{2}=a^{2}+2ab+b^{2}\]
+	\[{(a-b)}^{2}=a^{2}-2ab+b^{2}\]
+	\[{(a+b)}^{3}=a^{3}+3a^{2}b+3ab^{2}+b^{3}\]
+	\[{(a-b)}^{3}=a^{3}-3a^{2}b+3ab^{2}-b^{3}\]
+	\[a^2-b^2=(a+b)(a-b)\]
+	\[a^3+b^3=(a+b)(a^{2}-2ab+b^{2})\]
+	\[a^3-b^3=(a-b)(a^{2}+2ab+b^{2})\]
+\end{flushleft}
+
+\subsection{Геометрическая интерпретация}
+\begin{flushleft}
+	${(a+b)}^{2}=a^{2}+2ab+b^{2}$
+	\\
+
+	\begin{tikzpicture}
+		\draw[black, thick] (0,0) rectangle (3,3);
+		\draw[black, thick] (0,0) rectangle (2,2);
+		\draw[black, thick] (2,2) -- (3,2);
+		\draw[black, thick] (2,2) -- (2,3);
+
+		\node at (-0.2,1) {a};
+		\node at (1,-0.2) {a};
+
+		\node at (-0.2,2.5) {b};
+		\node at (2.5,-0.2) {b};
+
+		\node at (1,1) {$a^2$};
+		\node at (2.5,2.5) {$b^2$};
+		\node at (1,2.5) {$ab$};
+		\node at (2.5,1) {$ab$};
+
+	\end{tikzpicture}
+	\\
+
+	${(a-b)}^{2}=a^{2}-2ab+b^{2}$
+	\\
+	\begin{tikzpicture}
+		\draw[black, thick] (0,0) rectangle (3,3);
+		\draw[black, thick] (0,0) rectangle (2,2);
+		\draw[black, thick] (2,2) -- (3,2);
+		\draw[black, thick] (2,2) -- (2,3);
+		\draw[pattern=north east lines, pattern color=black] (0,0) rectangle (2,2);
+
+
+		\node at (3.2,1.5) {a};
+		\node at (1.5,3.2) {a};
+
+		\node at (-0.2,2.5) {b};
+		\node at (2.5,-0.2) {b};
+
+		\node at (-0.3,1) {a-b};
+		\node at (1,-0.2) {a-b};
+	\end{tikzpicture}
+	\\
+	$a^2-b^2=(a+b)(a-b)$
+	\\
+	\begin{tikzpicture}
+		\draw[black, thick] (0,0) rectangle (3,3);
+		\draw[black, thick] (0,0) rectangle (2,2);
+		\draw[pattern=north east lines, pattern color=black] (0,2) -- (0,3) -- (3,3) -- (3,0) -- (2,0) -- (2,2);
+		\draw[black, thick] (2,2) -- (3,2);
+
+		\node at (1.5,3.2) {a};
+		\node at (-0.2,1) {b};
+
+		\node at (-0.3,2.5) {a-b};
+		\node at (2.5,-0.2) {a-b};
+
+		\node at (1.5,2.5) {$S_1$};
+		\node at (2.5,1) {$S_2$};
+	\end{tikzpicture}
+	\\
+	$a^2-b^2=S_1+S_2$\\
+	$S_1=a(a-b)$\\
+	$S_2=b(a-b)$\\
+	$S_1+S_2=a(a-b)+b(a-b)=(a+b)(a-b)$
+\end{flushleft}
+
+\section{НОК и НОД}
+\begin{flushleft}
+	$A,B \in \mathbb{Z}$\\
+	$C = \frac{A}{B} \in \mathbb{Z}$\\
+	A --- Кратное\\
+	B --- Делитель\\
+	$A = C \cdot B, C \in \mathbb{Z}$\\
+	$\frac{A}{B}=\frac{ \not a \cdot \not b \cdot \not c \cdot d}{\not a\cdot \not b \cdot \not c}=d$
+
+	$\mathbb{P}$ --- Простые числа        --- $2,3,5,7,11,13 \cdots$ делятся только на себя и на 1.\\
+\end{flushleft}
+
+\section{Пропорции и их свойства}
+\begin{flushleft}
+	\[a,b,c,d \in \mathbb R\]
+	\[a,b,c,d \neq 0\]
+	\[\frac{a}{b}=\frac{c}{d} -> ab=cd -> \frac{c}{a}=\frac{d}{b}\]
+\end{flushleft}
+
+\section{Обыкновенные дроби и операции над ними}
+\begin{flushleft}
+\end{flushleft}
+
+\section{Системы счисления}
+\begin{flushleft}
+	Разряды\\
+	$ 1\textsuperscript{4}2\textsuperscript{3}3\textsuperscript{2}4\textsuperscript{1}5\textsuperscript{0}.6\textsuperscript{-1}7\textsuperscript{-2}$\\
+	$C_b=\sum_{i}b^{i}t_{i}$\\
+	$4_{10}=1\textsuperscript{t2}0\textsuperscript{t1}0\textsuperscript{t0}_2=\sum_{i}2^{i}t_i=0 \cdot 2\textsuperscript{0}+0\cdot 2\textsuperscript{1}+1 \cdot 2\textsuperscript{2}$\\
+\end{flushleft}
+
+\section*{}
+\begin{flushleft}
+\end{flushleft}
+
+\part{Дискретная математика}
+\section{Комбинаторика}
+\subsection{Перестановки и размещения}
+\subsection{Сочетания}
+\subsection{Размещения с повторениями}
+\subsection{Перестановки с повторениями}
+\begin{flushleft}
+\end{flushleft}
+
+
+\end{document}
