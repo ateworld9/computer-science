@@ -1,63 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+  <head>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'unsafe-inline' 'self'"
+    />
+    <style>
+      body {
+        margin: 0;
+      }
 
-<head>
-	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'unsafe-inline' 'self'" />
-	<style>
-		body {
-			margin: 0;
-		}
+      .logo {
+        width: 180px;
+        height: 180px;
+      }
 
-		.logo {
-			width: 180px;
-			height: 180px;
-		}
+      .div {
+        background-image: conic-gradient(
+          from 0deg,
+          #654430 0 90deg,
+          #f7ebcc 90deg 180deg,
+          #654430 180deg 270deg,
+          #f7ebcc 270deg 360deg
+        );
+        position: relative;
+      }
 
-		.div {
-			background-image: conic-gradient(from 0deg,
-					#654430 0 90deg,
-					#f7ebcc 90deg 180deg,
-					#654430 180deg 270deg,
-					#f7ebcc 270deg 360deg);
-			position: relative;
-		}
+      .div:before {
+        box-sizing: border-box;
+        width: 48px;
+        height: 48px;
+        display: block;
+        position: absolute;
+        top: 21px;
+        left: 21px;
+        content: " ";
+        outline: 5px solid #5f5d5e;
+        border: 3px solid #252324;
+        border-radius: 50%;
+        background-color: #5f5d5e;
+      }
 
-		.div:before {
-			box-sizing: border-box;
-			width: 48px;
-			height: 48px;
-			display: block;
-			position: absolute;
-			top: 21px;
-			left: 21px;
-			content: " ";
-			outline: 5px solid #5f5d5e;
-			border: 3px solid #252324;
-			border-radius: 50%;
-			background-color: #5f5d5e;
-		}
+      .div:after {
+        box-sizing: border-box;
+        width: 48px;
+        height: 48px;
+        display: block;
+        position: absolute;
+        bottom: 21px;
+        right: 21px;
+        content: " ";
+        outline: 5px solid #5f5d5e;
+        border: 3px solid #252324;
+        border-radius: 50%;
+        background-color: #5f5d5e;
+      }
+    </style>
+    <link rel="stylesheet" href="solution.css" />
+  </head>
 
-		.div:after {
-			box-sizing: border-box;
-			width: 48px;
-			height: 48px;
-			display: block;
-			position: absolute;
-			bottom: 21px;
-			right: 21px;
-			content: " ";
-			outline: 5px solid #5f5d5e;
-			border: 3px solid #252324;
-			border-radius: 50%;
-			background-color: #5f5d5e;
-		}
-
-	</style>
-	<link rel="stylesheet" href="solution.css">
-</head>
-
-<body>
-	<div class="logo"></div>
-</body>
-
+  <body>
+    <div class="logo"></div>
+  </body>
 </html>

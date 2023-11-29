@@ -1,39 +1,35 @@
 const Node = class {
   constructor(nodeData) {
-    this.data = nodeData
-    this.next = null
+    this.data = nodeData;
+    this.next = null;
   }
-}
+};
 
 const Queue = class {
   constructor() {
-    this.head = null
-    this.tail = null
-    this.minVal = Infinity
-    this.maxVal = 0
+    this.head = null;
+    this.tail = null;
+    this.minVal = Infinity;
+    this.maxVal = 0;
   }
 
   insertNode(nodeData) {
-    const node = new Node(nodeData)
+    const node = new Node(nodeData);
 
-    if (nodeData < this.minVal)
-      this.minVal = nodeData
+    if (nodeData < this.minVal) this.minVal = nodeData;
 
-    if (nodeData > this.maxVal)
-      this.maxVal = nodeData
+    if (nodeData > this.maxVal) this.maxVal = nodeData;
 
-    if (this.head == null)
-      this.head = node
-    else
-      this.tail.next = node
-    this.tail = node
-    console.log(this)
+    if (this.head == null) this.head = node;
+    else this.tail.next = node;
+    this.tail = node;
+    console.log(this);
   }
 
   deleteNode() {
-    const data = this.head?.data
-    this.head = this.head?.next ?? null
-    return data
+    const data = this.head?.data;
+    this.head = this.head?.next ?? null;
+    return data;
   }
 
   // min() {
@@ -58,28 +54,28 @@ const Queue = class {
   //   return maxVal
   // }
   print() {
-    let head = this.head
-    console.log(head?.data)
+    let head = this.head;
+    console.log(head?.data);
     while (head?.next) {
-      head = head.next
-      console.log(head?.data)
+      head = head.next;
+      console.log(head?.data);
     }
   }
-}
+};
 
-const queue = new Queue()
+const queue = new Queue();
 
 module.exports = {
   push: queue.insertNode,
   shift: queue.deleteNode,
   min() {
-    return queue.minVal === Infinity ? 0 : queue.minVal
+    return queue.minVal === Infinity ? 0 : queue.minVal;
   },
   max() {
-    return queue.maxVal
+    return queue.maxVal;
   },
   print: queue.print,
-}
+};
 
 // print() {
 //   let head = this.head
