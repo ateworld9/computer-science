@@ -1,15 +1,14 @@
-let currentLanguage = 'ru';
+let currentLanguage = "ru";
 
 const changeLanguage = (language) => {
-	currentLanguage = language;
-}
+  currentLanguage = language;
+};
 
 const translate = (key) => {
-	return `${currentLanguage}:${key}`;
-}
-
+  return `${currentLanguage}:${key}`;
+};
 
 module.exports = {
-	changeLanguage,
-	translate,
-}
+  changeLanguage,
+  translate,
+};
