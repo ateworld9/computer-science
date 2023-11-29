@@ -1,12 +1,6 @@
 {
-  "extends": [
-    "plugin:json/recommended",
-    "eslint-config-prettier"
-  ],
-  "plugins": [
-    "json",
-    "eslint-plugin-prettier"
-  ],
+  "extends": ["plugin:json/recommended", "eslint-config-prettier"],
+  "plugins": ["json", "eslint-plugin-prettier"],
   "parserOptions": {
     "ecmaVersion": 2022,
     "ecmaFeatures": {
