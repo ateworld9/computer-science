@@ -1,12 +1,12 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-param-reassign */
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -84,7 +84,7 @@ async function main() {
   str = str.slice(0, -1);
   // parse file string
 
-  let lines = str.split("\n").map((el) => el.split(" ").map(Number));
+  let lines = str.split('\n').map((el) => el.split(' ').map(Number));
 
   const [n, m] = lines[0];
   if (m > 1) {
@@ -107,13 +107,13 @@ async function main() {
     }
   }
 
-  let strr = "";
+  let strr = '';
   for (let i = 1; i < result.length; i += 1) {
-    strr = strr + result[i].length + "\n";
-    strr = strr + result[i].join(" ") + "\n";
+    strr = strr + result[i].length + '\n';
+    strr = strr + result[i].join(' ') + '\n';
   }
   try {
-    await fs.writeFile("output.txt", `${result.length - 1}\n${strr}`);
+    await fs.writeFile('output.txt', `${result.length - 1}\n${strr}`);
   } catch (err) {
     console.error(err.message);
   }

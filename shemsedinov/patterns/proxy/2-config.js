@@ -12,7 +12,7 @@ class Config {
 
   read(key) {
     let { data } = this;
-    const steps = key.split(".");
+    const steps = key.split('.');
     for (const step of steps) {
       const next = data[step];
       if (!next) return;
@@ -35,6 +35,6 @@ class ProxyConfig {
 
 // Usage
 
-const config = new ProxyConfig("./9-config.json");
-const value = config.read("timeouts.keepAlive");
+const config = new ProxyConfig('./9-config.json');
+const value = config.read('timeouts.keepAlive');
 console.dir({ value });

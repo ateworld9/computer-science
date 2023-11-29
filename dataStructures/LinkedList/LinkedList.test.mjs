@@ -1,6 +1,6 @@
-import test from "node:test";
-import assert from "node:assert";
-import { LinkedList } from "./index.mjs";
+import test from 'node:test';
+import assert from 'node:assert';
+import { LinkedList } from './index.mjs';
 // const list = new LinkedList();
 
 // list.insertToTail(2);
@@ -15,8 +15,8 @@ import { LinkedList } from "./index.mjs";
 // // list.reverse()
 // // list.print()
 
-test("LinkedList", async (t) => {
-  await t.test("insertToHead method", () => {
+test('LinkedList', async (t) => {
+  await t.test('insertToHead method', () => {
     const list = new LinkedList();
     list.insertToHead(1);
     list.insertToHead(2);
@@ -26,7 +26,7 @@ test("LinkedList", async (t) => {
     assert.strictEqual(list.tail.data, 1);
     assert.strictEqual(list.length, 3);
   });
-  await t.test("insertToTail method", () => {
+  await t.test('insertToTail method', () => {
     const list = new LinkedList();
     list.insertToTail(1);
     list.insertToTail(2);
@@ -36,7 +36,7 @@ test("LinkedList", async (t) => {
     assert.strictEqual(list.tail.data, 3);
     assert.strictEqual(list.length, 3);
   });
-  await t.test("insert method", () => {
+  await t.test('insert method', () => {
     const list = new LinkedList();
     list.insert(1, 0);
     list.insert(2, 1);

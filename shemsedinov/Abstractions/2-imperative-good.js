@@ -10,11 +10,11 @@
 // 6. Mutable data structures
 // 7. Model of the process
 
-const fs = require("node:fs");
+const fs = require('node:fs');
 
 const loadFile = (filename) => {
   try {
-    const data = fs.readFileSync(filename, "utf-8");
+    const data = fs.readFileSync(filename, 'utf-8');
     return data;
   } catch (error) {
     console.log("Can't read file: " + filename);
@@ -22,11 +22,11 @@ const loadFile = (filename) => {
 };
 
 const parseFile = (data) => {
-  const lines = data.split("\n");
+  const lines = data.split('\n');
   lines.pop();
   const cities = [];
   for (const line of lines) {
-    const cells = line.split(",");
+    const cells = line.split(',');
     const [name, population, area, density, country] = cells;
     cities.push({
       name,
@@ -60,7 +60,7 @@ const showTable = (cities) => {
   }
 };
 
-const data = loadFile("./cities.csv");
+const data = loadFile('./cities.csv');
 if (data) {
   const cities = parseFile(data);
   calculateDensityColumn(cities);

@@ -1,11 +1,11 @@
 /* eslint-disable no-bitwise */
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -52,17 +52,17 @@ async function main() {
   let str = await read();
 
   str = str.slice(0, -1);
-  const lines = str.split("\n");
+  const lines = str.split('\n');
   const edgesCount = Number(lines[0]);
 
   const graph = [];
 
   for (let i = 1; i <= edgesCount; i += 1) {
-    graph[i - 1] = lines[i].trim().split(" ").map(Number);
+    graph[i - 1] = lines[i].trim().split(' ').map(Number);
   }
   const res = tsp(graph);
   try {
-    await fs.writeFile("output.txt", `${res}`);
+    await fs.writeFile('output.txt', `${res}`);
   } catch (err) {
     console.error(err.message);
   }

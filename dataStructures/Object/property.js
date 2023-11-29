@@ -1,7 +1,7 @@
 function get(obj, path) {
   let keys;
-  if (typeof path === "string") {
-    keys = path.split(".");
+  if (typeof path === 'string') {
+    keys = path.split('.');
   } else {
     keys = path;
   }
@@ -15,7 +15,7 @@ function get(obj, path) {
   return get(obj[key], keys);
 }
 const obj = {
-  a: { b: { c: "d" }, e: "f" },
+  a: { b: { c: 'd' }, e: 'f' },
 };
 
-console.log(get(obj, "a.b.c"));
+console.log(get(obj, 'a.b.c'));

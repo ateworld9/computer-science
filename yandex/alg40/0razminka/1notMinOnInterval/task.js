@@ -1,10 +1,10 @@
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -30,7 +30,7 @@ function processQuery(sequence, L, R) {
       return sequence[i];
     }
   }
-  return "NOT FOUND";
+  return 'NOT FOUND';
 }
 
 // function processQuery(seq, l, r) {
@@ -55,17 +55,17 @@ async function main() {
   const result = [];
 
   str = str.slice(0, -1);
-  const arr = str.split("\n");
+  const arr = str.split('\n');
   // const [seqLength, reqCtn] = arr[0].split(' ').map(Number);
-  const seq = arr[1].split(" ").map(Number);
+  const seq = arr[1].split(' ').map(Number);
 
   for (let i = 2; i < arr.length; i += 1) {
-    const [l, r] = arr[i].split(" ").map(Number);
+    const [l, r] = arr[i].split(' ').map(Number);
     result.push(processQuery(seq, l, r));
   }
 
   try {
-    await fs.writeFile("output.txt", result.join("\n"));
+    await fs.writeFile('output.txt', result.join('\n'));
   } catch (err) {
     console.error(err.message);
   }

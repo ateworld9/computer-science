@@ -6,7 +6,7 @@ function shift(arr) {
   return res;
 }
 
-const myFish = ["ангел", "клоун", "мандарин", "хирург"];
+const myFish = ['ангел', 'клоун', 'мандарин', 'хирург'];
 
 const shifted = shift(myFish);
 console.log(myFish, shifted);

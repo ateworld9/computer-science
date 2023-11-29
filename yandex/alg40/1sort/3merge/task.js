@@ -1,13 +1,13 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-param-reassign */
 /* eslint-disable for-direction */
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -40,14 +40,14 @@ async function main() {
   str = str.slice(0, -1);
   // parse file string
 
-  const lines = str.split("\n");
-  const arr1 = lines[1] === "" ? [] : lines[1].split(" ").map(Number);
-  const arr2 = lines[3] === "" ? [] : lines[3].split(" ").map(Number);
+  const lines = str.split('\n');
+  const arr1 = lines[1] === '' ? [] : lines[1].split(' ').map(Number);
+  const arr2 = lines[3] === '' ? [] : lines[3].split(' ').map(Number);
 
   const res = mergeSortedSequences(arr1, arr2);
 
   try {
-    await fs.writeFile("output.txt", res.join(" "));
+    await fs.writeFile('output.txt', res.join(' '));
   } catch (err) {
     console.error(err.message);
   }

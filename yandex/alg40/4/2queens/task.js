@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-const readline = require("node:readline");
+const readline = require('node:readline');
 
 function isSafe(board, row, col) {
   for (let i = 0; i < row; i += 1) {
@@ -46,7 +46,7 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-rl.on("line", (line) => {
+rl.on('line', (line) => {
   const result = countQueensArrangements(Number(line));
   console.log(result);
   process.exit(0);

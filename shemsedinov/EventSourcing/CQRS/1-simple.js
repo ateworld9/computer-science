@@ -50,7 +50,7 @@ class Bank {
   }
 
   operation(account, amount) {
-    const operation = amount < 0 ? "Withdraw" : "Income";
+    const operation = amount < 0 ? 'Withdraw' : 'Income';
     const execute = operations[operation];
     const command = new AccountCommand(
       account.name,
@@ -81,23 +81,23 @@ class Bank {
 // Usage
 
 const bank = new Bank();
-const account1 = new BankAccount("Dmitriy Vahrameev");
+const account1 = new BankAccount('Dmitriy Vahrameev');
 bank.operation(account1, 1000);
 bank.operation(account1, -50);
-const account2 = new BankAccount("Ilya Zoreev");
+const account2 = new BankAccount('Ilya Zoreev');
 bank.operation(account2, 500);
 bank.operation(account2, -100);
 bank.operation(account2, 150);
 console.table([account1, account2]);
 
-const res1 = bank.select({ account: "Dmitriy Vahrameev" });
+const res1 = bank.select({ account: 'Dmitriy Vahrameev' });
 console.table(res1);
 
-const res2 = bank.select({ account: "Ilya Zoreev", operation: "Income" });
+const res2 = bank.select({ account: 'Ilya Zoreev', operation: 'Income' });
 console.table(res2);
 
-const res3 = bank.select({ operation: "Withdraw" });
+const res3 = bank.select({ operation: 'Withdraw' });
 console.table(res3);
 
-console.log("Query logs:");
+console.log('Query logs:');
 console.table(bank.queries);

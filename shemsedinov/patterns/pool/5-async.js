@@ -8,7 +8,7 @@ const poolify = (factory, min, normal, max) => {
   const delayed = [];
 
   return (par) => {
-    if (typeof par !== "function") {
+    if (typeof par !== 'function') {
       if (items.length < max) {
         const request = delayed.shift();
         if (request) {

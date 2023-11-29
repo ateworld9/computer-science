@@ -63,13 +63,13 @@ class Bank {
 
 const bank = new Bank();
 
-bank.openAccount("Dmitriy Vahrameev");
-bank.openAccount("Ilya Zoreev", 1000);
+bank.openAccount('Dmitriy Vahrameev');
+bank.openAccount('Ilya Zoreev', 1000);
 
 const total1 = bank.total();
 console.table(bank.accounts);
-console.log("Total before transfer:", total1);
-bank.transfer("Ilya Zoreev", "Dmitriy Vahrameev", 50);
+console.log('Total before transfer:', total1);
+bank.transfer('Ilya Zoreev', 'Dmitriy Vahrameev', 50);
 console.table(bank.accounts);
 const total2 = bank.total();
-console.log("Total after transfer:", total2);
+console.log('Total after transfer:', total2);

@@ -1,11 +1,11 @@
 /* eslint-disable no-param-reassign */
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -59,7 +59,7 @@ function prefixSubstringsHashes(str, x = 7, p = 9973) {
       (prefixHashes[from1 + len - 1] + prefixHashes[from2] * X[len - 1]) % p;
     const h2 =
       (prefixHashes[from2 + len - 1] + prefixHashes[from1] * X[len - 1]) % p;
-    return h1 === h2 ? "yes" : "no";
+    return h1 === h2 ? 'yes' : 'no';
   }
 
   return compareSubstrings;
@@ -71,7 +71,7 @@ async function main() {
   str = str.slice(0, -1);
   // parse file string
 
-  const lines = str.split("\n");
+  const lines = str.split('\n');
 
   const string = lines[0];
 
@@ -79,10 +79,10 @@ async function main() {
 
   const queries = lines
     .slice(2)
-    .map((el) => compareSubstrings(...el.split(" ").map(Number)));
+    .map((el) => compareSubstrings(...el.split(' ').map(Number)));
 
   try {
-    await fs.writeFile("output.txt", queries.join("\n"));
+    await fs.writeFile('output.txt', queries.join('\n'));
   } catch (err) {
     console.error(err.message);
   }

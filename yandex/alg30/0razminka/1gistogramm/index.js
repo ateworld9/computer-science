@@ -1,10 +1,10 @@
-const fs = require("fs/promises");
-const path = require("path");
+const fs = require('fs/promises');
+const path = require('path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -16,7 +16,7 @@ function gistogramm(str) {
   const charMap = {};
   let maxCount = 0;
   for (let i = 0; i < str.length; i += 1) {
-    if (str[i] === " " || str[i] === "\n") {
+    if (str[i] === ' ' || str[i] === '\n') {
       continue;
     }
     if (charMap[str[i]]) {
@@ -34,17 +34,17 @@ function gistogramm(str) {
     const temp = [];
     sortedChars.forEach((char) => {
       if (charMap[char] >= i) {
-        temp.push("#");
+        temp.push('#');
       } else {
-        temp.push(" ");
+        temp.push(' ');
       }
     });
-    temp.push("\n");
-    result[maxCount - i] = temp.join("");
+    temp.push('\n');
+    result[maxCount - i] = temp.join('');
   }
-  sortedChars.push("\n");
-  result[maxCount] = sortedChars.join("");
-  return result.join("");
+  sortedChars.push('\n');
+  result[maxCount] = sortedChars.join('');
+  return result.join('');
 }
 
 async function main() {
@@ -53,7 +53,7 @@ async function main() {
   const result = gistogramm(str);
 
   try {
-    await fs.writeFile("output.txt", result);
+    await fs.writeFile('output.txt', result);
   } catch (err) {
     console.error(err.message);
   }

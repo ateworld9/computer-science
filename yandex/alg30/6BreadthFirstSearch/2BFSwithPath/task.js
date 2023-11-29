@@ -1,10 +1,10 @@
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -88,7 +88,7 @@ async function main() {
   str = str.slice(0, -1);
   // parse file string
 
-  const lines = str.split("\n").map((el) => el.split(" ").map(Number));
+  const lines = str.split('\n').map((el) => el.split(' ').map(Number));
   // console.table(lines);
   const vertexCount = Number(lines[0]);
   const [source, destination] = lines.at(-1).map(Number);
@@ -104,10 +104,10 @@ async function main() {
   // console.log(result);
   try {
     await fs.writeFile(
-      "output.txt",
+      'output.txt',
       resultPath.length <= 1
         ? `${result}`
-        : `${result}\n${resultPath.reverse().join(" ")}`,
+        : `${result}\n${resultPath.reverse().join(' ')}`,
     );
   } catch (err) {
     console.error(err.message);

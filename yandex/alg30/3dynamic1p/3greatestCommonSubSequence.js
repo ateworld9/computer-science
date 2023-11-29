@@ -25,8 +25,8 @@ function greatestCommonSubSequence(arr, n = arr.length - 1, dp, prev) {
     dp[n] = prevGreatest + 1;
     prev[n] = prevGreatestIndex;
   }
-  console.log("dp>", dp);
-  console.log("prev>", prev);
+  console.log('dp>', dp);
+  console.log('prev>', prev);
   return dp[n];
 }
 

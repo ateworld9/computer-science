@@ -1,12 +1,12 @@
 /* eslint-disable max-len */
-const fs = require("node:fs/promises");
+const fs = require('node:fs/promises');
 
-const path = require("node:path");
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -186,8 +186,8 @@ async function main() {
   let str = await read();
 
   str = str.slice(0, -1);
-  const lines = str.split("\n");
-  const [verticiesCount, edgesCount] = lines[0].split(" ").map(Number);
+  const lines = str.split('\n');
+  const [verticiesCount, edgesCount] = lines[0].split(' ').map(Number);
   const graph = {};
   let i = 1;
   while (i <= verticiesCount) {
@@ -195,18 +195,18 @@ async function main() {
     i += 1;
   }
   for (let ii = 1; ii <= edgesCount; ii += 1) {
-    const [a, b, len] = lines[ii].split(" ").map(Number);
+    const [a, b, len] = lines[ii].split(' ').map(Number);
     graph[a][b] = len;
     graph[b][a] = len;
   }
 
-  const [start, last] = lines[edgesCount + 1].split(" ").map(Number);
+  const [start, last] = lines[edgesCount + 1].split(' ').map(Number);
 
   const distances = dijkstra(graph, start);
 
   try {
     await fs.writeFile(
-      "output.txt",
+      'output.txt',
       `${distances[last][0] === Infinity ? -1 : distances[last][0]}`,
     );
   } catch (err) {

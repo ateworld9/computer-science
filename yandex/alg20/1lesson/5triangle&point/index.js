@@ -1,10 +1,10 @@
-const fs = require("fs/promises");
-const path = require("path");
+const fs = require('fs/promises');
+const path = require('path');
 
 async function read() {
   try {
-    return await fs.readFile(path.join(path.resolve(), "input.txt"), {
-      encoding: "utf8",
+    return await fs.readFile(path.join(path.resolve(), 'input.txt'), {
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -32,15 +32,15 @@ async function main() {
   let str = await read();
   str = str.slice(0, -1);
   // parse file string
-  const arr = str.split("\n");
+  const arr = str.split('\n');
   const d = +arr[0];
-  const coords = arr[1].split(" ").map(Number);
+  const coords = arr[1].split(' ').map(Number);
   const [x, y] = coords;
 
   const result = foo(d, x, y);
 
   try {
-    await fs.writeFile("output.txt", result.toString());
+    await fs.writeFile('output.txt', result.toString());
   } catch (err) {
     console.error(err.message);
   }

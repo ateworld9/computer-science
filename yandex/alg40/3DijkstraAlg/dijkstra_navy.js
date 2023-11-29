@@ -64,4 +64,4 @@ const graph = {
   g: {},
 };
 
-console.log(dijkstra(graph, "a"));
+console.log(dijkstra(graph, 'a'));

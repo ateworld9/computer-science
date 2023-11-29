@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 // 'use strict';
 
-const { Bank } = require("./bank.js");
+const { Bank } = require('./bank.js');
 
 class AccountQuery {
   constructor(account, operation) {
@@ -16,7 +16,7 @@ class BankRead {
     this.bank = new Bank();
     this.commands = [];
     this.queries = [];
-    eventBus.on("command", (command) => {
+    eventBus.on('command', (command) => {
       this.commands.push(command);
       this.bank.execute(command);
     });

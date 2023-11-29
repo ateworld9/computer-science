@@ -1,4 +1,4 @@
-import { Queue } from ".";
+import { Queue } from '.';
 
 const queue = new Queue();
 

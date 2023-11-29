@@ -1,12 +1,12 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-param-reassign */
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -31,19 +31,19 @@ function turtle(matrix) {
     for (let j = 1; j < dp[0].length; j += 1) {
       if (i === 1) {
         dp[i][j] = dp[i][j - 1] + matrix[i - 1][j - 1];
-        prev[i - 1][j - 1] = [i - 1, j - 2, "R"];
+        prev[i - 1][j - 1] = [i - 1, j - 2, 'R'];
       } else if (j === 1) {
         dp[i][j] = dp[i - 1][j] + matrix[i - 1][j - 1];
-        prev[i - 1][j - 1] = [i - 2, j - 1, "D"];
+        prev[i - 1][j - 1] = [i - 2, j - 1, 'D'];
       } else {
         const down = dp[i - 1][j] + matrix[i - 1][j - 1];
         const right = dp[i][j - 1] + matrix[i - 1][j - 1];
         if (down > right) {
           dp[i][j] = down;
-          prev[i - 1][j - 1] = [i - 2, j - 1, "D"];
+          prev[i - 1][j - 1] = [i - 2, j - 1, 'D'];
         } else {
           dp[i][j] = right;
-          prev[i - 1][j - 1] = [i - 1, j - 2, "R"];
+          prev[i - 1][j - 1] = [i - 1, j - 2, 'R'];
         }
       }
     }
@@ -67,14 +67,14 @@ async function main() {
   str = str.slice(0, -1);
   // parse file string
 
-  let lines = str.split("\n");
-  const [n, m] = lines[0].split(" ").map(Number);
+  let lines = str.split('\n');
+  const [n, m] = lines[0].split(' ').map(Number);
   lines = lines.slice(1);
-  const matrix = lines.map((el) => el.split(" ").map(Number));
+  const matrix = lines.map((el) => el.split(' ').map(Number));
   const result = turtle(matrix);
 
   try {
-    await fs.writeFile("output.txt", `${result[0]}\n${result[1].join(" ")}`);
+    await fs.writeFile('output.txt', `${result[0]}\n${result[1].join(' ')}`);
   } catch (err) {
     console.error(err.message);
   }

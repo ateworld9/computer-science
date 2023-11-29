@@ -1,10 +1,10 @@
-const fs = require("fs/promises");
-const path = require("path");
+const fs = require('fs/promises');
+const path = require('path');
 
 async function read() {
   try {
-    return await fs.readFile(path.join(path.resolve(), "input.txt"), {
-      encoding: "utf8",
+    return await fs.readFile(path.join(path.resolve(), 'input.txt'), {
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -28,7 +28,7 @@ async function main() {
   const result = charToPalindrome(str);
 
   try {
-    await fs.writeFile("output.txt", `${result}\n`);
+    await fs.writeFile('output.txt', `${result}\n`);
   } catch (err) {
     console.error(err.message);
   }

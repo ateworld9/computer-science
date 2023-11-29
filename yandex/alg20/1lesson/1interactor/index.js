@@ -1,10 +1,10 @@
-const fs = require("fs/promises");
-const path = require("path");
+const fs = require('fs/promises');
+const path = require('path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -35,11 +35,11 @@ async function main() {
   let str = await read();
   str = str.slice(0, -1);
   // parse file string
-  const arr = str.split("\n").map(Number);
+  const arr = str.split('\n').map(Number);
   const result = returnCode(...arr);
 
   try {
-    await fs.writeFile("output.txt", result.toString());
+    await fs.writeFile('output.txt', result.toString());
   } catch (err) {
     console.error(err.message);
   }

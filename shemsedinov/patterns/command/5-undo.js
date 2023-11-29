@@ -53,7 +53,7 @@ class Bank {
   }
 
   operation(account, amount) {
-    const operation = amount < 0 ? "Withdraw" : "Income";
+    const operation = amount < 0 ? 'Withdraw' : 'Income';
     const { execute } = operations[operation];
     const command = new AccountCommand(
       operation,
@@ -81,10 +81,10 @@ class Bank {
 // Usage
 
 const bank = new Bank();
-const account1 = new BankAccount("Marcus Aurelius");
+const account1 = new BankAccount('Marcus Aurelius');
 bank.operation(account1, 1000);
 bank.operation(account1, -50);
-const account2 = new BankAccount("Antoninus Pius");
+const account2 = new BankAccount('Antoninus Pius');
 bank.operation(account2, 500);
 bank.operation(account2, -100);
 bank.operation(account2, 150);

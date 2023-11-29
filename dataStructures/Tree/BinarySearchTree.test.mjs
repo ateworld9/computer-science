@@ -1,11 +1,11 @@
-import test from "node:test";
-import assert from "node:assert/strict";
+import test from 'node:test';
+import assert from 'node:assert/strict';
 
-import { BinarySearchTree } from "./BinarySearchTree.mjs";
-import { traverseBF } from "./BinaryTree.mjs";
+import { BinarySearchTree } from './BinarySearchTree.mjs';
+import { traverseBF } from './BinaryTree.mjs';
 
-test("BinarySearchTree", async (t) => {
-  await t.test("builded correctly", (t) => {
+test('BinarySearchTree', async (t) => {
+  await t.test('builded correctly', (t) => {
     const tree = new BinarySearchTree(8, (a, b) => a - b);
     tree.insert(3);
     tree.insert(10);

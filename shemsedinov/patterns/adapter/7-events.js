@@ -1,6 +1,6 @@
 // 'use strict'
 
-const { EventEmitter } = require("node:events");
+const { EventEmitter } = require('node:events');
 
 class AdaptiveEmmiter extends EventEmitter {
   constructor() {
@@ -24,16 +24,16 @@ class AdaptiveEmmiter extends EventEmitter {
 // Usage
 const adaptiveEmitter = new AdaptiveEmmiter();
 
-adaptiveEmitter.transform("timer", "timeout", (date) => [
+adaptiveEmitter.transform('timer', 'timeout', (date) => [
   date.toLocaleString(),
 ]);
 
-adaptiveEmitter.on("timeout", (date) => {
+adaptiveEmitter.on('timeout', (date) => {
   console.dir({ date });
 });
 
 setTimeout(() => {
   const date = new Date();
-  console.log("new Date():", date);
-  adaptiveEmitter.emit("timer", date);
+  console.log('new Date():', date);
+  adaptiveEmitter.emit('timer', date);
 }, 5000);

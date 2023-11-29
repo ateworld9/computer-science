@@ -19,5 +19,5 @@ class ProxyClass {
 // Usage
 
 const proxy = new ProxyClass(new Class1());
-const res = proxy.method("value1", "value2");
+const res = proxy.method('value1', 'value2');
 console.dir(res);

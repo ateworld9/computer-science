@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 // 'use strict';
 
-const { Bank } = require("./bank.js");
+const { Bank } = require('./bank.js');
 
 class AccountCommand {
   constructor(account, operation, amount = 0) {
@@ -19,18 +19,18 @@ class BankWrite {
   }
 
   createAccount(account) {
-    const operation = "Create";
+    const operation = 'Create';
     const command = new AccountCommand(account, operation);
     this.commands.push(command);
-    this.eventBus.emit("command", command);
+    this.eventBus.emit('command', command);
     this.bank.execute(command);
   }
 
   operation(account, amount) {
-    const operation = amount < 0 ? "Withdraw" : "Income";
+    const operation = amount < 0 ? 'Withdraw' : 'Income';
     const command = new AccountCommand(account, operation, Math.abs(amount));
     this.commands.push(command);
-    this.eventBus.emit("command", command);
+    this.eventBus.emit('command', command);
     this.bank.execute(command);
   }
 }

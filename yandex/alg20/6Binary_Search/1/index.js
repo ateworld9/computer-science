@@ -1,10 +1,10 @@
-const fs = require("fs/promises");
-const path = require("path");
+const fs = require('fs/promises');
+const path = require('path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -30,13 +30,13 @@ function rightBinarySearch(l, r, check, checkparams) {
 }
 
 async function main() {
-  let str = await read("input.txt");
-  const strings = str.split("\n");
+  let str = await read('input.txt');
+  const strings = str.split('\n');
   const arr = strings[1]
-    .split(" ")
+    .split(' ')
     .map(Number)
     .sort((a, b) => a - b);
-  const LRarr = strings.slice(3).map((el) => el.split(" ").map(Number));
+  const LRarr = strings.slice(3).map((el) => el.split(' ').map(Number));
   const answer = [];
   for (let i = 0; i < strings[2]; i += 1) {
     const leftIndex = leftBinarySearch(
@@ -59,7 +59,7 @@ async function main() {
   }
 
   try {
-    await fs.writeFile("output.txt", answer.join(" "));
+    await fs.writeFile('output.txt', answer.join(' '));
   } catch (err) {
     console.error(err.message);
   }

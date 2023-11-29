@@ -63,4 +63,4 @@ const graph = {
   g: {},
 };
 
-dijkstra(graph, "a");
+dijkstra(graph, 'a');

@@ -1,11 +1,11 @@
 /* eslint-disable for-direction */
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -51,11 +51,11 @@ function averageLevelOfDissatisfation2(arr) {
 
 async function main() {
   const str = await read();
-  const arr = str.split("\n")[1].split(" ").map(Number);
+  const arr = str.split('\n')[1].split(' ').map(Number);
 
   const result = averageLevelOfDissatisfation2(arr);
   try {
-    await fs.writeFile("output.txt", result.join(" "));
+    await fs.writeFile('output.txt', result.join(' '));
   } catch (err) {
     console.error(err.message);
   }

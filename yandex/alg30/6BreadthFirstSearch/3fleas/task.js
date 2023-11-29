@@ -1,25 +1,37 @@
-const { createInterface } = require("readline");
+const { createInterface } = require('readline');
 
-// функция с решением для каждой строки
-function solveTestCase(test) {
-  // разбиваем каждую строку с помощью разделителя ' ',
-  // тогда каждая строка будет представлять из себя массив,
-  // затем, применяем к массиву map(Number), который преобразует
-  // строки в числа
-  const [a, b] = test.split(" ").map(Number);
-  console.log(a + b);
+function BFS(graph, x, y, N, M) {
+  const distances = [];
+  for (let i = 0; i < N; i++) {
+    distances[i] = [];
+  }
+  distances[x][y] = 0;
+
+  const queue = [];
 }
 
 const lines = [];
-createInterface({
+const rl = createInterface({
   input: process.stdin,
   output: process.stdout,
-})
-  .on("line", (line) => {
-    lines.push(line.toString().trim());
-  })
-  .on("close", () => {
-    const [N, M, x, y, fleasCount] = lines[0];
+});
+rl.on('line', (line) => {
+  lines.push(line.toString().trim());
+});
+rl.on('close', () => {
+  console.log(lines);
+  const [N, M, x, y, fleasCount] = lines[0].split(' ').map(Number);
+  const graph = new Array(N);
+  for (let i = 0; i < N; i++) {
+    graph[i] = {};
+  }
+  for (let i = 0; i < fleasCount; i += 1) {
+    const [x, y] = lines[i + 1].split(' ').map(Number);
+    console.log(x, y);
 
-    tests.map(solveTestCase);
-  });
+    graph[x - 1][y - 1] = true;
+  }
+
+  console.log(graph, x, y, N, M);
+  BFS(graph, x, y, N, M);
+});

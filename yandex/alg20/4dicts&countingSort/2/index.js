@@ -1,10 +1,10 @@
-const fs = require("fs/promises");
-const path = require("path");
+const fs = require('fs/promises');
+const path = require('path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -24,20 +24,20 @@ function sumVotes(tuples) {
     if (a[0] > b[0]) return 1;
     return 0;
   });
-  for (let i = 0; i < result.length; i++) result[i] = result[i].join(" ");
-  return result.join("\n");
+  for (let i = 0; i < result.length; i++) result[i] = result[i].join(' ');
+  return result.join('\n');
 }
 
 async function main() {
   let str = await read();
   str = str.slice(0, -1);
 
-  const arrs = str.split("\n").map((el) => el.split(" "));
+  const arrs = str.split('\n').map((el) => el.split(' '));
   console.log(arrs);
   const result = sumVotes(arrs);
 
   try {
-    await fs.writeFile("output.txt", result);
+    await fs.writeFile('output.txt', result);
   } catch (err) {
     console.error(err.message);
   }

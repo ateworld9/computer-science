@@ -18,9 +18,9 @@ class ArrayToQueueAdapter {
 
 // Usage
 const queue = new ArrayToQueueAdapter([1, 2, 3]);
-queue.enqueue("one");
-queue.enqueue("two");
-queue.enqueue("three");
+queue.enqueue('one');
+queue.enqueue('two');
+queue.enqueue('three');
 
 while (queue.count) {
   console.log(queue.dequeue());

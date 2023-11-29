@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { getTodos } from "./api";
+import { useEffect, useState } from 'react';
+import { getTodos } from './api';
 
 export const useTodos = () => {
   const [todos, setTodos] = useState([]);

@@ -4,7 +4,7 @@ function pop(arr) {
   return res;
 }
 
-const myFish = ["ангел", "клоун", "мандарин", "хирург"];
+const myFish = ['ангел', 'клоун', 'мандарин', 'хирург'];
 
 const popped = pop(myFish);
 

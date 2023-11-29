@@ -12,9 +12,9 @@ const arraytoQueueAdapter = () => {
 
 const queue = arraytoQueueAdapter();
 
-queue.enqueue("one");
-queue.enqueue("two");
-queue.enqueue("three");
+queue.enqueue('one');
+queue.enqueue('two');
+queue.enqueue('three');
 
 while (queue.count()) {
   console.log(queue.dequeue());

@@ -1,17 +1,17 @@
-import { useState } from "react";
-import "./App.css";
-import SrpBad from "../1srp/bad";
-import SrpGood from "../1srp/good";
-import OCPPage from "../2ocp";
+import { useState } from 'react';
+import './App.css';
+import SrpBad from '../1srp/bad';
+import SrpGood from '../1srp/good';
+import OCPPage from '../2ocp';
 
 const pages = {
-  SRPBad: "srp-bad",
-  SRPGood: "srp-good",
-  OCP: "ocp",
+  SRPBad: 'srp-bad',
+  SRPGood: 'srp-good',
+  OCP: 'ocp',
 };
 
 function App() {
-  const [page, setPage] = useState("");
+  const [page, setPage] = useState('');
 
   return (
     <div className="App">

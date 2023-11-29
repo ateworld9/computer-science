@@ -9,16 +9,16 @@
 process.stdin.resume();
 // process.stdin.setEncoding('ascii');
 
-let input_stdin = "";
-let input_stdin_array = "";
+let input_stdin = '';
+let input_stdin_array = '';
 let input_currentline = 0;
 
-process.stdin.on("data", (data) => {
+process.stdin.on('data', (data) => {
   input_stdin += data;
 });
 
-process.stdin.on("end", () => {
-  input_stdin_array = input_stdin.split("\n");
+process.stdin.on('end', () => {
+  input_stdin_array = input_stdin.split('\n');
   main();
 });
 
@@ -36,23 +36,23 @@ function main() {
 }
 
 function parseSignals(arr) {
-  let result = "";
+  let result = '';
   const stringArr = [];
   const signalsArr = [];
   arr.forEach(({ time, value }) => {
     if (isNaN(Number(value))) {
-      for (let i = 1; i <= time; i += 1) stringArr.push("_");
+      for (let i = 1; i <= time; i += 1) stringArr.push('_');
 
       console.log(time, value);
-      stringArr.push(...value.split(""));
+      stringArr.push(...value.split(''));
     } else {
-      for (let i = 1; i <= time; i += 1) signalsArr.push("_");
+      for (let i = 1; i <= time; i += 1) signalsArr.push('_');
 
-      signalsArr.push(...value.split(""));
+      signalsArr.push(...value.split(''));
     }
   });
   for (let i = 0; i <= signalsArr.length; i += 1) {
-    if (signalsArr[i] === "1") result += stringArr[i];
+    if (signalsArr[i] === '1') result += stringArr[i];
   }
   return result;
 }

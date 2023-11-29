@@ -1,10 +1,10 @@
-const fs = require("fs/promises");
-const path = require("path");
+const fs = require('fs/promises');
+const path = require('path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -28,18 +28,18 @@ async function main() {
   let str = await read();
   str = str.slice(0, -1);
 
-  const arr = str.split("\n");
-  const nums = arr[1].split(" ").map(Number);
+  const arr = str.split('\n');
+  const nums = arr[1].split(' ').map(Number);
   const prefixSums = makePrefixSums(nums);
 
   const result = [];
   for (let i = 2; i < arr.length; i += 1) {
-    const rl = arr[i].split(" ");
+    const rl = arr[i].split(' ');
     result.push(rangeSumQuery(prefixSums, rl[0] - 1, rl[1]));
   }
 
   try {
-    await fs.writeFile("output.txt", result.join("\n"));
+    await fs.writeFile('output.txt', result.join('\n'));
   } catch (err) {
     console.error(err.message);
   }

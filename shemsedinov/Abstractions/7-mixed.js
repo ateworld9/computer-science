@@ -1,7 +1,7 @@
 /* eslint-disable no-shadow */
 // 'use strict';
 
-const fs = require("node:fs");
+const fs = require('node:fs');
 
 const compose =
   (...funcs) =>
@@ -19,9 +19,9 @@ const renderTable = (table) => {
           const width = cellWidth[i];
           return i ? cell.toString().padStart(width) : cell.padEnd(width);
         })
-        .join(""),
+        .join(''),
     )
-    .join("\n");
+    .join('\n');
 };
 
 const proportion = (max, val) => Math.round((val * 100) / max);
@@ -36,12 +36,12 @@ const calcProportion = (table) => {
 };
 
 const getDataset = (file) => {
-  const lines = fs.readFileSync(file, "utf8").split("\n");
+  const lines = fs.readFileSync(file, 'utf8').split('\n');
   lines.shift();
   lines.pop();
-  return lines.map((line) => line.split(","));
+  return lines.map((line) => line.split(','));
 };
 
 const main = compose(getDataset, calcProportion, renderTable);
 
-console.log(main("./cities.csv"));
+console.log(main('./cities.csv'));

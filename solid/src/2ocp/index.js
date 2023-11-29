@@ -12,9 +12,9 @@ import {
   FormControl,
   FormLabel,
   FormHelperText,
-} from "@chakra-ui/react";
-import { PhoneIcon } from "@chakra-ui/icons";
-import { useState } from "react";
+} from '@chakra-ui/react';
+import { PhoneIcon } from '@chakra-ui/icons';
+import { useState } from 'react';
 
 const PasswordInput = () => {
   const [show, setShow] = useState(false);
@@ -22,10 +22,10 @@ const PasswordInput = () => {
 
   return (
     <InputGroup>
-      <Input type={show ? "text" : "password"} placeholder="Enter password" />
+      <Input type={show ? 'text' : 'password'} placeholder="Enter password" />
       <InputRightElement>
-        <Button onClick={handleClick} m={"0 4px"}>
-          {show ? "Hide" : "Show"}
+        <Button onClick={handleClick} m={'0 4px'}>
+          {show ? 'Hide' : 'Show'}
         </Button>
       </InputRightElement>
     </InputGroup>
@@ -56,7 +56,7 @@ const OCPPage = () => {
         <Input variant="outline" placeholder="Outline" size="md" />
         <Input variant="filled" placeholder="Filled" size="lg" />
         <Input variant="flushed" placeholder="Flushed" />
-        <Box minH={"32px"} />
+        <Box minH={'32px'} />
         <InputGroup>
           <InputLeftAddon children="+7" />
           <Input type="tel" placeholder="Phone number" />
@@ -66,17 +66,17 @@ const OCPPage = () => {
           <Input placeholder="ateworld" />
           <InputRightAddon children=".site" />
         </InputGroup>
-        <Box minH={"32px"} />
+        <Box minH={'32px'} />
         <InputGroup>
           <InputLeftElement
-            pointerEvents={"none"}
+            pointerEvents={'none'}
             children={<PhoneIcon color="gray.300" />}
           />
           <Input type="tel" placeholder="Phone number" />
         </InputGroup>
-        <Box minH={"32px"} />
+        <Box minH={'32px'} />
         <PasswordInput />
-        <Box minH={"32px"} />
+        <Box minH={'32px'} />
         <EmailInput />
       </Flex>
     </ChakraProvider>

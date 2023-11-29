@@ -5,15 +5,15 @@ for (let i = 0; i < setSize; i += 1) {
 }
 
 function hash(x) {
-  if (typeof x !== "number") {
-    throw new Error("only numbers in numbersSet");
+  if (typeof x !== 'number') {
+    throw new Error('only numbers in numbersSet');
   }
   return x % setSize;
 }
 
 function add(val) {
-  if (typeof val !== "number") {
-    throw new Error("only numbers in numbersSet");
+  if (typeof val !== 'number') {
+    throw new Error('only numbers in numbersSet');
   }
   const h = hash(val);
   if (set[h].find(val) === undefined) {
@@ -22,8 +22,8 @@ function add(val) {
 }
 
 function has(val) {
-  if (typeof val !== "number") {
-    throw new Error("only numbers in numbersSet");
+  if (typeof val !== 'number') {
+    throw new Error('only numbers in numbersSet');
   }
   for (const cur in set[hash(val)]) {
     if (cur === val) {
@@ -35,8 +35,8 @@ function has(val) {
 }
 
 function del(val) {
-  if (typeof val !== "number") {
-    throw new Error("only numbers in numbersSet");
+  if (typeof val !== 'number') {
+    throw new Error('only numbers in numbersSet');
   }
   const valList = set[hash];
   for (let i = 0; i <= valList; i += 1) {

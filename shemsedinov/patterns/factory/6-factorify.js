@@ -11,9 +11,9 @@ const factorify =
 
 // Usage
 
-const p1 = new Person("Dmitriy");
+const p1 = new Person('Dmitriy');
 console.log(p1);
 
 const personFactory = factorify(Person);
-const p2 = personFactory("Ilysha");
+const p2 = personFactory('Ilysha');
 console.log(p2);

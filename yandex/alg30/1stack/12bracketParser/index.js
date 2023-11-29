@@ -1,10 +1,10 @@
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -13,39 +13,39 @@ async function read(filename = "input.txt") {
 }
 
 async function main() {
-  let data = "";
+  let data = '';
   const str = await read();
-  const brackets = str.split("");
+  const brackets = str.split('');
   brackets.pop();
   if (brackets.length === 0) {
-    data = "yes";
+    data = 'yes';
   } else {
     const stack = [];
 
     let interrupt = false;
 
     for (let i = 0; i < brackets.length; i += 1) {
-      if (brackets[i] === "(" || brackets[i] === "[" || brackets[i] === "{") {
+      if (brackets[i] === '(' || brackets[i] === '[' || brackets[i] === '{') {
         stack.push(brackets[i]);
       }
-      if (brackets[i] === ")") {
-        if (stack[stack.length - 1] === "(") {
+      if (brackets[i] === ')') {
+        if (stack[stack.length - 1] === '(') {
           stack.pop();
         } else {
           interrupt = true;
           break;
         }
       }
-      if (brackets[i] === "]") {
-        if (stack[stack.length - 1] === "[") {
+      if (brackets[i] === ']') {
+        if (stack[stack.length - 1] === '[') {
           stack.pop();
         } else {
           interrupt = true;
           break;
         }
       }
-      if (brackets[i] === "}") {
-        if (stack[stack.length - 1] === "{") {
+      if (brackets[i] === '}') {
+        if (stack[stack.length - 1] === '{') {
           stack.pop();
         } else {
           interrupt = true;
@@ -55,14 +55,14 @@ async function main() {
     }
 
     if (stack.length === 0 && !interrupt) {
-      data = "yes";
+      data = 'yes';
     } else {
-      data = "no";
+      data = 'no';
     }
   }
 
   try {
-    await fs.writeFile("output.txt", data);
+    await fs.writeFile('output.txt', data);
   } catch (err) {
     console.error(err.message);
   }

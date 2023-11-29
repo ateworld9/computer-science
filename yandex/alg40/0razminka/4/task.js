@@ -1,10 +1,10 @@
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -14,7 +14,7 @@ async function read(filename = "input.txt") {
 
 function isAnagramm(a, b) {
   const map = {};
-  const aArr = a.split("");
+  const aArr = a.split('');
   aArr.forEach((char) => {
     if (map[char]) {
       map[char] += 1;
@@ -22,7 +22,7 @@ function isAnagramm(a, b) {
       map[char] = 1;
     }
   });
-  const bArr = b.split("");
+  const bArr = b.split('');
   for (let i = 0; i < bArr.length; i += 1) {
     if (map[bArr[i]] > 0) {
       map[bArr[i]] -= 1;
@@ -38,11 +38,11 @@ async function main() {
 
   str = str.slice(0, -1);
   // parse file string
-  const arr = str.split("\n");
-  const result = isAnagramm(...arr) ? "YES" : "NO";
+  const arr = str.split('\n');
+  const result = isAnagramm(...arr) ? 'YES' : 'NO';
 
   try {
-    await fs.writeFile("output.txt", result);
+    await fs.writeFile('output.txt', result);
   } catch (err) {
     console.error(err.message);
   }

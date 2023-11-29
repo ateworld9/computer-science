@@ -1,9 +1,9 @@
-import test from "node:test";
-import assert from "node:assert";
-import { Stack } from "./index.mjs";
+import test from 'node:test';
+import assert from 'node:assert';
+import { Stack } from './index.mjs';
 
-test("Stack", async (t) => {
-  await test("push/pop", () => {
+test('Stack', async (t) => {
+  await test('push/pop', () => {
     const stack = new Stack();
 
     stack.push(1);

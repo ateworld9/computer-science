@@ -1,12 +1,12 @@
 /* eslint-disable prefer-template */
 // 'use strict'
 
-console.log("'to Primitive' in Symbol", "toPrimitive" in Symbol);
+console.log("'to Primitive' in Symbol", 'toPrimitive' in Symbol);
 
-const person = { name: "Dmitriy", age: 23 };
+const person = { name: 'Dmitriy', age: 23 };
 
 person[Symbol.toPrimitive] = function (hint) {
-  console.log("hint: ", hint);
+  console.log('hint: ', hint);
 
   const primitives = {
     number: () => this.age,
@@ -24,4 +24,4 @@ Object.defineProperty(person, Symbol.toPrimitive, {
 
 console.log(+person);
 console.log(`${person}`);
-console.log(person + "");
+console.log(person + '');

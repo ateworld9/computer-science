@@ -5,7 +5,7 @@ const obj = {
     return 100;
   },
   set x(v) {
-    console.log("set", v);
+    console.log('set', v);
   },
 };
 

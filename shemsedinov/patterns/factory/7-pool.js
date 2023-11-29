@@ -4,11 +4,11 @@ const pool = (item) => {
 
   if (item) {
     pool.items.push(item);
-    console.log("Recycle item, count = ", pool.items.length);
+    console.log('Recycle item, count = ', pool.items.length);
     return;
   }
   const res = pool.items.pop() || new Array(1000).fill(0);
-  console.log("Get from pool, count = ", pool.items.length);
+  console.log('Get from pool, count = ', pool.items.length);
   return res;
 };
 // Usage

@@ -20,4 +20,4 @@ function mergeSortedSequences(seq1, seq2) {
   return result;
 }
 
-console.log(mergeSortedSequences(arr1, arr2).join(" "));
+console.log(mergeSortedSequences(arr1, arr2).join(' '));

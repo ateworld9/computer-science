@@ -1,10 +1,10 @@
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -14,9 +14,9 @@ async function read(filename = "input.txt") {
 
 function solver(a, b, n) {
   if (a > Math.ceil(b / n)) {
-    return "Yes";
+    return 'Yes';
   }
-  return "No";
+  return 'No';
 }
 
 async function main() {
@@ -25,10 +25,10 @@ async function main() {
   str = str.slice(0, -1);
   // parse file string
 
-  const [a, b, n] = str.split("\n").map(Number);
+  const [a, b, n] = str.split('\n').map(Number);
   const result = solver(a, b, n);
   try {
-    await fs.writeFile("output.txt", result);
+    await fs.writeFile('output.txt', result);
   } catch (err) {
     console.error(err.message);
   }

@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-const { createInterface } = require("readline");
+const { createInterface } = require('readline');
 
 function knightsMove(maxN, maxM, n, m, dp) {
   if (dp === undefined) {
@@ -28,8 +28,8 @@ const rl = createInterface({
   input: process.stdin,
   output: process.stdout,
 });
-rl.once("line", (line) => {
-  const [n, m] = line.trim().split(" ").map(Number);
+rl.once('line', (line) => {
+  const [n, m] = line.trim().split(' ').map(Number);
 
   const res = knightsMove(n - 1, m - 1, n - 1, m - 1);
   console.log(res);

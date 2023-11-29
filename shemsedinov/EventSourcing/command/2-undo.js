@@ -10,11 +10,11 @@ class AccountCommand {
   }
 
   execute() {
-    throw new Error("Command.execute() is not implemented");
+    throw new Error('Command.execute() is not implemented');
   }
 
   undo() {
-    throw new Error("Command.undo() is not implemented");
+    throw new Error('Command.undo() is not implemented');
   }
 }
 
@@ -79,10 +79,10 @@ class Bank {
 // Usage
 
 const bank = new Bank();
-const account1 = new BankAccount("Marcus Aurelius");
+const account1 = new BankAccount('Marcus Aurelius');
 bank.operation(account1, 1000);
 bank.operation(account1, -50);
-const account2 = new BankAccount("Antoninus Pius");
+const account2 = new BankAccount('Antoninus Pius');
 bank.operation(account2, 500);
 bank.operation(account2, -100);
 bank.operation(account2, 150);

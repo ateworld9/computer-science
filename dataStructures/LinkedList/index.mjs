@@ -55,7 +55,7 @@ export class LinkedList {
       return;
     }
     if (position < 0 || position > this.length) {
-      throw new Error("LinkedList: insert: Invalid position");
+      throw new Error('LinkedList: insert: Invalid position');
     }
 
     let pointer = this.head;
@@ -88,7 +88,7 @@ export class LinkedList {
 
   delete(position) {
     if (position < 0 || position >= this.length) {
-      throw new Error("LinkedList: delete: Invalid position");
+      throw new Error('LinkedList: delete: Invalid position');
     }
 
     let pointer = this.head;

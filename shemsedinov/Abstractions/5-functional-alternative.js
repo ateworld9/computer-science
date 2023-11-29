@@ -2,7 +2,7 @@
 /* eslint-disable no-shadow */
 // 'use strict';
 
-const fs = require("node:fs");
+const fs = require('node:fs');
 
 const proportion = (max, val) => Math.round((val * 100) / max);
 
@@ -19,11 +19,11 @@ const renderTable = (table) =>
     .map((row) =>
       row
         .map((cell, i) =>
-          cell.toString()[i ? "padStart" : "padEnd"](cellWidth[i]),
+          cell.toString()[i ? 'padStart' : 'padEnd'](cellWidth[i]),
         )
-        .join(""),
+        .join(''),
     )
-    .join("\n");
+    .join('\n');
 
 const calcProportion = (table) => (
   table.sort((row1, row2) => row2[densityCol] - row1[densityCol]),
@@ -34,11 +34,11 @@ const calcProportion = (table) => (
 
 const getDataset = (file) =>
   fs
-    .readFileSync(file, "utf-8")
-    .split("\n")
+    .readFileSync(file, 'utf-8')
+    .split('\n')
     .filter((s, i) => i && s)
-    .map((line) => line.split(","));
+    .map((line) => line.split(','));
 
 const main = compose(getDataset, calcProportion, renderTable);
 
-console.log(main("./cities.csv"));
+console.log(main('./cities.csv'));

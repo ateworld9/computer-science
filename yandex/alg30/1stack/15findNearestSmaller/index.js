@@ -1,10 +1,10 @@
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
 async function read() {
   try {
-    return await fs.readFile(path.join(path.resolve(), "input.txt"), {
-      encoding: "utf8",
+    return await fs.readFile(path.join(path.resolve(), 'input.txt'), {
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -33,11 +33,11 @@ async function main() {
   let str = await read();
   str = str.slice(0, -1);
   // parse file string
-  const arr = str.split("\n")[1].split(" ");
+  const arr = str.split('\n')[1].split(' ');
   const result = findNearestSmaller(arr.map(Number));
 
   try {
-    await fs.writeFile("output.txt", result.join(" "));
+    await fs.writeFile('output.txt', result.join(' '));
   } catch (err) {
     console.error(err.message);
   }

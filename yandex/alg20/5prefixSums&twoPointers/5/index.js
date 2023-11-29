@@ -1,10 +1,10 @@
-const fs = require("fs/promises");
-const path = require("path");
+const fs = require('fs/promises');
+const path = require('path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -12,13 +12,13 @@ async function read(filename = "input.txt") {
 }
 
 async function main() {
-  let str = await read("threesum.in");
+  let str = await read('threesum.in');
   str = str.slice(0, -1);
-  const arr = str.split("\n");
+  const arr = str.split('\n');
   const S = +arr[0];
-  const A = arr[1].split(" ").slice(1).map(Number);
-  const B = arr[2].split(" ").slice(1).map(Number);
-  const Ct = arr[3].split(" ").slice(1);
+  const A = arr[1].split(' ').slice(1).map(Number);
+  const B = arr[2].split(' ').slice(1).map(Number);
+  const Ct = arr[3].split(' ').slice(1);
   delete arr[0];
   delete arr[1];
   delete arr[2];
@@ -40,8 +40,8 @@ async function main() {
 
   try {
     await fs.writeFile(
-      "threesum.out",
-      answer === null ? "-1" : answer.join(" "),
+      'threesum.out',
+      answer === null ? '-1' : answer.join(' '),
     );
   } catch (err) {
     console.error(err.message);

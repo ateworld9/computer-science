@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const SrpBad = () => {
   const [todos, setTodos] = useState([]);
@@ -6,7 +6,7 @@ const SrpBad = () => {
   useEffect(() => {
     async function getTodos() {
       const response = await fetch(
-        "https://jsonplaceholder.typicode.com/todos",
+        'https://jsonplaceholder.typicode.com/todos',
       );
       const data = await response.json();
       setTodos(data);
@@ -15,7 +15,7 @@ const SrpBad = () => {
   }, []);
 
   return (
-    <div style={{ fontFamily: "serif" }}>
+    <div style={{ fontFamily: 'serif' }}>
       <h1>Todos: </h1>
       <ul>
         {todos.map((todo) => (

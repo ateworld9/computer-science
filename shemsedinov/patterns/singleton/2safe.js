@@ -23,4 +23,4 @@ const Singleton = (() => {
 // Usage
 // eslint-disable-next-line no-self-compare
 console.assert(new Singleton() === new Singleton());
-console.log("instances are equal");
+console.log('instances are equal');

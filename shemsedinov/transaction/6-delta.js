@@ -6,21 +6,21 @@
 function Transaction() {}
 
 Transaction.start = (data) => {
-  console.log("\nstart transaction");
+  console.log('\nstart transaction');
   let delta = {};
 
   const methods = {
     commit: () => {
-      console.log("\ncommit transaction");
+      console.log('\ncommit transaction');
       Object.assign(data, delta);
       delta = {};
     },
     rollback: () => {
-      console.log("\nrollback transaction");
+      console.log('\nrollback transaction');
       delta = {};
     },
     clone: () => {
-      console.log("\nclone transaction");
+      console.log('\nclone transaction');
       const cloned = Transaction.start(data);
       Object.assign(cloned.delta, delta);
       return cloned;
@@ -29,7 +29,7 @@ Transaction.start = (data) => {
 
   return new Proxy(data, {
     get(target, key) {
-      if (key === "delta") return delta;
+      if (key === 'delta') return delta;
       if (methods.hasOwnProperty(key)) return methods[key];
       if (delta.hasOwnProperty(key)) return delta[key];
       return target[key];
@@ -46,7 +46,7 @@ Transaction.start = (data) => {
       return keys.filter((x, i, a) => a.indexOf(x) === i);
     },
     set(target, key, val) {
-      console.log("set", key, val);
+      console.log('set', key, val);
       if (target[key] === val) delete delta[key];
       else delta[key] = val;
       return true;
@@ -56,15 +56,15 @@ Transaction.start = (data) => {
 
 // Usage
 
-const data = { name: "Dmitriy Vahrameev", born: 1999 };
+const data = { name: 'Dmitriy Vahrameev', born: 1999 };
 
 const transaction = Transaction.start(data);
-console.log("data", JSON.stringify(data));
-console.log("transaction", JSON.stringify(transaction));
+console.log('data', JSON.stringify(data));
+console.log('transaction', JSON.stringify(transaction));
 
-transaction.name = "Ilya Zoreev";
+transaction.name = 'Ilya Zoreev';
 transaction.born = 2000;
-transaction.city = "Tomsk";
+transaction.city = 'Tomsk';
 transaction.age =
   new Date().getFullYear() -
   new Date(transaction.born.toString()).getFullYear();

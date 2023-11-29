@@ -1,4 +1,4 @@
-import { DoublyLinkedList } from ".";
+import { DoublyLinkedList } from '.';
 
 const list = new DoublyLinkedList();
 list.insertToTail(1);

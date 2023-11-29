@@ -7,13 +7,13 @@
 function Transaction() {}
 
 Transaction.start = (data) => {
-  console.log("\nstart transaction");
+  console.log('\nstart transaction');
   let delta = {};
   const deleteDelta = new Set();
 
   const methods = {
     commit: () => {
-      console.log("\ncommit transaction");
+      console.log('\ncommit transaction');
       for (const key of deleteDelta) {
         delete data[key];
       }
@@ -21,12 +21,12 @@ Transaction.start = (data) => {
       delta = {};
     },
     rollback: () => {
-      console.log("\nrollback transaction");
+      console.log('\nrollback transaction');
       delta = {};
       deleteDelta.clear();
     },
     clone: () => {
-      console.log("\nclone transaction");
+      console.log('\nclone transaction');
       const cloned = Transaction.start(data);
       Object.assign(cloned.delta, delta);
       return cloned;
@@ -35,7 +35,7 @@ Transaction.start = (data) => {
 
   return new Proxy(data, {
     get(target, key) {
-      if (key === "delta") return delta;
+      if (key === 'delta') return delta;
       if (methods.hasOwnProperty(key)) return methods[key];
       if (delta.hasOwnProperty(key)) return delta[key];
       return target[key];
@@ -52,7 +52,7 @@ Transaction.start = (data) => {
       return keys.filter((x, i, a) => a.indexOf(x) === i);
     },
     set(target, key, val) {
-      console.log("set", key, val);
+      console.log('set', key, val);
       if (target[key] === val) delete delta[key];
       else delta[key] = val;
       deleteDelta.delete(key);
@@ -68,12 +68,12 @@ Transaction.start = (data) => {
 
 // Usage
 
-const data = { name: "Dmitriy Vahrameev", born: 1999 };
+const data = { name: 'Dmitriy Vahrameev', born: 1999 };
 
 const transaction = Transaction.start(data);
 console.dir({ data });
 
-transaction.city = "Omsk";
+transaction.city = 'Omsk';
 delete transaction.born;
 
 console.dir({

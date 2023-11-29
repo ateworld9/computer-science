@@ -1,13 +1,13 @@
 /* eslint-disable no-loop-func */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-param-reassign */
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -80,7 +80,7 @@ async function main() {
   str = str.slice(0, -1);
   // parse file string
 
-  let lines = str.split("\n").map((el) => el.split(" ").map(Number));
+  let lines = str.split('\n').map((el) => el.split(' ').map(Number));
 
   const [n, m] = lines[0];
   if (m > 1) {
@@ -95,7 +95,7 @@ async function main() {
   // console.log(visited);
 
   try {
-    await fs.writeFile("output.txt", visited ? "YES" : "NO");
+    await fs.writeFile('output.txt', visited ? 'YES' : 'NO');
   } catch (err) {
     console.error(err.message);
   }

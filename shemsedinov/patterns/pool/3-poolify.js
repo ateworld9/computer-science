@@ -5,11 +5,11 @@ const poolify = (factory, size) => {
   return (item) => {
     if (item) {
       items.push(item);
-      console.log("Recycle item, count = ", items.length);
+      console.log('Recycle item, count = ', items.length);
       return;
     }
     const res = items.pop() || factory();
-    console.log(("Get from pool, count =", items.length));
+    console.log(('Get from pool, count =', items.length));
     return res;
   };
 };
@@ -23,5 +23,5 @@ const pool = poolify(buffer, 10);
 
 for (let i = 0; i < 15; i += 1) {
   const item = pool();
-  console.log("Buffer size", item.length * 32);
+  console.log('Buffer size', item.length * 32);
 }

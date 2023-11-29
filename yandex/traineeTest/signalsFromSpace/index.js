@@ -1,34 +1,34 @@
 const signals = [
   {
     time: 0,
-    value: "yandex",
+    value: 'yandex',
   },
   {
     time: 8,
-    value: "adventure",
+    value: 'adventure',
   },
   {
     time: 3,
-    value: "010",
+    value: '010',
   },
   {
     time: 9,
-    value: "01111",
+    value: '01111',
   },
 ];
 
 function parseSignals(arr) {
-  let result = "";
-  let string = "";
+  let result = '';
+  let string = '';
   for (let j = 0; j < arr.length; j++) {
     if (isNaN(Number(arr[j].value))) {
       for (let i = string.length; i <= arr[j].time; i++) {
-        string += "_";
+        string += '_';
       }
       string += arr[j].value;
     } else {
       for (let i = 0; i < arr[j].value.length; i++) {
-        if (arr[j].value[i] === "1") {
+        if (arr[j].value[i] === '1') {
           result += string[arr[j].time + i + 1];
         }
       }

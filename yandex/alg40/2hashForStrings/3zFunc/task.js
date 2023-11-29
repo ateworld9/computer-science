@@ -1,10 +1,10 @@
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -49,7 +49,7 @@ async function main() {
   const res = zFunc(str);
 
   try {
-    await fs.writeFile("output.txt", res.join(" "));
+    await fs.writeFile('output.txt', res.join(' '));
   } catch (err) {
     console.error(err.message);
   }

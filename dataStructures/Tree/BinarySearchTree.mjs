@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
-import assert from "assert/strict";
-import { BinaryTreeNode, traverseBF } from "./BinaryTree.mjs";
+import assert from 'assert/strict';
+import { BinaryTreeNode, traverseBF } from './BinaryTree.mjs';
 
 class BinarySearchTreeNode extends BinaryTreeNode {
   constructor(value, comparator) {
@@ -132,7 +132,7 @@ export class BinarySearchTree {
     const nodeToRemove = this.find(value);
 
     if (!nodeToRemove) {
-      throw new Error("Item not found");
+      throw new Error('Item not found');
     }
 
     const { parent } = nodeToRemove;
@@ -198,4 +198,4 @@ traverseBF(tree.root, (x) => {
   result.push(x.value);
 });
 
-assert.deepEqual(result, [8, 3, 10, 1, 6, 14, 4, 7, 13], "not eq");
+assert.deepEqual(result, [8, 3, 10, 1, 6, 14, 4, 7, 13], 'not eq');

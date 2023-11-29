@@ -37,18 +37,18 @@ const timeoutCollection = (interval) => {
 // Usage
 
 const hash = timeoutCollection(1000);
-hash.set("uno", 1);
+hash.set('uno', 1);
 console.dir({ array: hash.toArray() });
 
-hash.set("two", 2);
+hash.set('two', 2);
 console.dir({ array: hash.toArray() });
 
 setTimeout(() => {
-  hash.set("three", 3);
+  hash.set('three', 3);
   console.dir({ array: hash.toArray() });
 
   setTimeout(() => {
-    hash.set("four", 4);
+    hash.set('four', 4);
     console.dir({ array: hash.toArray() });
   }, 500);
 }, 1500);

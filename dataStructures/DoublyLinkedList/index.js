@@ -62,7 +62,7 @@ export class DoublyLinkedList {
 
   delete(position) {
     if (position < 0 || position >= this.length) {
-      throw new Error("DoublyLinkedList: delete: Invalid position");
+      throw new Error('DoublyLinkedList: delete: Invalid position');
     }
 
     let pointer = this.head;

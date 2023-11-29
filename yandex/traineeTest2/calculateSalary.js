@@ -6,9 +6,9 @@ function calulateSalary(timesheet, hourRate) {
   for (let i = 0; i < timesheet.length; i++) {
     const [action, timestamp] = timesheet[i];
 
-    if (action === "login") lastLoginTime = timestamp;
+    if (action === 'login') lastLoginTime = timestamp;
 
-    if (action === "logout" && lastLoginTime !== null) {
+    if (action === 'logout' && lastLoginTime !== null) {
       let multiplier = 1;
 
       let workLength = (timestamp - lastLoginTime) / MS_IN_HOUR;
@@ -64,8 +64,8 @@ function calulateSalary(timesheet, hourRate) {
 
 const res = calulateSalary(
   [
-    ["login", 1669914900000],
-    ["logout", 1669922100000],
+    ['login', 1669914900000],
+    ['logout', 1669922100000],
   ],
   1000,
 );

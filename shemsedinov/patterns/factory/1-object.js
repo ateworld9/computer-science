@@ -10,7 +10,7 @@ const userFactory2 = (name, group, email) => ({
   email,
 });
 
-const user1 = userFactory1("Dmitriy", "progers", "vahrameev.work@gmail.com");
+const user1 = userFactory1('Dmitriy', 'progers', 'vahrameev.work@gmail.com');
 console.log(user1);
-const user2 = userFactory2("Dmitriy", "progers", "vahrameev.work@gmail.com");
+const user2 = userFactory2('Dmitriy', 'progers', 'vahrameev.work@gmail.com');
 console.log(user2);

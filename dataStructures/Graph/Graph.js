@@ -11,7 +11,7 @@ class Graph {
 
   addEdge(vertex1, vertex2) {
     if (!(vertex1 in this.vertices) || !(vertex2 in this.vertices)) {
-      throw new Error("В графе нет таких вершин");
+      throw new Error('В графе нет таких вершин');
     }
 
     if (!this.vertices[vertex1].includes(vertex2)) {
@@ -102,20 +102,20 @@ class Graph {
 
 const graph = new Graph();
 
-graph.addVertex("A");
-graph.addVertex("B");
-graph.addVertex("C");
-graph.addVertex("D");
-graph.addVertex("E");
-graph.addVertex("F");
-graph.addVertex("G");
-graph.addVertex("H");
+graph.addVertex('A');
+graph.addVertex('B');
+graph.addVertex('C');
+graph.addVertex('D');
+graph.addVertex('E');
+graph.addVertex('F');
+graph.addVertex('G');
+graph.addVertex('H');
 
-graph.addEdge("A", "B");
-graph.addEdge("A", "C");
-graph.addEdge("C", "D");
-graph.addEdge("C", "E");
-graph.addEdge("A", "F");
-graph.addEdge("F", "G");
+graph.addEdge('A', 'B');
+graph.addEdge('A', 'C');
+graph.addEdge('C', 'D');
+graph.addEdge('C', 'E');
+graph.addEdge('A', 'F');
+graph.addEdge('F', 'G');
 
-Graph.dfs(graph.vertices, "A", (v) => console.log(v));
+Graph.dfs(graph.vertices, 'A', (v) => console.log(v));

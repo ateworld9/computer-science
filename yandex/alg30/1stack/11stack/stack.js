@@ -19,7 +19,7 @@ export const Stack = class {
     if (this.tail === null) this.tail = node;
 
     this.length += 1;
-    return "ok";
+    return 'ok';
   }
 
   pop() {
@@ -39,10 +39,10 @@ export const Stack = class {
 
   clear() {
     this.head = null;
-    return "ok";
+    return 'ok';
   }
 
   exit() {
-    return "bye";
+    return 'bye';
   }
 };

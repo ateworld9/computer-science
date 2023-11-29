@@ -1,10 +1,10 @@
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
 async function read() {
   try {
-    return await fs.readFile(path.join(path.resolve(), "input.txt"), {
-      encoding: "utf8",
+    return await fs.readFile(path.join(path.resolve(), 'input.txt'), {
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -21,9 +21,9 @@ function count(arr) {
       const first = stack.at(-2);
       const second = stack.at(-1);
       let result;
-      if (arr[i] === "+") result = first + second;
-      if (arr[i] === "-") result = first - second;
-      if (arr[i] === "*") result = first * second;
+      if (arr[i] === '+') result = first + second;
+      if (arr[i] === '-') result = first - second;
+      if (arr[i] === '*') result = first * second;
 
       stack.pop();
       stack.pop();
@@ -37,12 +37,12 @@ function count(arr) {
 async function main() {
   let str = await read();
   str = str.slice(0, -1);
-  const arr = str.split(" ");
+  const arr = str.split(' ');
 
   const result = count(arr);
 
   try {
-    await fs.writeFile("output.txt", result.toString());
+    await fs.writeFile('output.txt', result.toString());
   } catch (err) {
     console.error(err.message);
   }

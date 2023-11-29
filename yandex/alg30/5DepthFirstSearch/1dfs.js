@@ -58,15 +58,15 @@
 // }
 
 const cityEdges = [
-  ["Moscow", "Ufa"],
-  ["Ufa", "Vladivostok"],
-  ["Moscow", "Bolshoe_Mokroe"],
-  ["Bolshoe_Mokroe", "Vladivostok"],
-  ["Saint_Petersburg", "Moscow"],
-  ["Sochi", "Moscow"],
-  ["Arkhangelsk", "Moscow"],
-  ["Svetlogorsk", "Kaliningrad"],
-  ["Yuzhno_Sakhalinsk"],
+  ['Moscow', 'Ufa'],
+  ['Ufa', 'Vladivostok'],
+  ['Moscow', 'Bolshoe_Mokroe'],
+  ['Bolshoe_Mokroe', 'Vladivostok'],
+  ['Saint_Petersburg', 'Moscow'],
+  ['Sochi', 'Moscow'],
+  ['Arkhangelsk', 'Moscow'],
+  ['Svetlogorsk', 'Kaliningrad'],
+  ['Yuzhno_Sakhalinsk'],
 ];
 
 // function makeAdjaencyList2NotOriented(edges) {

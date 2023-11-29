@@ -1,10 +1,10 @@
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -83,13 +83,13 @@ function dijkstra(graph, vertexCount, start) {
     lastNode = previous[lastNode];
   }
 
-  return `${distances[last].toFixed(10)}\n${way.join(" ")}`;
+  return `${distances[last].toFixed(10)}\n${way.join(' ')}`;
 }
 
 async function main() {
   const str = await read();
 
-  const lines = str.split("\n");
+  const lines = str.split('\n');
   const citiesCount = Number(lines[0]);
 
   const delays = [];
@@ -98,14 +98,14 @@ async function main() {
   const graph2 = [];
 
   for (let i = 0; i < citiesCount; i += 1) {
-    const [delay, speed] = lines[i + 1].split(" "); // [delay, speed]
+    const [delay, speed] = lines[i + 1].split(' '); // [delay, speed]
     delays[i] = +delay;
     speeds[i] = +speed;
     graph[i] = [];
     graph2[i] = [];
   }
   for (let i = 0; i < citiesCount - 1; i += 1) {
-    const [a, b, dist] = lines[i + 1 + citiesCount].split(" ").map(Number);
+    const [a, b, dist] = lines[i + 1 + citiesCount].split(' ').map(Number);
     // as tuples: indexFrom: neighboursArray: [indexTo, distance]
     graph[a - 1].push([b - 1, dist]);
     graph[b - 1].push([a - 1, dist]);
@@ -139,7 +139,7 @@ async function main() {
   //   console.log(el, mem[el] / tomb);
   // }
   try {
-    await fs.writeFile("output.txt", res);
+    await fs.writeFile('output.txt', res);
     // await fs.writeFile('output.txt', dijkstra(graph2, citiesCount, 0));
   } catch (err) {
     console.error(err.message);

@@ -63,11 +63,11 @@ export class Stack {
 
   clear() {
     this.head = null;
-    return "ok";
+    return 'ok';
   }
 
   exit() {
-    console.log("bye");
+    console.log('bye');
     process.exit();
   }
 }

@@ -1,10 +1,10 @@
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -12,21 +12,21 @@ async function read(filename = "input.txt") {
   }
 }
 async function main() {
-  let a = await read("output.txt");
-  let b = await read("out/02.a");
+  let a = await read('output.txt');
+  let b = await read('out/02.a');
 
-  a = a.split("\n");
-  b = b.split("\n");
+  a = a.split('\n');
+  b = b.split('\n');
 
   // const result = [];
 
   a.forEach((line, i) => {
     if (a[i] !== b[i]) {
-      console.log("-----------");
+      console.log('-----------');
       console.log(i);
       console.log(a[i]);
       console.log(b[i]);
-      console.log("-----------");
+      console.log('-----------');
     }
   });
 }

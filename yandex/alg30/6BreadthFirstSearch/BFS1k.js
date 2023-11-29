@@ -1,13 +1,13 @@
 /* eslint-disable no-continue */
 /* eslint-disable no-loop-func */
-const fs = require("node:fs/promises");
+const fs = require('node:fs/promises');
 
-const path = require("node:path");
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -55,8 +55,8 @@ async function main() {
   let str = await read();
 
   str = str.slice(0, -1);
-  const lines = str.split("\n");
-  const [verticiesCount, edgesCount] = lines[0].split(" ").map(Number);
+  const lines = str.split('\n');
+  const [verticiesCount, edgesCount] = lines[0].split(' ').map(Number);
   const graph = [];
   let i = 0;
   let k = 1;
@@ -67,7 +67,7 @@ async function main() {
   }
 
   for (let ii = 1; ii <= edgesCount; ii += 1) {
-    const [a, b, len] = lines[ii].split(" ").map(Number);
+    const [a, b, len] = lines[ii].split(' ').map(Number);
     graph[a - 1].push([b - 1, len]);
     graph[b - 1].push([a - 1, len]);
     k = Math.max(len, k);
@@ -79,8 +79,8 @@ async function main() {
   dist.shift();
   try {
     await fs.writeFile(
-      "output.txt",
-      dist.map((el) => (el === Infinity ? "Impossible" : el)).join(" "),
+      'output.txt',
+      dist.map((el) => (el === Infinity ? 'Impossible' : el)).join(' '),
     );
   } catch (err) {
     console.error(err.message);

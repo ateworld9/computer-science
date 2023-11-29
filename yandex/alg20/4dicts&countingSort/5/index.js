@@ -1,10 +1,10 @@
-const fs = require("fs/promises");
-const path = require("path");
+const fs = require('fs/promises');
+const path = require('path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -14,7 +14,7 @@ async function read(filename = "input.txt") {
 async function main() {
   let str = await read();
   str = str.slice(0, -1);
-  const arr = str.split("\n");
+  const arr = str.split('\n');
   const topics = [];
   const messages = [];
   let i = 1;
@@ -38,7 +38,7 @@ async function main() {
   }
   console.log(topics, messages, dict);
 
-  let result = "";
+  let result = '';
 
   for (let i = 0; i < topics.length; i++) {
     if (dict[i] === max) {
@@ -50,7 +50,7 @@ async function main() {
   // console.log(topics, messages, dict, result)
 
   try {
-    await fs.writeFile("output.txt", result);
+    await fs.writeFile('output.txt', result);
   } catch (err) {
     console.error(err.message);
   }

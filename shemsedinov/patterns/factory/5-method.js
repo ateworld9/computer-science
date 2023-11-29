@@ -9,7 +9,7 @@ class Person {
 }
 
 // Usage
-const p1 = new Person("Dmitriy");
+const p1 = new Person('Dmitriy');
 console.log(p1);
-const p2 = Person.factory("Ilysha");
+const p2 = Person.factory('Ilysha');
 console.log(p2);

@@ -1,11 +1,11 @@
 /* eslint-disable no-param-reassign */
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -35,10 +35,10 @@ async function main() {
   str = str.slice(0, -1);
   // parse file string
 
-  const res = grasshoper(...str.split(" ").map(Number));
+  const res = grasshoper(...str.split(' ').map(Number));
 
   try {
-    await fs.writeFile("output.txt", res.toString());
+    await fs.writeFile('output.txt', res.toString());
   } catch (err) {
     console.error(err.message);
   }

@@ -1,4 +1,4 @@
-let currentLanguage = "ru";
+let currentLanguage = 'ru';
 
 const changeLanguage = (language) => {
   currentLanguage = language;

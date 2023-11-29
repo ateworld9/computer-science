@@ -1,10 +1,10 @@
-const fs = require("fs/promises");
-const path = require("path");
+const fs = require('fs/promises');
+const path = require('path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -24,8 +24,8 @@ async function main() {
   let str = await read();
   str = str.slice(0, -1);
 
-  const arr = str.split("\n");
-  const nums = arr[1].split(" ").map(Number);
+  const arr = str.split('\n');
+  const nums = arr[1].split(' ').map(Number);
   const prefixSums = makePrefixSums(nums);
   let maxSum = -Infinity;
   for (let i = 0; i < nums.length; i += 1) {
@@ -37,7 +37,7 @@ async function main() {
   }
 
   try {
-    await fs.writeFile("output.txt", maxSum.toString());
+    await fs.writeFile('output.txt', maxSum.toString());
   } catch (err) {
     console.error(err.message);
   }

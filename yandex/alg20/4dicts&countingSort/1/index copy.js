@@ -1,10 +1,10 @@
-const fs = require("fs/promises");
-const path = require("path");
+const fs = require('fs/promises');
+const path = require('path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -22,9 +22,9 @@ function sameKeySums(pairs) {
   console.log(123);
   const tuples = [...map.entries()].sort((a, b) => a[0] - b[0]);
   console.log(1233);
-  for (let i = 0; i < tuples.length; i++) tuples[i] = tuples[i].join(" ");
+  for (let i = 0; i < tuples.length; i++) tuples[i] = tuples[i].join(' ');
 
-  return tuples.join("\n");
+  return tuples.join('\n');
 }
 
 async function main() {
@@ -32,13 +32,13 @@ async function main() {
   str = str.slice(0, -1);
 
   const arrs = str
-    .split("\n")
+    .split('\n')
     .slice(1)
-    .map((el) => el.split(" ").map(BigInt));
+    .map((el) => el.split(' ').map(BigInt));
   const result = sameKeySums(arrs);
 
   try {
-    await fs.writeFile("output.txt", result);
+    await fs.writeFile('output.txt', result);
   } catch (err) {
     console.error(err.message);
   }

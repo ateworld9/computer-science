@@ -10,7 +10,7 @@ const poolify = (factory, min, normal, max) => {
       if (items.length < max) {
         items.push(item);
       }
-      console.log("Recycle item, count = ", items.length);
+      console.log('Recycle item, count = ', items.length);
       return;
     }
     if (items.length < min) {
@@ -18,7 +18,7 @@ const poolify = (factory, min, normal, max) => {
       items.push(...instances);
     }
     const res = items.pop();
-    console.log("Get from pool, count = ", items.length);
+    console.log('Get from pool, count = ', items.length);
     return res;
   };
 };
@@ -35,7 +35,7 @@ let i = 0;
 
 const next = () => {
   const item = pool();
-  console.log("Buffer size: ", item.length * 32);
+  console.log('Buffer size: ', item.length * 32);
   i += 1;
   if (i < 20) {
     setTimeout(next, i * 10);

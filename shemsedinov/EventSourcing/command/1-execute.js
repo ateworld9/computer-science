@@ -10,7 +10,7 @@ class AccountCommand {
   }
 
   execute() {
-    throw new Error("Command is not implemented");
+    throw new Error('Command is not implemented');
   }
 }
 
@@ -63,12 +63,12 @@ class Bank {
 // Usage
 
 const bank = new Bank();
-const account1 = new BankAccount("Dmitriy Vahrameev");
+const account1 = new BankAccount('Dmitriy Vahrameev');
 bank.operation(account1, 1000);
 console.log(account1);
 bank.operation(account1, -50);
 console.log(account1);
-const account2 = new BankAccount("Ilya Zoreev");
+const account2 = new BankAccount('Ilya Zoreev');
 bank.operation(account2, 500);
 bank.operation(account2, -100);
 bank.operation(account2, 150);

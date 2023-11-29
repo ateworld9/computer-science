@@ -1,10 +1,10 @@
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
 async function read() {
   try {
-    return await fs.readFile(path.join(path.resolve(), "input.txt"), {
-      encoding: "utf8",
+    return await fs.readFile(path.join(path.resolve(), 'input.txt'), {
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -32,11 +32,11 @@ const Stack = class {
     if (this.tail === null) this.tail = node;
 
     this.length += 1;
-    return "ok";
+    return 'ok';
   }
 
   pop() {
-    if (this.head === null) return "error";
+    if (this.head === null) return 'error';
 
     const res = this.head.data ?? null;
     this.head = this.head.next ?? null;
@@ -45,7 +45,7 @@ const Stack = class {
   }
 
   back() {
-    return this.head?.data ?? "error";
+    return this.head?.data ?? 'error';
   }
 
   size() {
@@ -55,31 +55,31 @@ const Stack = class {
   clear() {
     this.head = null;
     this.length = 0;
-    return "ok";
+    return 'ok';
   }
 
   exit() {
-    return "bye";
+    return 'bye';
   }
 };
 
 async function main() {
-  let data = "";
+  let data = '';
   const str = await read();
 
   const stack = new Stack();
 
-  let commandsArr = str.split("\n");
+  let commandsArr = str.split('\n');
   commandsArr.pop(); // ??
-  commandsArr = commandsArr.map((el) => el.split(" "));
+  commandsArr = commandsArr.map((el) => el.split(' '));
 
   for (let i = 0; i < commandsArr.length; i += 1) {
     data += `${stack[commandsArr[i][0]](commandsArr[i][1])}\n`;
-    if (commandsArr[i][0] === "exit") break;
+    if (commandsArr[i][0] === 'exit') break;
   }
 
   try {
-    await fs.writeFile("output.txt", data);
+    await fs.writeFile('output.txt', data);
   } catch (err) {
     console.error(err.message);
   }

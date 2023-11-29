@@ -1,12 +1,12 @@
 /* eslint-disable no-shadow */
-const fs = require("node:fs");
+const fs = require('node:fs');
 // Monad
 
 const fp = {};
 
 fp.path = (data) => (path) =>
   fp.maybe(path)((path) =>
-    path.split(".").reduce((prev, key) => prev[key] || {}, data || {}),
+    path.split('.').reduce((prev, key) => prev[key] || {}, data || {}),
   );
 
 fp.maybe = (x) => (fn) => fp.maybe(x && fn ? fn(x) : null);
@@ -16,12 +16,12 @@ fp.maybe = (x) => (fn) => fp.maybe(x && fn ? fn(x) : null);
 const config = {
   server: {
     host: {
-      ip: "",
+      ip: '',
       port: 3000,
     },
     ssl: {
       key: {
-        filename: "./7path.js",
+        filename: './7path.js',
         // filename: './7ath.js',
       },
     },
@@ -44,8 +44,8 @@ if (
 }
 
 // Functional
-fp.path(config)("server.ssl.key.filename")((file) =>
-  fs.readFile(file, "utf8", (err, data) => {
+fp.path(config)('server.ssl.key.filename')((file) =>
+  fs.readFile(file, 'utf8', (err, data) => {
     fp.maybe(data)((data) => `Functional: \n${data}`)(console.log);
     fp.maybe(err)((err) => `Functional error: \n${err}`)(console.log);
   }),

@@ -1,11 +1,11 @@
 /* eslint-disable for-direction */
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -43,12 +43,12 @@ async function main() {
   str = str.slice(0, -1);
   // parse file string
 
-  let arr = str.split("\n").slice(1);
-  arr = arr.map((el) => el.split(" ").map(Number));
+  let arr = str.split('\n').slice(1);
+  arr = arr.map((el) => el.split(' ').map(Number));
   const result = [];
 
   const [n, a, b] = arr[14];
-  result.push(greedy(n, a, b) ? "YES" : "NO");
+  result.push(greedy(n, a, b) ? 'YES' : 'NO');
 
   // arr.forEach((el) => {
   //   const [n, a, b] = el;
@@ -56,7 +56,7 @@ async function main() {
   // });
 
   try {
-    await fs.writeFile("output.txt", result.join("\n"));
+    await fs.writeFile('output.txt', result.join('\n'));
   } catch (err) {
     console.error(err.message);
   }

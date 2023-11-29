@@ -13,17 +13,17 @@
 const {
   translate, // (key: string) => string;
   changeLanguage, // (lang: string) => void;
-} = require("translate");
+} = require('translate');
 
 const options = {
-  key1: translate("key1"),
-  key2: translate("key2"),
-  key3: translate("key3"),
+  key1: translate('key1'),
+  key2: translate('key2'),
+  key3: translate('key3'),
 };
 
 console.log(options.key1); // Выводит 'ru:key1',
 
-changeLanguage("en");
+changeLanguage('en');
 
 console.log(options.key1); // Все еще выводит 'ru:key1', а должно 'en:key1'
 ```
@@ -37,17 +37,17 @@ const {
   changeLanguage,
   dynamicTranslate,
   makeDynamicTranslations,
-} = require("dynamic-translate");
+} = require('dynamic-translate');
 
 const options = makeDynamicTranslations({
-  key1: dynamicTranslate("key1"),
-  key2: dynamicTranslate("key2"),
-  key3: dynamicTranslate("key3"),
+  key1: dynamicTranslate('key1'),
+  key2: dynamicTranslate('key2'),
+  key3: dynamicTranslate('key3'),
 });
 
 console.log(options.key1); // Выводит 'ru:key1',
 
-changeLanguage("en");
+changeLanguage('en');
 
 console.log(options.key1); // Выводит 'en:key1'
 ```
@@ -71,11 +71,11 @@ module.exports = function (translate /* (key: string) => string */) {
 
 ```javascript
 const object = makeDynamicTranslations({
-  key: dynamicTranslate("key"),
-  key2: dynamicTranslate("key2"),
+  key: dynamicTranslate('key'),
+  key2: dynamicTranslate('key2'),
   key3: 10,
   key4: {
-    innerKey: "innerKey",
+    innerKey: 'innerKey',
     innerObj: {
       test: 123,
       key: null,
@@ -83,17 +83,17 @@ const object = makeDynamicTranslations({
     },
   },
   array: [
-    dynamicTranslate("array1"),
-    dynamicTranslate("array2"),
-    dynamicTranslate("array3"),
+    dynamicTranslate('array1'),
+    dynamicTranslate('array2'),
+    dynamicTranslate('array3'),
     {
-      key: dynamicTranslate("array4"),
+      key: dynamicTranslate('array4'),
     },
   ],
 });
 
 const object2 = makeDynamicTranslations({
   options: object,
-  key: dynamicTranslate("object2key"),
+  key: dynamicTranslate('object2key'),
 });
 ```

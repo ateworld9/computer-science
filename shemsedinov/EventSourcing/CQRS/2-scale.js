@@ -2,8 +2,8 @@
 /* eslint-disable max-classes-per-file */
 // 'use strict'
 
-const { table } = require("node:console");
-const { EventEmitter } = require("node:events");
+const { table } = require('node:console');
+const { EventEmitter } = require('node:events');
 
 const eventBus = new EventEmitter();
 
@@ -50,7 +50,7 @@ class BankWrite {
   }
 
   operation(account, amount) {
-    const operation = amount < 0 ? "Withdraw" : "Income";
+    const operation = amount < 0 ? 'Withdraw' : 'Income';
     const execute = operations[operation];
     const command = new AccountCommand(
       account.name,
@@ -58,7 +58,7 @@ class BankWrite {
       Math.abs(amount),
     );
     this.commands.push(command);
-    eventBus.emit("command", command);
+    eventBus.emit('command', command);
     console.dir(command);
     execute(command);
   }
@@ -68,7 +68,7 @@ class BankRead {
   constructor() {
     this.commands = [];
     this.queries = [];
-    eventBus.on("command", (command) => {
+    eventBus.on('command', (command) => {
       this.commands.push(command);
     });
   }
@@ -96,22 +96,22 @@ const readApi1 = new BankRead();
 const readApi2 = new BankRead();
 const readApi3 = new BankRead();
 
-const account1 = new BankAccount("Dmitriy Vahrameev");
+const account1 = new BankAccount('Dmitriy Vahrameev');
 writeApi.operation(account1, 1000);
 writeApi.operation(account1, -50);
-const account2 = new BankAccount("Ilya Zoreev");
+const account2 = new BankAccount('Ilya Zoreev');
 writeApi.operation(account2, 500);
 writeApi.operation(account2, -100);
 writeApi.operation(account2, 150);
 console.table([account1, account2]);
 
-const res1 = readApi1.select({ account: "Dmitriy Vahrameev" });
+const res1 = readApi1.select({ account: 'Dmitriy Vahrameev' });
 console.table(res1);
 
-const res2 = readApi2.select({ account: "Ilya Zoreev", operation: "Income" });
+const res2 = readApi2.select({ account: 'Ilya Zoreev', operation: 'Income' });
 console.table(res2);
 
-const res3 = readApi3.select({ operation: "Withdraw" });
+const res3 = readApi3.select({ operation: 'Withdraw' });
 console.table(res3);
 
 console.table(readApi3.queries);

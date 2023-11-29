@@ -4,7 +4,7 @@
 /* eslint-disable max-classes-per-file */
 // 'use strict'
 
-const { EventEmitter } = require("node:events");
+const { EventEmitter } = require('node:events');
 
 class Logger {
   static color(level) {
@@ -18,28 +18,28 @@ class Logger {
   }
 
   warn(s) {
-    this.log("warn", s);
+    this.log('warn', s);
   }
 
   error(s) {
-    this.log("error", s);
+    this.log('error', s);
   }
 
   info(s) {
-    this.log("info", s);
+    this.log('info', s);
   }
 }
 Logger.COLORS = {
-  warn: "\x1b[1;33m",
-  error: "\x1b[0;31m",
-  info: "\x1b[1;37m",
+  warn: '\x1b[1;33m',
+  error: '\x1b[0;31m',
+  info: '\x1b[1;37m',
 };
 
 class Task extends EventEmitter {
   constructor(name, time, exec) {
     super();
     this.name = name;
-    if (typeof time === "number") {
+    if (typeof time === 'number') {
       this.time = Date.now() + time;
       this.set = setTimeout;
       this.clear = clearTimeout;
@@ -81,10 +81,10 @@ class Task extends EventEmitter {
     if (!this.active || this.running) return false;
 
     this.running = true;
-    this.emit("begin", this);
+    this.emit('begin', this);
     this.exec((err, res) => {
-      if (err) this.emit("error", err, this);
-      this.emit("end", res, this);
+      if (err) this.emit('error', err, this);
+      this.emit('end', res, this);
       this.count++;
       this.running = false;
     });
@@ -103,14 +103,14 @@ class Scheduler extends EventEmitter {
     this.stop(name);
     const task = new Task(name, time, exec);
     this.tasks.set(name, task);
-    task.on("error", (err) => {
+    task.on('error', (err) => {
       this.logger.error(`${task.name}\tbegin`);
-      this.emit("error", err, task);
+      this.emit('error', err, task);
     });
-    task.on("begin", () => {
+    task.on('begin', () => {
       this.logger.info(`${task.name}\tbegin`);
     });
-    task.on("end", (res = "") => {
+    task.on('end', (res = '') => {
       this.logger.warn(`${task.name}\tend\t${res}`);
     });
     task.start();
@@ -136,31 +136,31 @@ class Scheduler extends EventEmitter {
 
 const scheduler = new Scheduler();
 
-scheduler.on("error", (err, task) => {
+scheduler.on('error', (err, task) => {
   console.log(`Error in ${task.name}:\n ${err.stack}`);
   // process.exit(1)
 });
 
-scheduler.task("name1", "2023-06-22T15:00Z", (done) => {
+scheduler.task('name1', '2023-06-22T15:00Z', (done) => {
   setTimeout(() => {
-    done(null, "task successed");
+    done(null, 'task successed');
   }, 1000);
 });
 
-scheduler.task("name2", "2023-06-22T15:00Z", (done) => {
+scheduler.task('name2', '2023-06-22T15:00Z', (done) => {
   setTimeout(() => {
-    done(new Error("task failed"));
+    done(new Error('task failed'));
   }, 1100);
 });
 
-scheduler.task("name3", 500, (done) => {
+scheduler.task('name3', 500, (done) => {
   setTimeout(() => {
-    done(null, "task successed");
+    done(null, 'task successed');
   }, 1200);
 });
 
-scheduler.task("name4", 800, (done) => {
+scheduler.task('name4', 800, (done) => {
   setTimeout(() => {
-    done(new Error("task failed"));
+    done(new Error('task failed'));
   }, 2000);
 });

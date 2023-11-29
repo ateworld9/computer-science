@@ -1,12 +1,12 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-param-reassign */
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -47,13 +47,13 @@ async function main() {
   str = str.slice(0, -1);
   // parse file string
 
-  const lines = str.split("\n");
+  const lines = str.split('\n');
   const n = +lines[0];
   const A = new Array(n);
   const B = new Array(n);
   const C = new Array(n);
   lines.slice(1).forEach((el, i) => {
-    const [a, b, c] = el.split(" ");
+    const [a, b, c] = el.split(' ');
     A[i] = Number(a);
     B[i] = Number(b);
     C[i] = Number(c);
@@ -64,7 +64,7 @@ async function main() {
   const res = buyTicketsMinimumTime(A, B, C, n - 1);
   // console.log(res);
   try {
-    await fs.writeFile("output.txt", `${res}`);
+    await fs.writeFile('output.txt', `${res}`);
   } catch (err) {
     console.error(err.message);
   }

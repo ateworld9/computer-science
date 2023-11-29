@@ -1,9 +1,9 @@
-const wordsArr = ["eat", "tea", "tan", "ate", "nat", "bat"];
+const wordsArr = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat'];
 
 function groupedwords(words) {
   const groups = {};
   words.forEach((word) => {
-    const sorted = Array.from(word).sort().join("");
+    const sorted = Array.from(word).sort().join('');
     if (groups[sorted]) groups[sorted].push(word);
     else groups[sorted] = [word];
   });

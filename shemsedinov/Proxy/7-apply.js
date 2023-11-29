@@ -4,7 +4,7 @@ const max = (a, b) => (a > b ? a : b);
 
 const amax = new Proxy(max, {
   apply(target, context, args) {
-    console.log("apply", target.name, args);
+    console.log('apply', target.name, args);
     return args.reduce(target);
   },
 });

@@ -2,11 +2,11 @@
 /* eslint-disable no-case-declarations */
 /* eslint-disable no-restricted-syntax */
 
-import { createInterface } from "node:readline";
-import { stdin, stdout } from "node:process";
-import { createReadStream } from "node:fs";
+import { createInterface } from 'node:readline';
+import { stdin, stdout } from 'node:process';
+import { createReadStream } from 'node:fs';
 
-const fileStream = createReadStream("in/1.txt");
+const fileStream = createReadStream('in/1.txt');
 
 const rl = createInterface({
   input: fileStream,
@@ -22,13 +22,13 @@ let i = 1;
 for await (const line of rl) {
   switch (i) {
     case 1:
-      [seqLength, reqCtn] = line.split(" ").map(Number);
+      [seqLength, reqCtn] = line.split(' ').map(Number);
       break;
     case 2:
-      seq = line.split(" ").map(Number);
+      seq = line.split(' ').map(Number);
       break;
     default:
-      const [l, r] = line.split(" ").map(Number);
+      const [l, r] = line.split(' ').map(Number);
       let min = seq[l];
       let other;
       for (let j = l + 1; j <= r; j += 1) {
@@ -42,7 +42,7 @@ for await (const line of rl) {
       if (other > min) {
         console.log(other);
       } else {
-        console.log("NOT FOUND");
+        console.log('NOT FOUND');
       }
   }
   i += 1;

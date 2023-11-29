@@ -1,10 +1,10 @@
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -75,11 +75,11 @@ async function main() {
   let str = await read();
 
   str = str.slice(0, -1);
-  const lines = str.split("\n");
+  const lines = str.split('\n');
 
   const villagesCount = Number(lines[0]);
 
-  const [startVillage, finalVillage] = lines[1].split(" ").map(Number);
+  const [startVillage, finalVillage] = lines[1].split(' ').map(Number);
 
   const routesCount = Number(lines[2]);
 
@@ -91,7 +91,7 @@ async function main() {
 
   for (let i = 0; i < routesCount; i += 1) {
     // fromVillage, departureTime, destinationVillage, arrivalTime
-    const route = lines[i + 3].split(" ").map(Number);
+    const route = lines[i + 3].split(' ').map(Number);
 
     routes[route[0]].push({
       departureTime: route[1],
@@ -105,8 +105,8 @@ async function main() {
   // console.log(res);
   try {
     await fs.writeFile(
-      "output.txt",
-      res[finalVillage] === Infinity ? "-1" : `${res[finalVillage]}`,
+      'output.txt',
+      res[finalVillage] === Infinity ? '-1' : `${res[finalVillage]}`,
     );
   } catch (err) {
     console.error(err.message);

@@ -2,7 +2,7 @@
 /* eslint-disable no-plusplus */
 // 'use strict'
 
-console.log("iterator in Symbol:", "iterator" in Symbol);
+console.log('iterator in Symbol:', 'iterator' in Symbol);
 
 const generateNumbersObject = { start: 1, end: 10 };
 
@@ -32,4 +32,4 @@ const useIterable = (...iterableObject) =>
   iterableObject.reduce((prev, cur) => prev + cur);
 
 const sum = useIterable(...generateNumbersObject);
-console.log("sum: ", sum);
+console.log('sum: ', sum);

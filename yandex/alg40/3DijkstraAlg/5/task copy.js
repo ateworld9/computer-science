@@ -1,12 +1,12 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-shadow */
-const fs = require("node:fs/promises");
-const path = require("node:path");
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-async function read(filename = "input.txt") {
+async function read(filename = 'input.txt') {
   try {
     return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   } catch (err) {
     console.error(err.message);
@@ -108,7 +108,7 @@ async function main() {
   let str = await read();
 
   str = str.slice(0, -1);
-  const lines = str.split("\n");
+  const lines = str.split('\n');
   const citiesCount = Number(lines[0]);
 
   const cities = new Array(citiesCount);
@@ -116,16 +116,16 @@ async function main() {
   const graph2 = new Array(citiesCount);
 
   for (let i = 0; i < citiesCount; i += 1) {
-    cities[i] = lines[i + 1].split(" ").map(Number); // [delay, speed]
+    cities[i] = lines[i + 1].split(' ').map(Number); // [delay, speed]
     graph[i] = {};
     graph2[i] = [];
   }
   for (let i = 0; i < citiesCount - 1; i += 1) {
-    const [a, b, dist] = lines[i + 1 + citiesCount].split(" ").map(Number);
+    const [a, b, dist] = lines[i + 1 + citiesCount].split(' ').map(Number);
     graph[a - 1][b - 1] = dist;
     graph[b - 1][a - 1] = dist;
   }
-  console.time("bfs");
+  console.time('bfs');
   // console.log('graph: ', graph);
 
   for (let city = 1; city < citiesCount; city += 1) {
@@ -137,16 +137,16 @@ async function main() {
     });
   }
 
-  console.timeEnd("bfs");
-  console.time("dijkstra");
+  console.timeEnd('bfs');
+  console.time('dijkstra');
   const [distances, way] = dijkstra(graph2, citiesCount, 0);
-  console.timeEnd("dijkstra");
-  console.log(distances.toFixed(10), way.join(" "));
+  console.timeEnd('dijkstra');
+  console.log(distances.toFixed(10), way.join(' '));
 
   try {
     await fs.writeFile(
-      "output.txt",
-      `${distances.toFixed(10)}\n${way.join(" ")}`,
+      'output.txt',
+      `${distances.toFixed(10)}\n${way.join(' ')}`,
     );
   } catch (err) {
     console.error(err.message);

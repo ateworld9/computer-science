@@ -1,6 +1,6 @@
 function rot13(str) {
-  let result = "";
-  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let result = '';
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
   for (let i = 0; i < str.length; i += 1) {
     if (/[A-Z]/.test(str[i])) {
@@ -16,5 +16,5 @@ function rot13(str) {
   return result;
 }
 
-rot13("SERR PBQR PNZC");
-console.log(rot13("SERR PBQR PNZC"));
+rot13('SERR PBQR PNZC');
+console.log(rot13('SERR PBQR PNZC'));

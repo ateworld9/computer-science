@@ -1,4 +1,4 @@
-const readline = require("node:readline");
+const readline = require('node:readline');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -19,10 +19,10 @@ function calculator(num) {
     results.push(x);
   }
   console.log(counter);
-  console.log(results.join(" "));
+  console.log(results.join(' '));
 }
 
-rl.on("line", (line) => {
+rl.on('line', (line) => {
   const num = parseInt(line);
   calculator(num);
   rl.close();
