@@ -47,8 +47,10 @@ export class Stack {
 
   pop() {
     // delete node to from head
+    const node = this.head;
     this.head = this.head.next ?? null;
     this.length -= 1;
+    return node.data;
   }
 
   back() {

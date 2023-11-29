@@ -1,14 +1,14 @@
 /* eslint-disable max-classes-per-file */
-const Node = class {
+class Node {
   constructor(data) {
     this.data = data;
     this.next = null;
   }
-};
+}
 
 //  First in / First out
 
-const Queue = class {
+export class Queue {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -48,6 +48,4 @@ const Queue = class {
   isEmpty() {
     return this.length === 0;
   }
-};
-
-export { Queue };
+}

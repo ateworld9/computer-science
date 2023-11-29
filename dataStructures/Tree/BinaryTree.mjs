@@ -2,8 +2,6 @@
 /* eslint-disable no-shadow */
 /* eslint-disable max-classes-per-file */
 
-import { Queue } from "../Queue";
-
 export class BinaryTreeNode {
   constructor(value) {
     this.left = null;
@@ -60,23 +58,23 @@ export function traverseDF(root, callback) {
 
 export function traverseBF(root, callback) {
   // simple BFS for tree
-  const nodeQueue = new Queue();
-  nodeQueue.enqueue(root);
+  const queue = [];
+  queue.push(root);
 
-  while (!nodeQueue.isEmpty()) {
-    const currentNode = nodeQueue.dequeue();
+  while (queue.length > 0) {
+    const currentNode = queue.shift();
 
     // Вызываем коллбэк для самого узла
     callback(currentNode);
 
     // Добавляем в очередь левого потомка
-    if (currentNode.left) {
-      nodeQueue.enqueue(currentNode.left);
+    if (currentNode?.left) {
+      queue.push(currentNode.left);
     }
 
     // Добавляем в очередь правого потомка
     if (currentNode.right) {
-      nodeQueue.enqueue(currentNode.right);
+      queue.push(currentNode.right);
     }
   }
 }

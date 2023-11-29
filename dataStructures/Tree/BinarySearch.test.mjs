@@ -1,8 +1,9 @@
-import assert from "assert/strict";
-import { BinaryTreeNode, traverseBF, traverseDF } from "./BinaryTree";
+import test from "node:test";
+import assert from "node:assert/strict";
+import { BinaryTreeNode, traverseBF, traverseDF } from "./BinaryTree.mjs";
 
-test("BinarySearch", (t) => {
-  t.test("traverseDF", () => {
+test("BinarySearch", async (t) => {
+  await t.test("traverseDF", (t) => {
     const aNode = new BinaryTreeNode("a");
     const bNode = new BinaryTreeNode("b");
     aNode.setLeft(bNode);
@@ -17,10 +18,12 @@ test("BinarySearch", (t) => {
 
     const result = [];
 
-    traverseDF(aNode, result.push);
-    assert.Equal(result, ["a", "b", "d", "c", "e", "f"]);
+    traverseDF(aNode, (el) => {
+      result.push(el.value);
+    });
+    assert.deepStrictEqual(result, ["a", "b", "d", "c", "e", "f"]);
   });
-  t.test("traverseBF", () => {
+  await t.test("traverseBF", (t) => {
     const aNode = new BinaryTreeNode("a");
     const bNode = new BinaryTreeNode("b");
     aNode.setLeft(bNode);
@@ -35,8 +38,10 @@ test("BinarySearch", (t) => {
 
     const result = [];
 
-    traverseBF(aNode, result.push);
+    traverseBF(aNode, (el) => {
+      result.push(el.value);
+    });
 
-    assert.Equal(result, "a", "b", "c", "d", "e", "f");
+    assert.deepStrictEqual(result, ["a", "b", "c", "d", "e", "f"]);
   });
 });
