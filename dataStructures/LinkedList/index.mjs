@@ -36,7 +36,7 @@ export class LinkedList {
   }
 
   insertToHead(nodeData) {
-    const node = Object.create(LinkedListNode).init(nodeData);
+    const node = new LinkedListNode(nodeData);
     node.next = this.head;
     this.head = node;
     if (this.tail === null) {
@@ -47,7 +47,7 @@ export class LinkedList {
   }
 
   insert(nodeData, position) {
-    const node = Object.create(LinkedListNode).init(nodeData);
+    const node = new LinkedListNode(nodeData);
     if (this.head === null && position === 0) {
       this.head = node;
       this.tail = node;
