@@ -1,3 +1,3 @@
-const TodoItem = ({id, title}) => <li>{`ID:${id} Title:${title}`}</li>
+const TodoItem = ({ id, title }) => <li>{`ID:${id} Title:${title}`}</li>;
 
-export default TodoItem
+export default TodoItem;

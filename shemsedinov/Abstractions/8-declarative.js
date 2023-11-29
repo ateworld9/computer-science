@@ -9,13 +9,13 @@
 // 7. Task, result or process description
 
 const task = {
-	file: './cities.csv',
-	types: [String, Number, Number, Number, String, Number],
-	width: [18, 10, 8, 8, 18, 6],
-	pad: ' ',
-	separator: ',',
-	compare: 'density',
-	order: 'density',
-}
+  file: "./cities.csv",
+  types: [String, Number, Number, Number, String, Number],
+  width: [18, 10, 8, 8, 18, 6],
+  pad: " ",
+  separator: ",",
+  compare: "density",
+  order: "density",
+};
 
-console.log(task)
+console.log(task);
