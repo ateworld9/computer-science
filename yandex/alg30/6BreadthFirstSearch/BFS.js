@@ -44,7 +44,7 @@ function BFS(adjaencyList, vertexCount, source, destination) {
   const queue = [];
   queue.push(source);
   while (queue.length > 0) {
-    const node = queue.pop();
+    const node = queue.shift();
 
     adjaencyList[node].forEach((childNode) => {
       if (distance[childNode] === Infinity) {
