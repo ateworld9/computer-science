@@ -1,7 +1,4 @@
-/* eslint-disable no-sequences */
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-return-assign */
-// 'use strict';
+'use strict';
 
 // Bad practices in FP below:
 // 1. Global data structures

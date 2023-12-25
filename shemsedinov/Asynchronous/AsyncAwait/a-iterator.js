@@ -1,0 +1,31 @@
+'use strict';
+
+const range = {
+  start: 1,
+  end: 10,
+  [Symbol.asyncIterator]() {
+    let value = this.start;
+    return {
+      next: () =>
+        new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve({
+              value,
+              done: value++ === this.end + 1,
+            });
+          }, 5);
+        }),
+    };
+  },
+};
+
+console.dir({ range });
+(async () => {
+  for await (const number of range) {
+    console.log(number);
+  }
+
+  for await (const number of range) {
+    console.log(number);
+  }
+})();

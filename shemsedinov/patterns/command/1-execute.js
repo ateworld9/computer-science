@@ -1,7 +1,4 @@
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable max-classes-per-file */
-/* eslint-disable class-methods-use-this */
-// 'use strict'
+'use strict';
 
 class AccountCommand {
   constructor(account, amount) {

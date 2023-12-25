@@ -1,5 +1,4 @@
-/* eslint-disable no-restricted-syntax */
-//  'use strict'
+'use strict';
 
 // Bad practices in imperative programming below:
 // 1. Single execution sequence, no procedural decomposition

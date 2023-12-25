@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert';
-import { LinkedList } from './index.mjs';
+import { LinkedList } from './class.mjs';
 // const list = new LinkedList();
 
 // list.insertToTail(2);
@@ -16,6 +16,20 @@ import { LinkedList } from './index.mjs';
 // // list.print()
 
 test('LinkedList', async (t) => {
+  await t.test('Symbol.iterator', () => {
+    const list = new LinkedList();
+    list.insertToTail(1);
+    list.insertToTail(2);
+    list.insertToTail(3);
+
+    const result = [];
+    for (const el of list) {
+      console.log(el);
+      result.push(el);
+    }
+    assert.deepStrictEqual(result, [1, 2, 3]);
+  });
+
   await t.test('insertToHead method', () => {
     const list = new LinkedList();
     list.insertToHead(1);

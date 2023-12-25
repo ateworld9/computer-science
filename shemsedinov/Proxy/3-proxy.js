@@ -1,6 +1,3 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable guard-for-in */
 // 'use strict';
 
 const data = { name: 'Marcus Aurelius', city: 'Rome', born: 121 };

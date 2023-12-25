@@ -1,4 +1,3 @@
-/* eslint-disable symbol-description */
 // 'use strict'
 
 const symbol1 = Symbol();

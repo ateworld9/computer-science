@@ -1,5 +1,3 @@
-/* eslint-disable class-methods-use-this */
-/* eslint-disable max-classes-per-file */
 class Class1 {
   method(par1, par2) {
     return { par1, par2 };

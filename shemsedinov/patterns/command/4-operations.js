@@ -1,6 +1,4 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable max-classes-per-file */
-// 'use strict';
+'use strict';
 
 class AccountCommand {
   constructor(operation, account, amount) {

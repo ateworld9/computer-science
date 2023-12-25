@@ -79,7 +79,7 @@ async function main() {
     lines = lines.slice(1);
   }
   const graph = makeAdjaencyList(lines, n);
-  console.log(graph);
+  // console.log(graph);
   const visited = doDFS(graph, n);
   // console.log(visited, visited.length);
 
@@ -90,7 +90,7 @@ async function main() {
     }
   }
 
-  console.log(result, result.length);
+  // console.log(result, result.length);
   try {
     await fs.writeFile('output.txt', `${result.length}\n${result.join(' ')}`);
   } catch (err) {

@@ -1,6 +1,3 @@
-/* eslint-disable no-shadow */
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-plusplus */
 const arr = [
   406, 157, 415, 318, 472, 46, 252, 187, 364, 481, 450, 90, 390, 35, 452, 74,
   196, 312, 142, 160, 143, 220, 483, 392, 443, 488, 79, 234, 68, 150, 356, 496,

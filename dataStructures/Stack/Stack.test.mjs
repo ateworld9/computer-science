@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert';
-import { Stack } from './index.mjs';
+import { Stack } from './LinkedListStack.mjs';
 
 test('Stack', async (t) => {
   await test('push/pop', () => {

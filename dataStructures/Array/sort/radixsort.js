@@ -1,5 +1,3 @@
-/* eslint-disable guard-for-in */
-/* eslint-disable no-restricted-syntax */
 function countingsort(arr, digit) {
   const map = {};
   arr.forEach((el) => {

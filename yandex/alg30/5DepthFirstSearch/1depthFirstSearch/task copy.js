@@ -77,7 +77,7 @@ async function main() {
     lines = lines.slice(1);
   }
   const graph = makeAdjaencyList(lines, n);
-  console.log(graph);
+  // console.log(graph);
   const visited = doDFS(graph, n);
   // console.log(visited, visited.length);
 

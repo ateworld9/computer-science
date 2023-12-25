@@ -1,9 +1,4 @@
-/* eslint-disable consistent-return */
-/* eslint-disable global-require */
-/* eslint-disable import/no-dynamic-require */
-/* eslint-disable max-classes-per-file */
-/* eslint-disable no-restricted-syntax */
-// 'use strict'
+'use strict';
 
 class Config {
   constructor(fileName) {

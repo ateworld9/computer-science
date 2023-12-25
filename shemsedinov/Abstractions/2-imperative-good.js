@@ -1,6 +1,4 @@
-/* eslint-disable consistent-return */
-/* eslint-disable no-restricted-syntax */
-//  'use strict'
+'use strict';
 
 // 1. Control flow
 // 2. Step by step execution
