@@ -15,7 +15,7 @@ _Factory Method_ позволяет классу делегировать соз
 - Класс делегирует свои обязанности одному из нескольких вспомогательных подклассов, и вам нужно локализовать информацию о том, какой класс принимает эти обязанности на себя
 
 **Структура**:
-![Factory](../img/Factory.png)
+![Factory](./Factory.png)
 
 **Результаты**:
 
@@ -34,9 +34,10 @@ _Factory Method_ позволяет классу делегировать соз
 - _Creator_ - конкретный класс, реализован _FactoryMethod_.
 - параметризованные _Factory_.
 
-### Code Example
+<details>
+ <summary>Code Example</summary>
 
-```jsx
+```js
 class MazeGame {
   createMaze() {
     const maze = this.makeMaze();
@@ -116,15 +117,17 @@ const enchantedMaze = game.createMaze();
 console.log(enchantedMaze);
 ```
 
-### doka
+</details>
 
+<details>
+ <summary>Doka</summary>
 **Когда использовать**
 
 - если создание объекта сложнее, чем 1–2 строки кода.
 - требуется применить расчёты
 - требуется получить дополнительные данные
 
-```jsx
+```js
 const sixStringsGuitar = createGuitar(6);
 const sevenStringsGuitar = createGuitar(7);
 
@@ -137,3 +140,5 @@ function createGuitar(stringsCount = 6) {
   });
 }
 ```
+
+</details>

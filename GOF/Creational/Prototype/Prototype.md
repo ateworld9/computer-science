@@ -16,7 +16,7 @@ tags:
 
 **Структура**:
 
-![Prototype](../img/Prototype.png)
+![Prototype](./Prototype.png)
 
 **Результаты**:
 

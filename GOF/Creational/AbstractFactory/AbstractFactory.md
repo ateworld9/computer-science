@@ -15,7 +15,7 @@ tags:
 - вы хотите предоставить библиотеку объектов, раскрывая только их интерфейсы, но не реализацию
 
 **Структура**:
-![AbstractFactory](../img/AbstractFactory.png)
+![AbstractFactory](./AbstractFactory.png)
 
 **Результаты**:
 
@@ -30,7 +30,8 @@ tags:
 - Создание продуктов.
 - Определение расширяемых фабрик.
 
-### Code Example
+<details>
+ <summary>Code Example</summary>
 
 ```jsx
 const mazeFactory = {
@@ -78,13 +79,16 @@ const enchantedMaze = mazeGame.createMaze(enchantedMazeFactory);
 console.log(enchantedMaze);
 ```
 
-### doka
+</details>
+
+<details>
+ <summary>Doka</summary>
 
 Абстрактная фабрика — это фабрика фабрик
 
 **Абстрактная фабрика** не возвращает конкретный объект, вместо этого она **описывает тип объекта, который будет создан.**
 
-```tsx
+```ts
 class Violin implements Instrument {
   playNote(note) {
     console.log(`Играю ${note} на скрипке!`);
@@ -129,3 +133,5 @@ function reserve(reservation: ReservationFactory): void {
   reservation.reserveInstrument();
 }
 ```
+
+</details>
