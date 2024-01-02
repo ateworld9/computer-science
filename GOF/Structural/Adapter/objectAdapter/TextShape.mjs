@@ -1,4 +1,4 @@
-import { Point } from '../Point.mjs';
+import { Point } from '../../../Base/Point.mjs';
 import { Shape } from '../Shape.mjs';
 import { TextManipulator } from '../TextManipulator.mjs';
 

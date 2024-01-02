@@ -32,7 +32,8 @@ tags:
 - Релизация _clone()_. обратите внимаение на глубокое и поверхностное копирование объекта
 - иногда необходимо инициализировать объект
 
-### Code Example
+<details>
+ <summary>Code Example</summary>
 
 ```jsx
 class MazeGame {
@@ -163,3 +164,5 @@ const bombedMazeFactory = new MazePrototypeFactory(
 const bombedMaze = game.createMaze(bombedMazeFactory);
 console.log(bombedMaze);
 ```
+
+</details>

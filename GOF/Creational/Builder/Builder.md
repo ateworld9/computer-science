@@ -25,9 +25,10 @@ tags:
 
 - интерфейс сборки и конструирования - должен быть достаточно общим, чтобы обеспечить конструирование при любом виде конкретного строителя.
 
-#### Code Example
+<details>
+ <summary>Code Example</summary>
 
-```jsx
+```js
 class MazeBuilder {
   constructor() {}
   buildMaze() {
@@ -121,14 +122,15 @@ console.log(
 );
 ```
 
-#### doka
+<details>
+ <summary>doka</summary>
 
 Cтроитель — позволяет создавать объекты, добавляя им свойства по заданным правилам.
 **Когда использовать**
 
 - при создании объекта нужно выполнить много шагов, часть из которых могут быть необязательными.
 
-```tsx
+```ts
 class DrinkBuilder {
   settings = {
     base: 'espresso',
@@ -152,3 +154,5 @@ class DrinkBuilder {
   build = () => new Drink(this.settings);
 }
 ```
+
+</details>

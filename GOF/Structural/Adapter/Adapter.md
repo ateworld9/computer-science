@@ -46,21 +46,70 @@ tags:
 
 - сменные адаптеры. Три способа реализации сменных адаптеров для виджета TreeDisplay, который может автоматически отображать иерархические структуры.
   Первый шаг, поиск "узкого" интерфейса для _Adaptee_, то есть наименьшего подмножества операций, позволяющего выполнить адаптацию.
+
   - Использование абстрактных операций  
     Определим в классе _TreeDisplay_ абстрактные операции, которые соответствуют "узкому" интерфейсу класса _Adaptee_. Подклассы должны реализовывать эти абстрактные операции и адаптировать иерархические структурированный объект
-    ![PluggableAdapterWithAbstractOperations](./PluggableAdapterWithAbstractOperations.png)
-  - Использование объектов делегатов
+    ![Pluggable Adapter With Abstract Operations](./PluggableAdapterWithAbstractOperations.png)
+  - Использование объектов делегатов  
+    При таком подходе _TreeDisplay_ переадресует запросы на доступ к иерархической структуре объекту-делегату. _TreeDisplay_ может реализовывать различные стратегии адаптации, подставляя разных делегатов.
+    ![PluggableAdapterByDelegates](./PluggableAdapterByDelegates.png)
+
   - Параметризованные адаптеры
 
 <details>
- <summary>Code Example</summary>
- ```js
- ```
+  <summary>Code Example</summary>
+  
+  ```js
+  class Shape { // Target
+    constructor() {}
+    boundingBox(bottomLeftPoint, topRightPoint) {
+      throw new Error('Shape.boundingBox is not implemented');
+    }
+    createManipulator() {
+      throw new Error('Shape.createManipulator is not implemented');
+    }
+  }
+  class TextView { // Adaptee
+    constructor() {
+      this.x = 1;
+      this.y = 2;
+      this.width = 3;
+      this.height = 4;
+    }
+    getOrigin() {
+      return { x: this.x, y: this.y };
+    }
+    getExtent() {
+      return { width: this.width, height: this.height };
+    }
+    isEmpty() {
+      return this.width === 0 || this.height === 0;
+    }
+  }
+  class TextShape extends Shape { // Adapter
+    constructor(textView) {
+    super();
+    this.textView = textView;
+    }
+    boundingBox() {
+    const { x: bottom, y: left } = this.textView.getOrigin();
+    const { width, height } = this.textView.getExtent();
+        return {
+          bottomLeft: new Point(bottom, left),
+          topRight: new Point(bottom + height, left + width),
+        };
+    }
+    createManipulator() {
+    return new TextManipulator();
+    }
+  }
+  ```
+
 </details>
 
 <details>
- <summary>Doka</summary>
- Адаптер — помогает сделать не совместимое API совместимым и использовать его.
+<summary>Doka</summary>
+Адаптер — помогает сделать не совместимое API совместимым и использовать его.
 
 ```js
 // Преобразует из snake_case в camelCase
@@ -74,3 +123,4 @@ function responseToWantedAdapter(response) {
 ```
 
 </details>
+````
