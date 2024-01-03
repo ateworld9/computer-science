@@ -2,8 +2,8 @@
 
 tags:
 
-- #programming/architecture
-- #programming/patterns/structural
+- #architecture
+  #structural
 
 **Назначение**:
 

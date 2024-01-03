@@ -2,8 +2,8 @@
 
 tags:
 
-- #programming/architecture
-- #programming/patterns/creational
+- #architecture
+- #creational
 
 **Назначение**: Задает виды создаваемых объектов с помощью экземпляра-прототипа и создает новые объекты путем копирования этого прототипа
 

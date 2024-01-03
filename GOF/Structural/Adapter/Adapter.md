@@ -1,8 +1,8 @@
 [Паттерны](../../Patterns.md)
 tags:
 
-- #programming/architecture
-- #programming/patterns/structural
+- #architecture
+- #structural
 
 **Другие имена**: Wrapper
 

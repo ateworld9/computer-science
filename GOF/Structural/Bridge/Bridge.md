@@ -2,8 +2,8 @@
 
 tags:
 
-- #programming/architecture
-- #programming/patterns/structural
+- #architecture
+- #structural
 
 **Назначение**: Отделить абстракцию от ее реализации так, чтобы то и другое можно было изменять независимо
 

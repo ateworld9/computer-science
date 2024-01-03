@@ -2,8 +2,8 @@
 
 tags:
 
-- #programming/architecture
-- #programming/patterns/structural
+- #architecture
+- #structural
 
 **Назначение**: Динамически добавляет объекту новые обязанности. Является гибкой альтернативой порождению классов с целью расширения функциональности.
 

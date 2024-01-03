@@ -1,7 +1,7 @@
 tags:
 
-- #programming/architecture
-- #programming/patterns
+- #architecture
+- #patterns
 
 # Порождающие
 

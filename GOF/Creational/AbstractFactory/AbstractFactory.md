@@ -2,8 +2,8 @@
 
 tags:
 
-- #programming/architecture
-- #programming/patterns/creational
+- #architecture
+- #creational
 
 **Назначение**: Предоставляет интерфейс для создания семейств взаимосвязанных или взаимозависимых объектов, не специфицируя их конкретных классов
 
