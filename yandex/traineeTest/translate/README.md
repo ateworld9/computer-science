@@ -11,14 +11,14 @@
 
 ```javascript
 const {
-  translate, // (key: string) => string;
-  changeLanguage, // (lang: string) => void;
+	translate, // (key: string) => string;
+	changeLanguage, // (lang: string) => void;
 } = require('translate');
 
 const options = {
-  key1: translate('key1'),
-  key2: translate('key2'),
-  key3: translate('key3'),
+	key1: translate('key1'),
+	key2: translate('key2'),
+	key3: translate('key3'),
 };
 
 console.log(options.key1); // Выводит 'ru:key1',
@@ -34,15 +34,15 @@ console.log(options.key1); // Все еще выводит 'ru:key1', а дол�
 
 ```javascript
 const {
-  changeLanguage,
-  dynamicTranslate,
-  makeDynamicTranslations,
+	changeLanguage,
+	dynamicTranslate,
+	makeDynamicTranslations,
 } = require('dynamic-translate');
 
 const options = makeDynamicTranslations({
-  key1: dynamicTranslate('key1'),
-  key2: dynamicTranslate('key2'),
-  key3: dynamicTranslate('key3'),
+	key1: dynamicTranslate('key1'),
+	key2: dynamicTranslate('key2'),
+	key3: dynamicTranslate('key3'),
 });
 
 console.log(options.key1); // Выводит 'ru:key1',
@@ -56,14 +56,14 @@ console.log(options.key1); // Выводит 'en:key1'
 
 ```javascript
 module.exports = function (translate /* (key: string) => string */) {
-  // Ваше решение
-  const makeDynamicTranslations = (e) => e;
-  const dynamicTranslate = translate;
+	// Ваше решение
+	const makeDynamicTranslations = (e) => e;
+	const dynamicTranslate = translate;
 
-  return {
-    makeDynamicTranslations,
-    dynamicTranslate,
-  };
+	return {
+		makeDynamicTranslations,
+		dynamicTranslate,
+	};
 };
 ```
 
@@ -71,29 +71,29 @@ module.exports = function (translate /* (key: string) => string */) {
 
 ```javascript
 const object = makeDynamicTranslations({
-  key: dynamicTranslate('key'),
-  key2: dynamicTranslate('key2'),
-  key3: 10,
-  key4: {
-    innerKey: 'innerKey',
-    innerObj: {
-      test: 123,
-      key: null,
-      someOtherKey: [],
-    },
-  },
-  array: [
-    dynamicTranslate('array1'),
-    dynamicTranslate('array2'),
-    dynamicTranslate('array3'),
-    {
-      key: dynamicTranslate('array4'),
-    },
-  ],
+	key: dynamicTranslate('key'),
+	key2: dynamicTranslate('key2'),
+	key3: 10,
+	key4: {
+		innerKey: 'innerKey',
+		innerObj: {
+			test: 123,
+			key: null,
+			someOtherKey: [],
+		},
+	},
+	array: [
+		dynamicTranslate('array1'),
+		dynamicTranslate('array2'),
+		dynamicTranslate('array3'),
+		{
+			key: dynamicTranslate('array4'),
+		},
+	],
 });
 
 const object2 = makeDynamicTranslations({
-  options: object,
-  key: dynamicTranslate('object2key'),
+	options: object,
+	key: dynamicTranslate('object2key'),
 });
 ```

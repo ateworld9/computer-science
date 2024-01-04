@@ -32,14 +32,14 @@ tags:
 
 ```jsx
 class MazeFactory {
-  instance = null;
-  static Instance() {
-    if (MazeFactory.instance === null) {
-      MazeFactory.instance = new MazeFactory();
-      return MazeFactory.instance;
-    }
+	instance = null;
+	static Instance() {
+		if (MazeFactory.instance === null) {
+			MazeFactory.instance = new MazeFactory();
+			return MazeFactory.instance;
+		}
 
-    return MazeFactory.instance;
-  }
+		return MazeFactory.instance;
+	}
 }
 ```

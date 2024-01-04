@@ -1,13 +1,13 @@
 'use strict';
 
 const iterator = {
-  counter: 0,
-  next() {
-    return {
-      value: this.counter++, // current value
-      done: this.counter > 3,
-    };
-  },
+	counter: 0,
+	next() {
+		return {
+			value: this.counter++, // current value
+			done: this.counter > 3,
+		};
+	},
 };
 
 const step1 = iterator.next();

@@ -40,18 +40,18 @@ function triangulation(stations: Station[], stationIds: number[][]) {
 
 ```javascript
 const stations = [
-  {
-    id: 1,
-    x: 350,
-    y: 370,
-    r: 220,
-  },
-  {
-    id: 2,
-    x: 170,
-    y: 130,
-    r: 190,
-  },
+	{
+		id: 1,
+		x: 350,
+		y: 370,
+		r: 220,
+	},
+	{
+		id: 2,
+		x: 170,
+		y: 130,
+		r: 190,
+	},
 ];
 
 const stationIds = [[1, 2]];
@@ -61,36 +61,36 @@ const stationIds = [[1, 2]];
 
 ```javascript
 const stations = [
-  {
-    id: 1,
-    x: 100,
-    y: 100,
-    r: 100,
-  },
-  {
-    id: 2,
-    x: 350,
-    y: 120,
-    r: 180,
-  },
-  {
-    id: 3,
-    x: 150,
-    y: 330,
-    r: 180,
-  },
-  {
-    id: 4,
-    x: 410,
-    y: 390,
-    r: 150,
-  },
+	{
+		id: 1,
+		x: 100,
+		y: 100,
+		r: 100,
+	},
+	{
+		id: 2,
+		x: 350,
+		y: 120,
+		r: 180,
+	},
+	{
+		id: 3,
+		x: 150,
+		y: 330,
+		r: 180,
+	},
+	{
+		id: 4,
+		x: 410,
+		y: 390,
+		r: 150,
+	},
 ];
 
 const stationIds = [
-  [1, 2],
-  [2, 3],
-  [3, 4],
+	[1, 2],
+	[2, 3],
+	[3, 4],
 ];
 ```
 
@@ -98,24 +98,24 @@ const stationIds = [
 
 ```javascript
 const stations = [
-  {
-    id: 1,
-    x: 250,
-    y: 100,
-    r: 160,
-  },
-  {
-    id: 2,
-    x: 125,
-    y: 325,
-    r: 160,
-  },
-  {
-    id: 3,
-    x: 375,
-    y: 325,
-    r: 160,
-  },
+	{
+		id: 1,
+		x: 250,
+		y: 100,
+		r: 160,
+	},
+	{
+		id: 2,
+		x: 125,
+		y: 325,
+		r: 160,
+	},
+	{
+		id: 3,
+		x: 375,
+		y: 325,
+		r: 160,
+	},
 ];
 
 const stationIds = [[1, 2, 3]];

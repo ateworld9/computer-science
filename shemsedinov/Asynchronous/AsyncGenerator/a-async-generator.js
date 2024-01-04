@@ -4,15 +4,15 @@
 // Generator function
 
 function* genFn(x) {
-  return x * 2;
+	return x * 2;
 }
 
 async function* asyncGenFn(x) {
-  return x * 2;
+	return x * 2;
 }
 
 const asyncGenFn2 = async function* (x) {
-  return x * 2;
+	return x * 2;
 };
 
 console.log('asyncGenFn =', asyncGenFn);

@@ -1,13 +1,13 @@
 class Person {
-  constructor(name) {
-    this.name = name;
-  }
+	constructor(name) {
+		this.name = name;
+	}
 }
 
 const factorify =
-  (Category) =>
-  (...args) =>
-    new Category(...args);
+	(Category) =>
+	(...args) =>
+		new Category(...args);
 
 // Usage
 

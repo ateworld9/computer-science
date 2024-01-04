@@ -10,7 +10,7 @@ const logarithm = (base, n) => Math.log(n) / Math.log(base);
 
 const iff = (expression, x1, x2) => (expression ? x1 : x2);
 const loop = (from, to, fn) => {
-  for (let i = from; i <= to; i++) fn(i);
+	for (let i = from; i <= to; i++) fn(i);
 };
 
 const expr1 = pow(5 * 8, 2) + (sqrt(20) + 1) / logarithm(2, 7);

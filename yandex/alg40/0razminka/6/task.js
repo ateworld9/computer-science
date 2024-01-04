@@ -7,50 +7,50 @@ const fs = require('node:fs/promises');
 const path = require('node:path');
 
 async function read(filename = 'input.txt') {
-  try {
-    return await fs.readFile(path.join(path.resolve(), filename), {
-      encoding: 'utf8',
-    });
-  } catch (err) {
-    console.error(err.message);
-    return -1;
-  }
+	try {
+		return await fs.readFile(path.join(path.resolve(), filename), {
+			encoding: 'utf8',
+		});
+	} catch (err) {
+		console.error(err.message);
+		return -1;
+	}
 }
 
 function lift(seatsNumber, floors) {
-  let resultTime = 0;
-  let leftSeats = 0;
+	let resultTime = 0;
+	let leftSeats = 0;
 
-  for (let i = floors.length - 1; i >= 0; i -= 1) {
-    if (floors[i] === 0) {
-      continue;
-    }
-    if (floors[i] > leftSeats) {
-      resultTime +=
-        Math.ceil((floors[i] - leftSeats) / seatsNumber) * (i + 1) * 2;
-      leftSeats =
-        seatsNumber - ((floors[i] - leftSeats) % seatsNumber || seatsNumber);
-    } else {
-      leftSeats -= floors[i];
-    }
-  }
-  return resultTime;
+	for (let i = floors.length - 1; i >= 0; i -= 1) {
+		if (floors[i] === 0) {
+			continue;
+		}
+		if (floors[i] > leftSeats) {
+			resultTime +=
+				Math.ceil((floors[i] - leftSeats) / seatsNumber) * (i + 1) * 2;
+			leftSeats =
+				seatsNumber - ((floors[i] - leftSeats) % seatsNumber || seatsNumber);
+		} else {
+			leftSeats -= floors[i];
+		}
+	}
+	return resultTime;
 }
 
 async function main() {
-  let str = await read();
+	let str = await read();
 
-  str = str.slice(0, -1);
-  // parse file string
+	str = str.slice(0, -1);
+	// parse file string
 
-  const lines = str.split('\n').map(Number);
+	const lines = str.split('\n').map(Number);
 
-  const result = lift(lines[0], lines.slice(2));
-  try {
-    await fs.writeFile('output.txt', result.toString());
-  } catch (err) {
-    console.error(err.message);
-  }
+	const result = lift(lines[0], lines.slice(2));
+	try {
+		await fs.writeFile('output.txt', result.toString());
+	} catch (err) {
+		console.error(err.message);
+	}
 }
 
 main();

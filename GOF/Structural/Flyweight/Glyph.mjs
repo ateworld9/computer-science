@@ -1,46 +1,46 @@
 class Glyph {
-  constructor() {}
+	constructor() {}
 
-  draw(window, glyphContext) {}
+	draw(window, glyphContext) {}
 
-  setFont(font, glyphContext) {}
-  getFont(glyphContext) {}
+	setFont(font, glyphContext) {}
+	getFont(glyphContext) {}
 
-  first(glyphContext) {}
-  next(glyphContext) {}
-  isDone(glyphContext) {}
-  current(glyphContext) {}
+	first(glyphContext) {}
+	next(glyphContext) {}
+	isDone(glyphContext) {}
+	current(glyphContext) {}
 
-  insert(glyph, glyphContext) {}
-  remove(glyphContext) {}
+	insert(glyph, glyphContext) {}
+	remove(glyphContext) {}
 }
 
 class Character extends Glyph {
-  constructor(charCode) {
-    super();
-    this.charCode = charCode;
-  }
+	constructor(charCode) {
+		super();
+		this.charCode = charCode;
+	}
 
-  draw(window, glyphContext) {}
+	draw(window, glyphContext) {}
 }
 
 class GlyphContext {
-  constructor() {
-    this.index;
-    this.fonts;
-  }
+	constructor() {
+		this.index;
+		this.fonts;
+	}
 
-  next(step = 1) {}
-  insert(quantity = 1) {}
+	next(step = 1) {}
+	insert(quantity = 1) {}
 
-  getFont() {}
-  setFont(font, span = 1) {}
+	getFont() {}
+	setFont(font, span = 1) {}
 }
 
 class Font {
-  constructor(name) {
-    this.name = name;
-  }
+	constructor(name) {
+		this.name = name;
+	}
 }
 
 const glyphContext = new GlyphContext();
@@ -53,14 +53,14 @@ glyphContext.insert(6);
 glyphContext.setFont(timesItalic12);
 
 class GlyphFactory {
-  constructor() {}
+	constructor() {}
 
-  createCharacter() {}
-  createRow() {
-    // return new Row();
-  }
-  createColumn() {
-    // return new Column();
-  }
-  // ...
+	createCharacter() {}
+	createRow() {
+		// return new Row();
+	}
+	createColumn() {
+		// return new Column();
+	}
+	// ...
 }

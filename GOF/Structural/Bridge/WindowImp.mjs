@@ -1,13 +1,13 @@
 export class WindowImp {
-  constructor() {}
+	constructor() {}
 
-  impTop() {}
-  impBottom() {}
-  impSetExtent() {}
-  impSetOrigin() {}
+	impTop() {}
+	impBottom() {}
+	impSetExtent() {}
+	impSetOrigin() {}
 
-  deviceRect() {}
-  deviceText() {}
-  deviceBitmap() {}
-  // lots more functions for drawing on windows...
+	deviceRect() {}
+	deviceText() {}
+	deviceBitmap() {}
+	// lots more functions for drawing on windows...
 }

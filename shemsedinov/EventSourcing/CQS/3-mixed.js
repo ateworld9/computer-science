@@ -2,13 +2,13 @@
 // 'use strict';
 
 class Adder {
-  constructor(x) {
-    this.value = x;
-  }
+	constructor(x) {
+		this.value = x;
+	}
 
-  add(x) {
-    return (this.value += x);
-  }
+	add(x) {
+		return (this.value += x);
+	}
 }
 
 const a1 = new Adder(2);

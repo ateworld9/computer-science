@@ -58,15 +58,15 @@
 // }
 
 const cityEdges = [
-  ['Moscow', 'Ufa'],
-  ['Ufa', 'Vladivostok'],
-  ['Moscow', 'Bolshoe_Mokroe'],
-  ['Bolshoe_Mokroe', 'Vladivostok'],
-  ['Saint_Petersburg', 'Moscow'],
-  ['Sochi', 'Moscow'],
-  ['Arkhangelsk', 'Moscow'],
-  ['Svetlogorsk', 'Kaliningrad'],
-  ['Yuzhno_Sakhalinsk'],
+	['Moscow', 'Ufa'],
+	['Ufa', 'Vladivostok'],
+	['Moscow', 'Bolshoe_Mokroe'],
+	['Bolshoe_Mokroe', 'Vladivostok'],
+	['Saint_Petersburg', 'Moscow'],
+	['Sochi', 'Moscow'],
+	['Arkhangelsk', 'Moscow'],
+	['Svetlogorsk', 'Kaliningrad'],
+	['Yuzhno_Sakhalinsk'],
 ];
 
 // function makeAdjaencyList2NotOriented(edges) {
@@ -93,71 +93,71 @@ const cityEdges = [
 // }
 
 function makeAdjaencyListNotOriented(edges) {
-  const adjaencyList = [];
+	const adjaencyList = [];
 
-  edges.forEach(([a, b]) => {
-    if (a !== undefined) {
-      if (adjaencyList[a] === undefined) {
-        adjaencyList[a] = b === undefined ? [] : [b];
-      } else {
-        adjaencyList[a].push(b);
-      }
-    }
-    if (b !== undefined) {
-      if (adjaencyList[b] === undefined) {
-        adjaencyList[b] = [a];
-      } else {
-        adjaencyList[b].push(a);
-      }
-    }
-  });
+	edges.forEach(([a, b]) => {
+		if (a !== undefined) {
+			if (adjaencyList[a] === undefined) {
+				adjaencyList[a] = b === undefined ? [] : [b];
+			} else {
+				adjaencyList[a].push(b);
+			}
+		}
+		if (b !== undefined) {
+			if (adjaencyList[b] === undefined) {
+				adjaencyList[b] = [a];
+			} else {
+				adjaencyList[b].push(a);
+			}
+		}
+	});
 
-  return adjaencyList;
+	return adjaencyList;
 }
 
 function makeAdjaencyListOriented(edges) {
-  const adjaencyList = {};
+	const adjaencyList = {};
 
-  edges.forEach(([a, b]) => {
-    if (a !== undefined) {
-      if (adjaencyList[a] === undefined) {
-        adjaencyList[a] = b === undefined ? [] : [b];
-      } else {
-        adjaencyList[a].push(b);
-      }
-    }
-    if (b !== undefined) {
-      if (adjaencyList[b] === undefined) {
-        adjaencyList[b] = [];
-      }
-    }
-  });
+	edges.forEach(([a, b]) => {
+		if (a !== undefined) {
+			if (adjaencyList[a] === undefined) {
+				adjaencyList[a] = b === undefined ? [] : [b];
+			} else {
+				adjaencyList[a].push(b);
+			}
+		}
+		if (b !== undefined) {
+			if (adjaencyList[b] === undefined) {
+				adjaencyList[b] = [];
+			}
+		}
+	});
 
-  return adjaencyList;
+	return adjaencyList;
 }
 
 function doDFS(graph) {
-  const visited = {};
+	const visited = {};
 
-  function DFS(now, component) {
-    visited[now] = component;
-    for (let i = 0; i < graph[now].length; i += 1) {
-      if (visited[graph[now][i]] === undefined) {
-        DFS(graph[now][i], component);
-      }
-    }
-  }
+	function DFS(now, component) {
+		visited[now] = component;
+		for (let i = 0; i < graph[now].length; i += 1) {
+			if (visited[graph[now][i]] === undefined) {
+				DFS(graph[now][i], component);
+			}
+		}
+	}
 
-  let component = 1;
+	let component = 1;
 
-  for (const i of Object.keys(graph)) {
-    if (visited[i] === undefined) {
-      DFS(i, component);
-      component += 1;
-    }
-  }
+	for (const i of Object.keys(graph)) {
+		if (visited[i] === undefined) {
+			DFS(i, component);
+			component += 1;
+		}
+	}
 
-  return visited;
+	return visited;
 }
 const graph = makeAdjaencyListNotOriented(cityEdges);
 console.log(graph);

@@ -1,13 +1,13 @@
 'use strict';
 
 const asyncIterator = {
-  counter: 0,
-  async next() {
-    return {
-      value: this.counter++,
-      done: this.counter > 3,
-    };
-  },
+	counter: 0,
+	async next() {
+		return {
+			value: this.counter++,
+			done: this.counter > 3,
+		};
+	},
 };
 
 const step1 = asyncIterator.next();

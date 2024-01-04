@@ -4,21 +4,21 @@ import { TextManipulator } from '../TextManipulator.mjs';
 import { TextView } from '../TextView.mjs';
 
 export class TextShape extends TextView /* Shape */ {
-  constructor() {
-    super();
-  }
+	constructor() {
+		super();
+	}
 
-  boundingBox() {
-    const { x: bottom, y: left } = this.getOrigin();
-    const { width, height } = this.getExtent();
+	boundingBox() {
+		const { x: bottom, y: left } = this.getOrigin();
+		const { width, height } = this.getExtent();
 
-    return {
-      bottomLeft: new Point(bottom, left),
-      topRight: new Point(bottom + height, left + width),
-    };
-  }
+		return {
+			bottomLeft: new Point(bottom, left),
+			topRight: new Point(bottom + height, left + width),
+		};
+	}
 
-  createManipulator() {
-    return new TextManipulator(this);
-  }
+	createManipulator() {
+		return new TextManipulator(this);
+	}
 }

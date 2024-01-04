@@ -1,8 +1,8 @@
 'use strict';
 
 async function* genFn() {
-  // yield* [10, 20, 30];
-  yield* new Set([10, 20, 30]);
+	// yield* [10, 20, 30];
+	yield* new Set([10, 20, 30]);
 }
 
 const c = genFn();

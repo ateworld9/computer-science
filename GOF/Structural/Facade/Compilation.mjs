@@ -1,84 +1,84 @@
 class Scanner {
-  constructor(inputStream) {
-    this.inputStream = inputStream;
-  }
+	constructor(inputStream) {
+		this.inputStream = inputStream;
+	}
 
-  scan() {}
+	scan() {}
 }
 
 class Parser {
-  constructor() {}
-  parse(scanner, programNodeBuilder) {}
+	constructor() {}
+	parse(scanner, programNodeBuilder) {}
 }
 
 // Builder
 class ProgramNodeBuilder {
-  constructor() {
-    this.node;
-  }
+	constructor() {
+		this.node;
+	}
 
-  newVariable(variableName) {}
-  newAssignment(variable, expression) {}
-  newReturnStatement(value) {}
-  newCondition(condition, truePart, falsePart) {}
+	newVariable(variableName) {}
+	newAssignment(variable, expression) {}
+	newReturnStatement(value) {}
+	newCondition(condition, truePart, falsePart) {}
 
-  getRootNode() {}
+	getRootNode() {}
 }
 
 // Composite
 class ProgramNode {
-  constructor() {}
+	constructor() {}
 
-  // операции с узлом программы
-  getSourcePosition(line, index) {}
-  // ...
+	// операции с узлом программы
+	getSourcePosition(line, index) {}
+	// ...
 
-  // операции с потомками
-  add(node) {}
-  remove(node) {}
-  // ...
+	// операции с потомками
+	add(node) {}
+	remove(node) {}
+	// ...
 
-  traverse(codeGenerator) {}
+	traverse(codeGenerator) {}
 }
 class StatementNode {}
 class ExpressionNode {}
 
 // Visitor
 class CodeGenerator {
-  constructor(bytecodeStream) {
-    this.output = bytecodeStream;
-  }
-  visit(node) {
-    if (node instanceof StatementNode) {
-      return;
-    }
-    if (node instanceof ExpressionNode) {
-      return;
-    }
-  }
+	constructor(bytecodeStream) {
+		this.output = bytecodeStream;
+	}
+	visit(node) {
+		if (node instanceof StatementNode) {
+			return;
+		}
+		if (node instanceof ExpressionNode) {
+			return;
+		}
+	}
 }
 
 class StackMachineCodeGenerator extends CodeGenerator {}
 class RISCCodeGenerator extends CodeGenerator {
-  constructor(bytecodeStream) {
-    super(bytecodeStream);
-  }
+	constructor(bytecodeStream) {
+		super(bytecodeStream);
+	}
 }
 
 // Facade
 class Compiler {
-  constructor() {}
+	constructor() {}
 
-  compile(inputStream, outputStream) {
-    this.scanner = new Scanner(inputStream);
+	compile(inputStream, outputStream) {
+		this.scanner = new Scanner(inputStream);
 
-    this.builder = new ProgramNodeBuilder();
+		this.builder = new ProgramNodeBuilder();
 
-    this.parser = new Parser();
-    this.parser.parse(this.scanner, this.builder);
+		this.parser = new Parser();
+		this.parser.parse(this.scanner, this.builder);
 
-    this.generator = new RISCCodeGenerator(outputStream);
-    const parseTree = this.builder.getRootNode();
-    parseTree.traverse(this.generator);
-  }
+		this.generator = new RISCCodeGenerator(outputStream);
+		const parseTree = this.builder.getRootNode();
+		parseTree.traverse(this.generator);
+	}
 }

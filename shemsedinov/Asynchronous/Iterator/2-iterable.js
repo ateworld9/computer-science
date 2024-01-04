@@ -1,18 +1,18 @@
 'use strict';
 
 const iterable = {
-  [Symbol.iterator]() {
-    let i = 0;
-    const iterator = {
-      next() {
-        return {
-          value: i++,
-          done: i > 3,
-        };
-      },
-    };
-    return iterator;
-  },
+	[Symbol.iterator]() {
+		let i = 0;
+		const iterator = {
+			next() {
+				return {
+					value: i++,
+					done: i > 3,
+				};
+			},
+		};
+		return iterator;
+	},
 };
 
 // Usage
@@ -26,5 +26,5 @@ const step4 = iterator.next(); // should not be displayed, (its done)
 console.log({ step1, step2, step3, step4 });
 
 for (const step of iterable) {
-  console.log({ step });
+	console.log({ step });
 }

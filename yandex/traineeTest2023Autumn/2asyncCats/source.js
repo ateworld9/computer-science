@@ -8,32 +8,32 @@
  */
 
 module.exports = function solution({ urls, fetcher, maximumRetryCount }) {
-  return new Promise((resolve) => {
-    const results = [];
+	return new Promise((resolve) => {
+		const results = [];
 
-    function makeRequest(index) {
-      if (index >= urls.length) {
-        resolve(results);
-        return;
-      }
+		function makeRequest(index) {
+			if (index >= urls.length) {
+				resolve(results);
+				return;
+			}
 
-      const url = urls[index];
+			const url = urls[index];
 
-      fetcher(url)
-        .then(() => {
-          results.push(url);
-          makeRequest(index + 1);
-        })
-        .catch(() => {
-          if (maximumRetryCount > 0) {
-            maximumRetryCount--;
-            makeRequest(index);
-          } else {
-            makeRequest(index + 1);
-          }
-        });
-    }
+			fetcher(url)
+				.then(() => {
+					results.push(url);
+					makeRequest(index + 1);
+				})
+				.catch(() => {
+					if (maximumRetryCount > 0) {
+						maximumRetryCount--;
+						makeRequest(index);
+					} else {
+						makeRequest(index + 1);
+					}
+				});
+		}
 
-    makeRequest(0);
-  });
+		makeRequest(0);
+	});
 };

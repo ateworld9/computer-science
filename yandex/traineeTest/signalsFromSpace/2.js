@@ -14,45 +14,45 @@ let input_stdin_array = '';
 let input_currentline = 0;
 
 process.stdin.on('data', (data) => {
-  input_stdin += data;
+	input_stdin += data;
 });
 
 process.stdin.on('end', () => {
-  input_stdin_array = input_stdin.split('\n');
-  main();
+	input_stdin_array = input_stdin.split('\n');
+	main();
 });
 
 function readLine() {
-  return input_stdin_array[input_currentline++];
+	return input_stdin_array[input_currentline++];
 }
 
 function main() {
-  const line = readLine();
-  console.log(line);
-  // const arr = eval(line)
-  const res = parseSignals(arr);
-  console.log(res);
-  process.stdout.write(`${res}`);
+	const line = readLine();
+	console.log(line);
+	// const arr = eval(line)
+	const res = parseSignals(arr);
+	console.log(res);
+	process.stdout.write(`${res}`);
 }
 
 function parseSignals(arr) {
-  let result = '';
-  const stringArr = [];
-  const signalsArr = [];
-  arr.forEach(({ time, value }) => {
-    if (isNaN(Number(value))) {
-      for (let i = 1; i <= time; i += 1) stringArr.push('_');
+	let result = '';
+	const stringArr = [];
+	const signalsArr = [];
+	arr.forEach(({ time, value }) => {
+		if (isNaN(Number(value))) {
+			for (let i = 1; i <= time; i += 1) stringArr.push('_');
 
-      console.log(time, value);
-      stringArr.push(...value.split(''));
-    } else {
-      for (let i = 1; i <= time; i += 1) signalsArr.push('_');
+			console.log(time, value);
+			stringArr.push(...value.split(''));
+		} else {
+			for (let i = 1; i <= time; i += 1) signalsArr.push('_');
 
-      signalsArr.push(...value.split(''));
-    }
-  });
-  for (let i = 0; i <= signalsArr.length; i += 1) {
-    if (signalsArr[i] === '1') result += stringArr[i];
-  }
-  return result;
+			signalsArr.push(...value.split(''));
+		}
+	});
+	for (let i = 0; i <= signalsArr.length; i += 1) {
+		if (signalsArr[i] === '1') result += stringArr[i];
+	}
+	return result;
 }

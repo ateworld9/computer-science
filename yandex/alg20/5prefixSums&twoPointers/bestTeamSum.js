@@ -5,19 +5,19 @@
 // Дано: отсортированная последовательность чисел длиной N - профессионализм игроков.
 // Найти - максимальный суммарный профессионализм сплоченной команды
 function bestTeamSum(players) {
-  let bestSum = 0;
-  let nowSum = 0;
-  let last = 0;
+	let bestSum = 0;
+	let nowSum = 0;
+	let last = 0;
 
-  for (const first in players) {
-    while (
-      last < players.length &&
-      (last === first || players[first] + players[first + 1] >= players[last])
-    ) {
-      nowSum += players[last];
-      last += 1;
-    }
-    if (nowSum > bestSum) bestSum = nowSum;
-    nowSum -= players[first];
-  }
+	for (const first in players) {
+		while (
+			last < players.length &&
+			(last === first || players[first] + players[first + 1] >= players[last])
+		) {
+			nowSum += players[last];
+			last += 1;
+		}
+		if (nowSum > bestSum) bestSum = nowSum;
+		nowSum -= players[first];
+	}
 }

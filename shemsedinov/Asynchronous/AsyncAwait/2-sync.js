@@ -1,39 +1,39 @@
 'use strict';
 
 function increment(a) {
-  return a + 1;
+	return a + 1;
 }
 
 const sum = function (a, b) {
-  return a + b;
+	return a + b;
 };
 
 const max = (a, b) => (a > b ? a : b);
 
 const avg = (a, b) => {
-  const s = sum(a, b);
-  return s / 2;
+	const s = sum(a, b);
+	return s / 2;
 };
 
 const obj = {
-  name: 'Dmitriy Vahrameev',
-  split(sep = ' ') {
-    return this.name.split(sep);
-  },
+	name: 'Dmitriy Vahrameev',
+	split(sep = ' ') {
+		return this.name.split(sep);
+	},
 };
 
 class Person {
-  constructor(name) {
-    this.name = name;
-  }
+	constructor(name) {
+		this.name = name;
+	}
 
-  static of(name) {
-    return new Person(name);
-  }
+	static of(name) {
+		return new Person(name);
+	}
 
-  split(sep = ' ') {
-    return this.name.split(sep);
-  }
+	split(sep = ' ') {
+		return this.name.split(sep);
+	}
 }
 
 const person = Person.of('Dmitriy Vahrameev');

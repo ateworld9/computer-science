@@ -1,9 +1,9 @@
 'use strict';
 
 const partial =
-  (fn, x) =>
-  (...args) =>
-    fn(x, ...args);
+	(fn, x) =>
+	(...args) =>
+		fn(x, ...args);
 
 // Usage
 

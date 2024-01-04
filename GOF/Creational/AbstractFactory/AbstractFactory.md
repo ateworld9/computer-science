@@ -35,39 +35,39 @@ tags:
 
 ```jsx
 const mazeFactory = {
-  makeMaze() {
-    return new Maze();
-  },
-  makeWall() {
-    return new Wall();
-  },
-  makeRoom(number) {
-    return new Room(number);
-  },
-  makeDoor(room1, room2) {
-    return new Door(room1, room2);
-  },
+	makeMaze() {
+		return new Maze();
+	},
+	makeWall() {
+		return new Wall();
+	},
+	makeRoom(number) {
+		return new Room(number);
+	},
+	makeDoor(room1, room2) {
+		return new Door(room1, room2);
+	},
 };
 
 const bombedMazeFactory = {
-  ...mazeFactory,
-  makeWall() {
-    return new BombedWall();
-  },
-  makeRoom(number) {
-    return new RoomWithBomb(number);
-  },
+	...mazeFactory,
+	makeWall() {
+		return new BombedWall();
+	},
+	makeRoom(number) {
+		return new RoomWithBomb(number);
+	},
 };
 
 const enchantedMazeFactory = {
-  ...mazeFactory,
-  makeRoom(number) {
-    return new EnchantedRoom(number);
-  },
-  makeDoor(room1, room2) {
-    return new DoorNeedingSpell(room1, room2);
-  },
-  spell: 'abracadabra',
+	...mazeFactory,
+	makeRoom(number) {
+		return new EnchantedRoom(number);
+	},
+	makeDoor(room1, room2) {
+		return new DoorNeedingSpell(room1, room2);
+	},
+	spell: 'abracadabra',
 };
 
 const mazeGame = new MazeGame();
@@ -90,47 +90,47 @@ console.log(enchantedMaze);
 
 ```ts
 class Violin implements Instrument {
-  playNote(note) {
-    console.log(`Играю ${note} на скрипке!`);
-  }
+	playNote(note) {
+		console.log(`Играю ${note} на скрипке!`);
+	}
 }
 class Cello implements Instrument {
-  playNote(note) {
-    console.log(`Играю ${note} на виолончели!`);
-  }
+	playNote(note) {
+		console.log(`Играю ${note} на виолончели!`);
+	}
 }
 interface Musician {
-  play(piece: MusicPiece): void;
+	play(piece: MusicPiece): void;
 }
 class Violinist implements Musician {
-  private instrument: Instrument = new Violin();
-  play = (piece) => piece.forEach((note) => this.instrument.playNote(note));
-  // Играю A# на скрипке!
-  // Играю C на скрипке!
+	private instrument: Instrument = new Violin();
+	play = (piece) => piece.forEach((note) => this.instrument.playNote(note));
+	// Играю A# на скрипке!
+	// Играю C на скрипке!
 }
 class Cellist implements Musician {
-  private instrument: Instrument = new Cello();
-  play = (piece) => piece.forEach((note) => this.instrument.playNote(note));
-  // Играю A# на виолончели!
-  // Играю C на виолончели!
+	private instrument: Instrument = new Cello();
+	play = (piece) => piece.forEach((note) => this.instrument.playNote(note));
+	// Играю A# на виолончели!
+	// Играю C на виолончели!
 }
 // Общий интерфейс:
 interface ReservationFactory {
-  reserveInstrument(): Instrument;
-  notifyPlayer(): Musician;
+	reserveInstrument(): Instrument;
+	notifyPlayer(): Musician;
 }
 // Реализации под разные инструменты:
 class ViolinReservation implements ReservationFactory {
-  reserveInstrument = () => new Violin();
-  notifyPlayer = () => new Violinist();
+	reserveInstrument = () => new Violin();
+	notifyPlayer = () => new Violinist();
 }
 class CelloReservation implements ReservationFactory {
-  reserveInstrument = () => new Cello();
-  notifyPlayer = () => new Cellist();
+	reserveInstrument = () => new Cello();
+	notifyPlayer = () => new Cellist();
 }
 function reserve(reservation: ReservationFactory): void {
-  reservation.notifyPlayer();
-  reservation.reserveInstrument();
+	reservation.notifyPlayer();
+	reservation.reserveInstrument();
 }
 ```
 

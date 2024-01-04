@@ -8,7 +8,7 @@ const step4 = iterator.next(); // should not be displayed, (its done)
 console.log({ step1, step2, step3, step4 });
 
 for (const step of iterable) {
-  console.log({ step });
+	console.log({ step });
 }
 
 console.log({ steps: [...iterable] });

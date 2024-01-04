@@ -1,9 +1,9 @@
 function unshift(arr, el) {
-  const initialLength = arr.length;
-  for (let i = initialLength; i > 0; i -= 1) arr[i] = arr[i - 1];
+	const initialLength = arr.length;
+	for (let i = initialLength; i > 0; i -= 1) arr[i] = arr[i - 1];
 
-  arr[0] = el;
-  return arr.length;
+	arr[0] = el;
+	return arr.length;
 }
 
 const arr = [1, 2];

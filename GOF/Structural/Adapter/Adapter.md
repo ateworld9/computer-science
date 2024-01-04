@@ -114,11 +114,11 @@ tags:
 ```js
 // Преобразует из snake_case в camelCase
 function responseToWantedAdapter(response) {
-  return response.entries.map((entry) => ({
-    userName: entry.user_name,
-    email: entry.email_address,
-    id: entry.ID,
-  }));
+	return response.entries.map((entry) => ({
+		userName: entry.user_name,
+		email: entry.email_address,
+		id: entry.ID,
+	}));
 }
 ```
 

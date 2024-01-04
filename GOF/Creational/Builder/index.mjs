@@ -7,6 +7,6 @@ console.log(maze);
 const countingMazeBuilder = new CountingMazeBuilder();
 const countingMaze = game.createMaze(countingMazeBuilder);
 console.log(
-  `В лабиринте есть ${countingMazeBuilder.rooms} ` +
-    `комнат и ${countingMazeBuilder.doors} дверей`,
+	`В лабиринте есть ${countingMazeBuilder.rooms} ` +
+		`комнат и ${countingMazeBuilder.doors} дверей`,
 );

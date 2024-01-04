@@ -1,17 +1,17 @@
 class Class1 {
-  method(par1, par2) {
-    return { par1, par2 };
-  }
+	method(par1, par2) {
+		return { par1, par2 };
+	}
 }
 
 class ProxyClass {
-  constructor(instance) {
-    this.instance = instance;
-  }
+	constructor(instance) {
+		this.instance = instance;
+	}
 
-  method(par1, par2) {
-    return this.instance.method(par1, par2);
-  }
+	method(par1, par2) {
+		return this.instance.method(par1, par2);
+	}
 }
 
 // Usage

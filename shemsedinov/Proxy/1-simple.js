@@ -8,8 +8,8 @@ console.dir({ 'person.born': person.born });
 console.dir({ 'person.year': person.year });
 
 for (const key in person) {
-  console.dir({
-    key,
-    value: person[key],
-  });
+	console.dir({
+		key,
+		value: person[key],
+	});
 }

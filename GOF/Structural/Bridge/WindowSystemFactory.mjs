@@ -1,16 +1,16 @@
 export class WindowSystemFactory {
-  constructor() {
-    this.instance;
-  }
+	constructor() {
+		this.instance;
+	}
 
-  makeWindowImp() {
-    return;
-  }
+	makeWindowImp() {
+		return;
+	}
 
-  static Instance() {
-    if (this.instance === undefined) {
-      this.instance = new WindowSystemFactory();
-    }
-    return this.instance;
-  }
+	static Instance() {
+		if (this.instance === undefined) {
+			this.instance = new WindowSystemFactory();
+		}
+		return this.instance;
+	}
 }

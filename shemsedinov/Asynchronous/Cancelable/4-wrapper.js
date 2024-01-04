@@ -1,42 +1,42 @@
 'use strict';
 
 const cancelable = (promise) => {
-  let canceled = false;
+	let canceled = false;
 
-  const next = promise.then((val) => {
-    if (canceled) return Promise.reject(new Error('Canceled'));
-    return val;
-  });
-  next.cancel = () => {
-    canceled = true;
-  };
+	const next = promise.then((val) => {
+		if (canceled) return Promise.reject(new Error('Canceled'));
+		return val;
+	});
+	next.cancel = () => {
+		canceled = true;
+	};
 
-  return next;
+	return next;
 };
 
 // Usage
 {
-  const promise = cancelable(
-    new Promise((resolve) => {
-      setTimeout(() => {
-        resolve('first');
-      }, 10);
-    }),
-  );
+	const promise = cancelable(
+		new Promise((resolve) => {
+			setTimeout(() => {
+				resolve('first');
+			}, 10);
+		}),
+	);
 
-  promise.then(console.log).catch(console.log);
-  console.dir({ promise });
+	promise.then(console.log).catch(console.log);
+	console.dir({ promise });
 }
 {
-  const promise = cancelable(
-    new Promise((resolve) => {
-      setTimeout(() => {
-        resolve('second');
-      }, 10);
-    }),
-  );
+	const promise = cancelable(
+		new Promise((resolve) => {
+			setTimeout(() => {
+				resolve('second');
+			}, 10);
+		}),
+	);
 
-  promise.cancel();
-  promise.then(console.log).catch(console.log);
-  console.dir({ promise });
+	promise.cancel();
+	promise.then(console.log).catch(console.log);
+	console.dir({ promise });
 }

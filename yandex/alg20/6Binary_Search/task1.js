@@ -8,17 +8,17 @@
 // (K + X) / (N + X) >= 1 / 3
 
 function leftBinarySearch(l, r, check, checkparams) {
-  while (l < r) {
-    const m = Math.floor((l + r) / 2);
-    if (check(m, checkparams)) r = m;
-    else l = m + 1;
-  }
-  return l;
+	while (l < r) {
+		const m = Math.floor((l + r) / 2);
+		if (check(m, checkparams)) r = m;
+		else l = m + 1;
+	}
+	return l;
 }
 
 function checkendownment(m, params) {
-  let [n, k] = params;
-  return (k + m) * 3 >= n + m;
+	let [n, k] = params;
+	return (k + m) * 3 >= n + m;
 }
 
 console.log(leftBinarySearch(0, 1000, checkendownment, [10, 1]));

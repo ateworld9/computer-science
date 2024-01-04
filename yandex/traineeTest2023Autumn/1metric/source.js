@@ -14,40 +14,40 @@
  */
 
 function countUniqueUsersPerDay(data) {
-  const result = {};
-  data.forEach((el) => {
-    const [login, pass, date] = el.split(':');
-    result[date] = result[date] ? result[date] + 1 : 1;
-  });
-  return result;
+	const result = {};
+	data.forEach((el) => {
+		const [login, pass, date] = el.split(':');
+		result[date] = result[date] ? result[date] + 1 : 1;
+	});
+	return result;
 }
 
 function adapter(data) {
-  return Object.entries(data).map(([date, users]) => ({
-    date,
-    users,
-  }));
+	return Object.entries(data).map(([date, users]) => ({
+		date,
+		users,
+	}));
 }
 
 module.exports = (func) => {
-  const uniqueUsers = new Set();
+	const uniqueUsers = new Set();
 
-  return (credentials, ...args) => {
-    // validate credentials
-    if (
-      typeof credentials.login !== 'string' ||
-      typeof credentials.password !== 'string'
-    ) {
-      return adapter(countUniqueUsersPerDay(uniqueUsers));
-    }
-    // save user
-    const formattedDate = credentials.date.toISOString().split('T')[0];
-    uniqueUsers.add(
-      `${credentials.login}:${credentials.password}:${formattedDate}`,
-    );
+	return (credentials, ...args) => {
+		// validate credentials
+		if (
+			typeof credentials.login !== 'string' ||
+			typeof credentials.password !== 'string'
+		) {
+			return adapter(countUniqueUsersPerDay(uniqueUsers));
+		}
+		// save user
+		const formattedDate = credentials.date.toISOString().split('T')[0];
+		uniqueUsers.add(
+			`${credentials.login}:${credentials.password}:${formattedDate}`,
+		);
 
-    func(...args);
+		func(...args);
 
-    return adapter(countUniqueUsersPerDay(uniqueUsers));
-  };
+		return adapter(countUniqueUsersPerDay(uniqueUsers));
+	};
 };

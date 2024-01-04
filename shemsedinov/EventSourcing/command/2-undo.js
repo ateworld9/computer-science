@@ -4,76 +4,76 @@
 // 'use strict'
 
 class AccountCommand {
-  constructor(account, amount) {
-    this.account = account;
-    this.amount = amount;
-  }
+	constructor(account, amount) {
+		this.account = account;
+		this.amount = amount;
+	}
 
-  execute() {
-    throw new Error('Command.execute() is not implemented');
-  }
+	execute() {
+		throw new Error('Command.execute() is not implemented');
+	}
 
-  undo() {
-    throw new Error('Command.undo() is not implemented');
-  }
+	undo() {
+		throw new Error('Command.undo() is not implemented');
+	}
 }
 
 class Withdraw extends AccountCommand {
-  execute() {
-    this.account.balance -= this.amount;
-  }
+	execute() {
+		this.account.balance -= this.amount;
+	}
 
-  undo() {
-    this.account.balance += this.amount;
-  }
+	undo() {
+		this.account.balance += this.amount;
+	}
 }
 
 class Income extends AccountCommand {
-  execute() {
-    this.account.balance += this.amount;
-  }
+	execute() {
+		this.account.balance += this.amount;
+	}
 
-  undo() {
-    this.account.balance -= this.amount;
-  }
+	undo() {
+		this.account.balance -= this.amount;
+	}
 }
 class BankAccount {
-  constructor(name) {
-    this.name = name;
-    this.balance = 0;
-  }
+	constructor(name) {
+		this.name = name;
+		this.balance = 0;
+	}
 }
 
 class Bank {
-  constructor() {
-    this.commands = [];
-  }
+	constructor() {
+		this.commands = [];
+	}
 
-  operation(account, amount) {
-    const Command = amount < 0 ? Withdraw : Income;
-    const command = new Command(account, Math.abs(amount));
-    command.execute();
-    this.commands.push(command);
-  }
+	operation(account, amount) {
+		const Command = amount < 0 ? Withdraw : Income;
+		const command = new Command(account, Math.abs(amount));
+		command.execute();
+		this.commands.push(command);
+	}
 
-  undo(count) {
-    for (let i = 0; i < count; i += 1) {
-      const command = this.commands.pop();
-      command.undo();
-    }
-  }
+	undo(count) {
+		for (let i = 0; i < count; i += 1) {
+			const command = this.commands.pop();
+			command.undo();
+		}
+	}
 
-  showOperations() {
-    const output = [];
-    for (const command of this.commands) {
-      output.push({
-        operation: command.constructor.name,
-        account: command.account.name,
-        amount: command.amount,
-      });
-    }
-    console.table(output);
-  }
+	showOperations() {
+		const output = [];
+		for (const command of this.commands) {
+			output.push({
+				operation: command.constructor.name,
+				account: command.account.name,
+				amount: command.amount,
+			});
+		}
+		console.table(output);
+	}
 }
 
 // Usage

@@ -1,17 +1,17 @@
 'use strict';
 
 const curry =
-  (fn) =>
-  (...args) =>
-    fn.length > args.length
-      ? curry(
-          (
-            (fn, ...args1) =>
-            (...args2) =>
-              fn(...args1.concat(args2))
-          )(fn, ...args),
-        )
-      : fn(...args);
+	(fn) =>
+	(...args) =>
+		fn.length > args.length
+			? curry(
+					(
+						(fn, ...args1) =>
+						(...args2) =>
+							fn(...args1.concat(args2))
+					)(fn, ...args),
+			  )
+			: fn(...args);
 
 // Usage
 

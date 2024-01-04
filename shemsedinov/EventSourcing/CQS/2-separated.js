@@ -3,8 +3,8 @@
 // 'use strict'
 
 const adder = (value) => (x) => {
-  if (x === undefined) return value;
-  value += x;
+	if (x === undefined) return value;
+	value += x;
 };
 
 const a1 = adder(2);

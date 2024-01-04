@@ -8,7 +8,7 @@ console.log(map.get('a'));
 console.log(map.get('b'));
 
 class abs {
-  constructor() {}
+	constructor() {}
 }
 
 console.log(new abs());

@@ -1,40 +1,40 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
 const logable = (fields) =>
-  class Logable {
-    constructor(data) {
-      this.values = data;
-      for (const key in fields) {
-        Object.defineProperty(Logable.prototype, key, {
-          get() {
-            console.log('Reading key: ', key);
-            return this.values[key];
-          },
-          set(value) {
-            console.log('Writing key: ', key, ' value: ', value);
-            const def = fields[key];
-            // eslint-disable-next-line valid-typeof
-            const valid = typeof value === def.type && def.validate(value);
-            if (valid) this.values[key] = value;
-            else console.log('Validation failed: ', key, value);
-          },
-        });
-      }
-    }
+	class Logable {
+		constructor(data) {
+			this.values = data;
+			for (const key in fields) {
+				Object.defineProperty(Logable.prototype, key, {
+					get() {
+						console.log('Reading key: ', key);
+						return this.values[key];
+					},
+					set(value) {
+						console.log('Writing key: ', key, ' value: ', value);
+						const def = fields[key];
+						// eslint-disable-next-line valid-typeof
+						const valid = typeof value === def.type && def.validate(value);
+						if (valid) this.values[key] = value;
+						else console.log('Validation failed: ', key, value);
+					},
+				});
+			}
+		}
 
-    toString() {
-      let result = `${this.constructor.name}: `;
-      for (const key in fields) {
-        result += `${this.values[key]} `;
-      }
-      return result;
-    }
-  };
+		toString() {
+			let result = `${this.constructor.name}: `;
+			for (const key in fields) {
+				result += `${this.values[key]} `;
+			}
+			return result;
+		}
+	};
 
 // Usage
 const Person = logable({
-  name: { type: 'string', validate: (name) => name.length > 0 },
-  born: { type: 'number', validate: (born) => !(born % 1) },
+	name: { type: 'string', validate: (name) => name.length > 0 },
+	born: { type: 'number', validate: (born) => !(born % 1) },
 });
 
 const p1 = new Person({ name: 'Dmitriy Vakhrameev', born: 1999 });

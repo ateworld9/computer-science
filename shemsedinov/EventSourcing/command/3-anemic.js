@@ -3,39 +3,39 @@
 // 'use strict';
 
 class AccountCommand {
-  constructor(operation, account, amount) {
-    this.operation = operation;
-    this.account = account;
-    this.amount = amount;
-  }
+	constructor(operation, account, amount) {
+		this.operation = operation;
+		this.account = account;
+		this.amount = amount;
+	}
 }
 
 class BankAccount {
-  constructor(name) {
-    this.name = name;
-    this.balance = 0;
-  }
+	constructor(name) {
+		this.name = name;
+		this.balance = 0;
+	}
 }
 
 class Bank {
-  constructor() {
-    this.operations = [];
-  }
+	constructor() {
+		this.operations = [];
+	}
 
-  operation(account, amount) {
-    const operation = amount < 0 ? 'Withdraw' : 'Income';
-    const command = new AccountCommand(
-      operation,
-      account.name,
-      Math.abs(amount),
-    );
-    this.operations.push(command);
-    account.balance += amount;
-  }
+	operation(account, amount) {
+		const operation = amount < 0 ? 'Withdraw' : 'Income';
+		const command = new AccountCommand(
+			operation,
+			account.name,
+			Math.abs(amount),
+		);
+		this.operations.push(command);
+		account.balance += amount;
+	}
 
-  showOperations() {
-    console.table(this.operations);
-  }
+	showOperations() {
+		console.table(this.operations);
+	}
 }
 
 // Usage

@@ -1,19 +1,19 @@
 class ArrayToQueueAdapter {
-  constructor(arr = []) {
-    this.array = arr;
-  }
+	constructor(arr = []) {
+		this.array = arr;
+	}
 
-  enqueue(data) {
-    this.array.push(data);
-  }
+	enqueue(data) {
+		this.array.push(data);
+	}
 
-  dequeue() {
-    return this.array.pop();
-  }
+	dequeue() {
+		return this.array.pop();
+	}
 
-  get count() {
-    return this.array.length;
-  }
+	get count() {
+		return this.array.length;
+	}
 }
 
 // Usage
@@ -23,5 +23,5 @@ queue.enqueue('two');
 queue.enqueue('three');
 
 while (queue.count) {
-  console.log(queue.dequeue());
+	console.log(queue.dequeue());
 }

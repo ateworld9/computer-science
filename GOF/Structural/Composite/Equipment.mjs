@@ -1,86 +1,86 @@
 class Equipment {
-  constructor(name) {
-    this.name = name;
-  }
+	constructor(name) {
+		this.name = name;
+	}
 
-  power() {}
-  netPrice() {}
-  discontPrice() {}
+	power() {}
+	netPrice() {}
+	discontPrice() {}
 
-  add() {}
-  remove() {}
+	add() {}
+	remove() {}
 }
 
 class FloppyDisk extends Equipment {
-  constructor(name, power, price) {
-    super(name);
-    this.price = price;
-    this.power = power;
-  }
+	constructor(name, power, price) {
+		super(name);
+		this.price = price;
+		this.power = power;
+	}
 
-  power() {
-    return this.power;
-  }
-  netPrice() {
-    return this.price;
-  }
-  discontPrice() {
-    return this.price * 0.9;
-  }
+	power() {
+		return this.power;
+	}
+	netPrice() {
+		return this.price;
+	}
+	discontPrice() {
+		return this.price * 0.9;
+	}
 }
 
 class CompositeEquipment extends Equipment {
-  constructor(name) {
-    super();
-    this.equipment = new Set();
-  }
+	constructor(name) {
+		super();
+		this.equipment = new Set();
+	}
 
-  power() {}
-  netPrice() {
-    let total = 0;
-    this.equipment.forEach((el) => {
-      total += el.netPrice();
-    });
+	power() {}
+	netPrice() {
+		let total = 0;
+		this.equipment.forEach((el) => {
+			total += el.netPrice();
+		});
 
-    return total;
-  }
-  discontPrice() {
-    return this.netPrice() * 0.9;
-  }
+		return total;
+	}
+	discontPrice() {
+		return this.netPrice() * 0.9;
+	}
 
-  add(equipment) {
-    this.equipment.add(equipment);
-  }
-  remove(equipment) {
-    this.equipment.delete(equipment);
-  }
+	add(equipment) {
+		this.equipment.add(equipment);
+	}
+	remove(equipment) {
+		this.equipment.delete(equipment);
+	}
 }
 
 class Chassis extends CompositeEquipment {
-  constructor(name) {
-    super(name);
-  }
+	constructor(name) {
+		super(name);
+	}
 }
 
 class Cabinet extends CompositeEquipment {
-  // корпус
-  constructor(name) {
-    super(name);
-  }
+	// корпус
+	constructor(name) {
+		super(name);
+	}
 }
 
 class Bus extends Equipment {
-  constructor(name, price) {
-    super(name);
-    this.price = price;
-  }
+	constructor(name, price) {
+		super(name);
+		this.price = price;
+	}
 }
 
 class Card extends Equipment {
-  constructor(name, price) {
-    super(name);
-    this.price = price;
-  }
+	constructor(name, price) {
+		super(name);
+		this.price = price;
+	}
 }
 
 const cabinet = new Cabinet('PC Cabinet');

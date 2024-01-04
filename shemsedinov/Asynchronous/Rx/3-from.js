@@ -6,17 +6,17 @@ const { map, filter, max } = require('rxjs/operators');
 const source = from([7, 12, 10, 5, 5, 3]);
 
 const destination = source.pipe(
-  filter((x) => x % 2 === 0),
-  map((x) => x * 2),
-  max(),
+	filter((x) => x % 2 === 0),
+	map((x) => x * 2),
+	max(),
 );
 
 source.subscribe((x) => {
-  console.dir({ x });
+	console.dir({ x });
 });
 
 destination.subscribe((res) => {
-  console.dir({ res });
+	console.dir({ res });
 });
 
 console.dir({ source, destination });

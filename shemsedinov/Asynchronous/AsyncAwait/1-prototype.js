@@ -10,8 +10,8 @@ const fn = () => {};
 const afn = async () => {};
 
 console.dir({
-  fn: typeof fn, // 'function'
-  afn: typeof afn, // 'function'
+	fn: typeof fn, // 'function'
+	afn: typeof afn, // 'function'
 });
 
 console.log(fn instanceof Function); // true
@@ -28,6 +28,6 @@ console.log();
 console.log(Object.getPrototypeOf(afn).constructor); // [Function: AsyncFunction]
 console.log(Object.getPrototypeOf(Object.getPrototypeOf(afn)).constructor); // [Function: Function]
 console.log(
-  Object.getPrototypeOf(Object.getPrototypeOf(Object.getPrototypeOf(afn)))
-    .constructor,
+	Object.getPrototypeOf(Object.getPrototypeOf(Object.getPrototypeOf(afn)))
+		.constructor,
 ); // [Function: Object]

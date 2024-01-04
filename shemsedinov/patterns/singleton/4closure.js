@@ -1,11 +1,11 @@
 const singleton = (() => {
-  const instance = {};
-  return () => instance;
+	const instance = {};
+	return () => instance;
 })();
 
 const singleton2 = (
-  (instance) => () =>
-    instance
+	(instance) => () =>
+		instance
 )({}); // don't understand
 
 // Usage

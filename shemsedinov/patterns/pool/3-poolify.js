@@ -1,17 +1,17 @@
 /* eslint-disable consistent-return */
 const poolify = (factory, size) => {
-  const items = new Array(size).fill(null).map(() => factory());
+	const items = new Array(size).fill(null).map(() => factory());
 
-  return (item) => {
-    if (item) {
-      items.push(item);
-      console.log('Recycle item, count = ', items.length);
-      return;
-    }
-    const res = items.pop() || factory();
-    console.log(('Get from pool, count =', items.length));
-    return res;
-  };
+	return (item) => {
+		if (item) {
+			items.push(item);
+			console.log('Recycle item, count = ', items.length);
+			return;
+		}
+		const res = items.pop() || factory();
+		console.log(('Get from pool, count =', items.length));
+		return res;
+	};
 };
 // Usage
 
@@ -22,6 +22,6 @@ const buffer = () => new Uint32Array(1024);
 const pool = poolify(buffer, 10);
 
 for (let i = 0; i < 15; i += 1) {
-  const item = pool();
-  console.log('Buffer size', item.length * 32);
+	const item = pool();
+	console.log('Buffer size', item.length * 32);
 }

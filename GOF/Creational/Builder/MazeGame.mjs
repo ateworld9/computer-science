@@ -1,13 +1,13 @@
 export class MazeGame {
-  constructor() {}
+	constructor() {}
 
-  createMaze(builder) {
-    builder.buildMaze();
+	createMaze(builder) {
+		builder.buildMaze();
 
-    builder.buildRoom(1);
-    builder.buildRoom(2);
-    builder.buildDoor(1, 2);
+		builder.buildRoom(1);
+		builder.buildRoom(2);
+		builder.buildDoor(1, 2);
 
-    return builder.getMaze();
-  }
+		return builder.getMaze();
+	}
 }

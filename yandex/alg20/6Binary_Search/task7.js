@@ -14,29 +14,29 @@
 // Необходимо найти момент времени, когда расстояние станет минимальным
 
 function dist(t, params) {
-  const [x, v] = params;
+	const [x, v] = params;
 
-  let minpos = x[0] + v[0] * t;
-  let maxpos = x[0] + v[0] * t;
-  for (let i = 0; i < x.length; i += 1) {
-    let nowpos = x[i] + v[i] * t;
-    minpos = Math.min(minpos, nowpos);
-    maxpos = Math.max(maxpos, nowpos);
-  }
-  return maxpos - minpos;
+	let minpos = x[0] + v[0] * t;
+	let maxpos = x[0] + v[0] * t;
+	for (let i = 0; i < x.length; i += 1) {
+		let nowpos = x[i] + v[i] * t;
+		minpos = Math.min(minpos, nowpos);
+		maxpos = Math.max(maxpos, nowpos);
+	}
+	return maxpos - minpos;
 }
 
 function checkasc(t, eps, params) {
-  return dist(t + eps, params) >= dist(t, params);
+	return dist(t + eps, params) >= dist(t, params);
 }
 
 function floatBinarySearch(l, r, eps, check, params) {
-  while (l + eps < r) {
-    const m = (l + r) / 2;
-    if (check(m, eps, params)) r = m;
-    else l = m;
-    return l;
-  }
+	while (l + eps < r) {
+		const m = (l + r) / 2;
+		if (check(m, eps, params)) r = m;
+		else l = m;
+		return l;
+	}
 }
 
 const x = [];

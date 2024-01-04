@@ -2,26 +2,26 @@
 // 'use strict'
 
 const start = (data) => {
-  console.log('\nstart transaction');
-  let delta = {};
-  const commit = () => {
-    console.log('\ncommit transaction');
-    Object.assign(data, delta);
-    delta = {};
-  };
-  return new Proxy(data, {
-    get(target, key) {
-      if (key === 'commit') return commit;
-      if (delta.hasOwnProperty(key)) return delta[key];
-      return target[key];
-    },
-    set(target, key, val) {
-      console.log('set', key, val);
-      if (target[key] === val) delete delta[key];
-      else delta[key] = val;
-      return true;
-    },
-  });
+	console.log('\nstart transaction');
+	let delta = {};
+	const commit = () => {
+		console.log('\ncommit transaction');
+		Object.assign(data, delta);
+		delta = {};
+	};
+	return new Proxy(data, {
+		get(target, key) {
+			if (key === 'commit') return commit;
+			if (delta.hasOwnProperty(key)) return delta[key];
+			return target[key];
+		},
+		set(target, key, val) {
+			console.log('set', key, val);
+			if (target[key] === val) delete delta[key];
+			else delta[key] = val;
+			return true;
+		},
+	});
 };
 
 // Usage

@@ -3,44 +3,44 @@
 // Emulate Asynchronous calls
 
 const pause = () =>
-  new Promise((resolve, reject) =>
-    setTimeout(resolve, Math.floor(Math.random() * 1000)),
-  );
+	new Promise((resolve, reject) =>
+		setTimeout(resolve, Math.floor(Math.random() * 1000)),
+	);
 
 // Asynchronous functions
 
 const readConfig = async (name) => {
-  await pause();
+	await pause();
 
-  console.log('(1) config loaded');
-  return name;
+	console.log('(1) config loaded');
+	return name;
 };
 
 const doQuery = async (statement) => {
-  await pause();
+	await pause();
 
-  console.log('(2) SQL query executed ' + statement);
-  return [{ name: 'Omsk' }, { name: 'Moscow' }];
+	console.log('(2) SQL query executed ' + statement);
+	return [{ name: 'Omsk' }, { name: 'Moscow' }];
 };
 
 const httpGet = async (url) => {
-  await pause();
-  console.log('(3) Page retrieved: ' + url);
-  return '<html>Some archaic web here</html>';
+	await pause();
+	console.log('(3) Page retrieved: ' + url);
+	return '<html>Some archaic web here</html>';
 };
 
 const readFile = async (path) => {
-  await pause();
-  console.log('(4) Readme file loaded:' + path);
-  return 'file content';
+	await pause();
+	console.log('(4) Readme file loaded:' + path);
+	return 'file content';
 };
 
 //
 (async () => {
-  const config = await readConfig('myConfig');
-  const res = await doQuery('select * from cities');
-  const json = await httpGet('http://google.com');
-  const file = await readFile('README.md');
-  console.log('Done');
-  console.dir({ config, res, json, file });
+	const config = await readConfig('myConfig');
+	const res = await doQuery('select * from cities');
+	const json = await httpGet('http://google.com');
+	const file = await readFile('README.md');
+	console.log('Done');
+	console.dir({ config, res, json, file });
 })();

@@ -3,60 +3,60 @@
 // 'use script'
 
 class BankAccount {
-  constructor(name) {
-    this.name = name;
-    this.balance = 0;
-  }
+	constructor(name) {
+		this.name = name;
+		this.balance = 0;
+	}
 
-  getBalance() {
-    return this.balance;
-  }
+	getBalance() {
+		return this.balance;
+	}
 
-  available(amount) {
-    return this.balance >= amount;
-  }
+	available(amount) {
+		return this.balance >= amount;
+	}
 
-  withdraw(amount) {
-    this.balance -= amount;
-  }
+	withdraw(amount) {
+		this.balance -= amount;
+	}
 
-  income(amount) {
-    this.balance += amount;
-  }
+	income(amount) {
+		this.balance += amount;
+	}
 }
 
 class Bank {
-  constructor() {
-    this.accounts = new Map();
-  }
+	constructor() {
+		this.accounts = new Map();
+	}
 
-  transfer(from, to, amount) {
-    const source = this.accounts.get(from);
-    const destination = this.accounts.get(to);
-    if (!source || !destination) return false;
-    if (!source.available(amount)) return false;
-    source.withdraw(amount);
-    destination.income(amount);
-    return true;
-  }
+	transfer(from, to, amount) {
+		const source = this.accounts.get(from);
+		const destination = this.accounts.get(to);
+		if (!source || !destination) return false;
+		if (!source.available(amount)) return false;
+		source.withdraw(amount);
+		destination.income(amount);
+		return true;
+	}
 
-  total() {
-    let sum = 0;
-    for (const account of this.accounts.values()) {
-      const balance = account.getBalance();
-      sum += balance;
-    }
+	total() {
+		let sum = 0;
+		for (const account of this.accounts.values()) {
+			const balance = account.getBalance();
+			sum += balance;
+		}
 
-    return sum;
-  }
+		return sum;
+	}
 
-  openAccount(name, amount = 0) {
-    if (this.accounts.get(name)) return false;
-    const account = new BankAccount(name);
-    this.accounts.set(name, account);
-    if (amount) account.income(amount);
-    return true;
-  }
+	openAccount(name, amount = 0) {
+		if (this.accounts.get(name)) return false;
+		const account = new BankAccount(name);
+		this.accounts.set(name, account);
+		if (amount) account.income(amount);
+		return true;
+	}
 }
 
 // Usage

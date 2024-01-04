@@ -1,8 +1,8 @@
 function Singleton() {
-  // eslint-disable-next-line prefer-destructuring
-  const instance = Singleton.instance;
-  if (instance) return instance;
-  Singleton.instance = this;
+	// eslint-disable-next-line prefer-destructuring
+	const instance = Singleton.instance;
+	if (instance) return instance;
+	Singleton.instance = this;
 }
 // Usage
 // eslint-disable-next-line no-self-compare

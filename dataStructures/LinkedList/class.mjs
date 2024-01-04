@@ -1,175 +1,175 @@
 const LinkedListNode = class {
-  constructor(nodeData) {
-    this.data = nodeData;
-    this.next = null;
-  }
+	constructor(nodeData) {
+		this.data = nodeData;
+		this.next = null;
+	}
 };
 
 export class LinkedList {
-  constructor() {
-    this.head = null;
-    this.tail = null;
-    this.length = 0;
-  }
+	constructor() {
+		this.head = null;
+		this.tail = null;
+		this.length = 0;
+	}
 
-  toArray() {
-    let { head } = this;
-    const result = [head.data];
-    while (head.next) {
-      head = head.next;
-      result.push(head.data);
-    }
-    return result;
-  }
+	toArray() {
+		let { head } = this;
+		const result = [head.data];
+		while (head.next) {
+			head = head.next;
+			result.push(head.data);
+		}
+		return result;
+	}
 
-  [Symbol.iterator]() {
-    let current = this.head;
-    const iterator = {
-      next() {
-        let result;
-        if (current === undefined || current === null) {
-          result = {
-            done: true,
-          };
-        } else {
-          result = {
-            value: current.data,
-          };
-          current = current.next;
-        }
-        return result;
-      },
-    };
-    return iterator;
-  }
+	[Symbol.iterator]() {
+		let current = this.head;
+		const iterator = {
+			next() {
+				let result;
+				if (current === undefined || current === null) {
+					result = {
+						done: true,
+					};
+				} else {
+					result = {
+						value: current.data,
+					};
+					current = current.next;
+				}
+				return result;
+			},
+		};
+		return iterator;
+	}
 
-  insertToHead(nodeData) {
-    const node = new LinkedListNode(nodeData);
-    node.next = this.head;
-    this.head = node;
-    if (this.tail === null) {
-      this.tail = node;
-    }
+	insertToHead(nodeData) {
+		const node = new LinkedListNode(nodeData);
+		node.next = this.head;
+		this.head = node;
+		if (this.tail === null) {
+			this.tail = node;
+		}
 
-    this.length += 1;
-  }
+		this.length += 1;
+	}
 
-  insert(nodeData, position) {
-    const node = new LinkedListNode(nodeData);
-    if (this.head === null && position === 0) {
-      this.head = node;
-      this.tail = node;
-      this.length = 1;
-      return;
-    }
-    if (position < 0 || position > this.length) {
-      throw new Error('LinkedList: insert: Invalid position');
-    }
+	insert(nodeData, position) {
+		const node = new LinkedListNode(nodeData);
+		if (this.head === null && position === 0) {
+			this.head = node;
+			this.tail = node;
+			this.length = 1;
+			return;
+		}
+		if (position < 0 || position > this.length) {
+			throw new Error('LinkedList: insert: Invalid position');
+		}
 
-    let pointer = this.head;
+		let pointer = this.head;
 
-    for (let i = 0; i < position - 1; i += 1) {
-      pointer = pointer.next;
-    }
+		for (let i = 0; i < position - 1; i += 1) {
+			pointer = pointer.next;
+		}
 
-    if (pointer.next === null) {
-      node.next = null;
-      this.tail = node;
-    }
-    pointer.next = node;
+		if (pointer.next === null) {
+			node.next = null;
+			this.tail = node;
+		}
+		pointer.next = node;
 
-    this.length += 1;
-  }
+		this.length += 1;
+	}
 
-  insertToTail(nodeData) {
-    const node = new LinkedListNode(nodeData);
+	insertToTail(nodeData) {
+		const node = new LinkedListNode(nodeData);
 
-    if (this.head == null) {
-      this.head = node;
-    } else {
-      this.tail.next = node;
-    }
+		if (this.head == null) {
+			this.head = node;
+		} else {
+			this.tail.next = node;
+		}
 
-    this.tail = node;
-    this.length += 1;
-  }
+		this.tail = node;
+		this.length += 1;
+	}
 
-  delete(position) {
-    if (position < 0 || position >= this.length) {
-      throw new Error('LinkedList: delete: Invalid position');
-    }
+	delete(position) {
+		if (position < 0 || position >= this.length) {
+			throw new Error('LinkedList: delete: Invalid position');
+		}
 
-    let pointer = this.head;
+		let pointer = this.head;
 
-    if (position === 0) {
-      this.head = pointer.next;
-    } else {
-      for (let i = 0; i < position - 1; i += 1) {
-        pointer = pointer.next;
-      }
+		if (position === 0) {
+			this.head = pointer.next;
+		} else {
+			for (let i = 0; i < position - 1; i += 1) {
+				pointer = pointer.next;
+			}
 
-      pointer.next = pointer.next?.next ?? null;
-    }
+			pointer.next = pointer.next?.next ?? null;
+		}
 
-    this.length -= 1;
-  }
+		this.length -= 1;
+	}
 
-  reverse() {
-    let prev = null;
-    let curr = this.head;
-    let next = null;
+	reverse() {
+		let prev = null;
+		let curr = this.head;
+		let next = null;
 
-    while (curr) {
-      // Сохраняем следующий узел.
-      next = curr.next;
+		while (curr) {
+			// Сохраняем следующий узел.
+			next = curr.next;
 
-      // Меняем ссылку на следующий "next" узел текущего узла,
-      // чтобы он ссылался на предыдущий узел.
-      // Так как мы меняем их местами, нужно поменять и ссылки на узлы.
-      // Изначально, первый узел не имеет предыдущего узла,
-      // поэтому после перестановки его "next" станет "null".
-      curr.next = prev;
+			// Меняем ссылку на следующий "next" узел текущего узла,
+			// чтобы он ссылался на предыдущий узел.
+			// Так как мы меняем их местами, нужно поменять и ссылки на узлы.
+			// Изначально, первый узел не имеет предыдущего узла,
+			// поэтому после перестановки его "next" станет "null".
+			curr.next = prev;
 
-      // Текущий узел делаем предыдущим.
-      prev = curr;
+			// Текущий узел делаем предыдущим.
+			prev = curr;
 
-      // Следующий узел становится текущим.
-      curr = next;
-    }
+			// Следующий узел становится текущим.
+			curr = next;
+		}
 
-    // Меняем head и tail местами.
-    this.tail = this.head;
+		// Меняем head и tail местами.
+		this.tail = this.head;
 
-    // В данном случае prev это последний узел,
-    // поэтому, после reverse, он становится первым.
-    this.head = prev;
-  }
+		// В данном случае prev это последний узел,
+		// поэтому, после reverse, он становится первым.
+		this.head = prev;
+	}
 
-  hasLoop() {
-    let slow = this.head;
-    let fast = this.head;
-    // eslint-disable-next-line no-constant-condition
-    while (true) {
-      slow = slow.next;
+	hasLoop() {
+		let slow = this.head;
+		let fast = this.head;
+		// eslint-disable-next-line no-constant-condition
+		while (true) {
+			slow = slow.next;
 
-      if (fast.next !== null) {
-        fast = fast.next.next;
-      } else {
-        return false;
-      }
+			if (fast.next !== null) {
+				fast = fast.next.next;
+			} else {
+				return false;
+			}
 
-      if (
-        slow === null ||
-        fast === null ||
-        slow === undefined ||
-        fast === undefined
-      ) {
-        return false;
-      }
+			if (
+				slow === null ||
+				fast === null ||
+				slow === undefined ||
+				fast === undefined
+			) {
+				return false;
+			}
 
-      if (slow === fast) {
-        return true;
-      }
-    }
-  }
+			if (slow === fast) {
+				return true;
+			}
+		}
+	}
 }

@@ -1,8 +1,8 @@
 class Iterator {
-  constructor() {}
+	constructor() {}
 
-  first() {}
-  next() {}
-  isDone() {}
-  current() {}
+	first() {}
+	next() {}
+	isDone() {}
+	current() {}
 }

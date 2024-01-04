@@ -1,36 +1,36 @@
 class VisualComponent {
-  constructor() {}
-  draw() {}
-  resize() {}
-  // ...
+	constructor() {}
+	draw() {}
+	resize() {}
+	// ...
 }
 
 class Decorator extends VisualComponent {
-  constructor(component) {
-    super();
-    this.component = component;
-  }
+	constructor(component) {
+		super();
+		this.component = component;
+	}
 
-  draw() {
-    this.component.draw();
-  }
-  resize() {
-    this.component.resize();
-  }
+	draw() {
+		this.component.draw();
+	}
+	resize() {
+		this.component.resize();
+	}
 }
 
 class BorderedDecorator extends Decorator {
-  constructor(component, width) {
-    super(component);
-    this.width = width;
-  }
+	constructor(component, width) {
+		super(component);
+		this.width = width;
+	}
 
-  drawBorder(width) {}
+	drawBorder(width) {}
 
-  draw() {
-    this.component.draw();
-    this.drawBorder(this.width);
-  }
+	draw() {
+		this.component.draw();
+		this.drawBorder(this.width);
+	}
 }
 
 class ScrollDecorator extends Decorator {}
@@ -39,14 +39,14 @@ class DropShadowDecorator extends Decorator {}
 // Usage (Compose)
 
 class Window {
-  // ...
-  setContents(component) {}
-  // ...
+	// ...
+	setContents(component) {}
+	// ...
 }
 class TextView extends VisualComponent {
-  constructor() {
-    super();
-  }
+	constructor() {
+		super();
+	}
 }
 
 const window = new Window();

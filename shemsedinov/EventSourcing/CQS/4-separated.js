@@ -1,17 +1,17 @@
 // 'use strict';
 
 class Adder {
-  constructor(x) {
-    this.value = x;
-  }
+	constructor(x) {
+		this.value = x;
+	}
 
-  getValue() {
-    return this.value;
-  }
+	getValue() {
+		return this.value;
+	}
 
-  add(x) {
-    this.value += x;
-  }
+	add(x) {
+		this.value += x;
+	}
 }
 
 const a1 = new Adder(2);

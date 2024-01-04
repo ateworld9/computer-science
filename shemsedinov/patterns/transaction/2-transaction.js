@@ -4,34 +4,34 @@
 function Transaction() {}
 
 Transaction.start = (data) => {
-  console.log('\nstart transaction');
-  let delta = {};
+	console.log('\nstart transaction');
+	let delta = {};
 
-  const methods = {
-    commit: () => {
-      console.log('\ncommit transaction');
-      Object.assign(data, delta);
-      delta = {};
-    },
-    rollback: () => {
-      console.log('\nrollback transaction');
-      delta = {};
-    },
-  };
-  return new Proxy(data, {
-    get(target, key) {
-      console.log('get', key);
-      if (methods.hasOwnProperty(key)) return methods[key];
-      if (delta.hasOwnProperty(key)) return delta[key];
-      return target[key];
-    },
-    set(target, key, val) {
-      console.log('set', key, val);
-      if (target[key] === val) delete delta[key];
-      else delta[key] = val;
-      return true;
-    },
-  });
+	const methods = {
+		commit: () => {
+			console.log('\ncommit transaction');
+			Object.assign(data, delta);
+			delta = {};
+		},
+		rollback: () => {
+			console.log('\nrollback transaction');
+			delta = {};
+		},
+	};
+	return new Proxy(data, {
+		get(target, key) {
+			console.log('get', key);
+			if (methods.hasOwnProperty(key)) return methods[key];
+			if (delta.hasOwnProperty(key)) return delta[key];
+			return target[key];
+		},
+		set(target, key, val) {
+			console.log('set', key, val);
+			if (target[key] === val) delete delta[key];
+			else delta[key] = val;
+			return true;
+		},
+	});
 };
 
 // Usage

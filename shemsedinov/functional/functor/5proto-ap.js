@@ -1,20 +1,20 @@
 //  'use strict'
 
 function Maybe(x) {
-  this.x = x;
+	this.x = x;
 }
 
 Maybe.prototype.map = function (fn) {
-  // if (this.x && fn) {
-  // 	return new Maybe(fn(this.x))
-  // }
-  // return new Maybe(null)
-  const res = this.x && fn ? fn(this.x) : null;
-  return res instanceof Maybe ? res : new Maybe(res);
+	// if (this.x && fn) {
+	// 	return new Maybe(fn(this.x))
+	// }
+	// return new Maybe(null)
+	const res = this.x && fn ? fn(this.x) : null;
+	return res instanceof Maybe ? res : new Maybe(res);
 };
 
 Maybe.prototype.ap = function (functor) {
-  return this.map((val) => functor.map((f) => f(val)));
+	return this.map((val) => functor.map((f) => f(val)));
 };
 
 // Usage

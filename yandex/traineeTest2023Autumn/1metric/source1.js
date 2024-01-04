@@ -14,46 +14,46 @@
  */
 
 function countUniqueUsersPerDay(data) {
-  const result = {};
+	const result = {};
 
-  const iterator = data.entries();
+	const iterator = data.entries();
 
-  for (const [user, date] of iterator) {
-    const formattedDate = date.toISOString().split('T')[0];
-    result[formattedDate] = result[formattedDate]
-      ? result[formattedDate] + 1
-      : 1;
-  }
+	for (const [user, date] of iterator) {
+		const formattedDate = date.toISOString().split('T')[0];
+		result[formattedDate] = result[formattedDate]
+			? result[formattedDate] + 1
+			: 1;
+	}
 
-  return result;
+	return result;
 }
 
 function adapter(data) {
-  return Object.entries(data).map(([date, users]) => ({
-    date,
-    users,
-  }));
+	return Object.entries(data).map(([date, users]) => ({
+		date,
+		users,
+	}));
 }
 
 module.exports = (func) => {
-  const uniqueUsers = new Map();
+	const uniqueUsers = new Map();
 
-  return (credentials, ...args) => {
-    // validate credentials
-    if (
-      typeof credentials.login !== 'string' ||
-      typeof credentials.password !== 'string'
-    ) {
-      return adapter(countUniqueUsersPerDay(uniqueUsers));
-    }
-    // save user
-    uniqueUsers.set(
-      `${credentials.login}:${credentials.password}`,
-      credentials.date,
-    );
+	return (credentials, ...args) => {
+		// validate credentials
+		if (
+			typeof credentials.login !== 'string' ||
+			typeof credentials.password !== 'string'
+		) {
+			return adapter(countUniqueUsersPerDay(uniqueUsers));
+		}
+		// save user
+		uniqueUsers.set(
+			`${credentials.login}:${credentials.password}`,
+			credentials.date,
+		);
 
-    func(...args);
+		func(...args);
 
-    return adapter(countUniqueUsersPerDay(uniqueUsers));
-  };
+		return adapter(countUniqueUsersPerDay(uniqueUsers));
+	};
 };

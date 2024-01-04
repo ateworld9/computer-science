@@ -1,13 +1,13 @@
 'use strict';
 
 function* counter(begin, end, delta = 1) {
-  let value = begin;
-  while (end > value) {
-    value += delta;
-    if (value > end) return;
+	let value = begin;
+	while (end > value) {
+		value += delta;
+		if (value > end) return;
 
-    yield value;
-  }
+		yield value;
+	}
 }
 
 const c = counter(0, 30, 12);

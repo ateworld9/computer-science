@@ -6,43 +6,43 @@
 function Transaction() {}
 
 Transaction.start = (data) => {
-  console.log('\nstart transaction');
-  let delta = {};
+	console.log('\nstart transaction');
+	let delta = {};
 
-  const methods = {
-    commit: () => {
-      console.log('\ncommit transaction');
-      Object.assign(data, delta);
-      delta = {};
-    },
-    rollback: () => {
-      console.log('\nrollback transaction');
-      delta = {};
-    },
-  };
+	const methods = {
+		commit: () => {
+			console.log('\ncommit transaction');
+			Object.assign(data, delta);
+			delta = {};
+		},
+		rollback: () => {
+			console.log('\nrollback transaction');
+			delta = {};
+		},
+	};
 
-  return new Proxy(data, {
-    get(target, key) {
-      if (methods.hasOwnProperty(key)) return methods[key];
-      if (delta.hasOwnProperty(key)) return delta[key];
-      return target[key];
-    },
-    getOwnPropertyDescriptor(target, key) {
-      console.log('getOwnPropertyDescriptor', key);
-      const descriptor = Object.getOwnPropertyDescriptor(
-        delta.hasOwnProperty(key) ? delta : target,
-        key,
-      );
-      console.dir(descriptor);
-      return descriptor;
-    },
-    set(target, key, val) {
-      console.log('set', key, val);
-      if (target[key] === val) delete delta[key];
-      else delta[key] = val;
-      return true;
-    },
-  });
+	return new Proxy(data, {
+		get(target, key) {
+			if (methods.hasOwnProperty(key)) return methods[key];
+			if (delta.hasOwnProperty(key)) return delta[key];
+			return target[key];
+		},
+		getOwnPropertyDescriptor(target, key) {
+			console.log('getOwnPropertyDescriptor', key);
+			const descriptor = Object.getOwnPropertyDescriptor(
+				delta.hasOwnProperty(key) ? delta : target,
+				key,
+			);
+			console.dir(descriptor);
+			return descriptor;
+		},
+		set(target, key, val) {
+			console.log('set', key, val);
+			if (target[key] === val) delete delta[key];
+			else delta[key] = val;
+			return true;
+		},
+	});
 };
 
 // Usage
@@ -66,7 +66,7 @@ console.dir({ transaction });
 
 console.log('\noutput with for-in:');
 for (const key in transaction) {
-  console.log(key, transaction[key]);
+	console.log(key, transaction[key]);
 }
 
 transaction.commit();

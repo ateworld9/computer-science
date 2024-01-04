@@ -21,36 +21,36 @@ const sortByTemplate = require('./source.js');
 // console.log(sortedArray4);
 
 const arr = [
-  {
-    field: {
-      field1: 'Новости',
-      'something-else': {},
-    },
-  },
-  {
-    field: {
-      field1: 'Контакты',
-      'something-else': {},
-    },
-  },
-  {
-    field: {
-      field1: 'Еще раздел',
-      'something-else': {},
-    },
-  },
-  {
-    field: {
-      field1: 'О компании',
-      'something-else': {},
-    },
-  },
-  {
-    field: {
-      field1: 'Главная',
-      'something-else': {},
-    },
-  },
+	{
+		field: {
+			field1: 'Новости',
+			'something-else': {},
+		},
+	},
+	{
+		field: {
+			field1: 'Контакты',
+			'something-else': {},
+		},
+	},
+	{
+		field: {
+			field1: 'Еще раздел',
+			'something-else': {},
+		},
+	},
+	{
+		field: {
+			field1: 'О компании',
+			'something-else': {},
+		},
+	},
+	{
+		field: {
+			field1: 'Главная',
+			'something-else': {},
+		},
+	},
 ];
 
 const orderr = ['Главная', 'О компании', 'Новости'];
