@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 // O = n^2
 
 function insertionSort(arr) {

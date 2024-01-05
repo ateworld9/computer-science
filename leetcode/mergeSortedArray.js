@@ -14,5 +14,7 @@ function mergeSortedArraysInPlace(arr1, m, arr2, n) {
 
 const arr1 = [1, 2, 3, 0, 0, 0];
 const arr2 = [2, 5, 6];
+
 mergeSortedArraysInPlace(arr1, 3, arr2, 3);
+
 console.log(arr1);

@@ -1,7 +1,3 @@
-/* eslint-disable operator-assignment */
-/* eslint-disable no-shadow */
-/* eslint-disable guard-for-in */
-/* eslint-disable no-restricted-syntax */
 const arr = [9, 9, 9, 9, 6, 6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 1, 1, 1, 1, 1];
 // O = n ,но подходит только для массивов с маленьким диапазоном значений и повторами
 function countingSort(arr) {
