@@ -13,6 +13,6 @@ tags:
 |                                                                    | [Flyweight](./Structural/Flyweight/Flyweight.md) | [Memento](./Behavioral/Memento/Memento.md)                                             |
 |                                                                    | [Proxy](./Structural/Proxy/Proxy.md)             | [Observer](./Behavioral/Observer/Observer.md)                                          |
 |                                                                    |                                                  | [State](./Behavioral/State/State.md)                                                   |
-|                                                                    |                                                  | [Strartegy](./Behavioral/Strategy/)                                                    |
+|                                                                    |                                                  | [Strategy](./Behavioral/Strategy/)                                                     |
 |                                                                    |                                                  | [Template](./Behavioral/Template/)                                                     |
 |                                                                    |                                                  | [Visitor](./Behavioral/Visitor/Visitor.md)                                             |
