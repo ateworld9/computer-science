@@ -20,17 +20,12 @@ $E$ — ребра(количество)
 index — вершина  
 элемент таблицы — ребро(вес, или признак ребра/его отсутствия)
 
-<div>
-  <figure>
-    <img src='./oriented_graph.png' width='200' />
-    <img src='./oriented_graph_matrix.png' width='300' />
-    <figcaption>Неориентированный граф и его матрица смежности</figcaption>
-  </figure>
-  <figure>
-   <img src='./matrixes.png' />
-   <figcaption>Матрица смежности для неориентированного (слева) и ориентированного (справа) графа.</figcaption>
-  </figure>
-</div>
+![oriented graph|200](./oriented_graph.png)
+![oriented graph matrix|300](./oriented_graph_matrix.png)
+Неориентированный граф и его матрица смежности
+
+![Матрица смежности](/matrixes.png)
+Матрица смежности для неориентированного (слева) и ориентированного (справа) графа.
 
 У неориентированного графа матрица смежности симметрична  
 У ориентированного – нет.
@@ -57,16 +52,15 @@ index — вершина
   			}
   		}
   	});
-  
+
   	for (let i = 1; i <= vertexCount; i += 1) {
   		if (adjaencyList[i] === undefined) {
   			adjaencyList[i] = [];
   		}
   	}
-  
+
   	return adjaencyList;
   }
-
   ```
 
 </details>
@@ -84,13 +78,13 @@ index — вершина
   			adjaencyList[a].push(b);
   		}
   	});
-  
+
   	for (let i = 1; i <= vertexCount; i += 1) {
   		if (adjaencyList[i] === undefined) {
   			adjaencyList[i] = [];
   		}
   	}
-  
+
   	return adjaencyList;
   }
   ```

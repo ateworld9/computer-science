@@ -2,35 +2,39 @@
 
 Использовать:
 
-- если в задачке просят найти самую длинную/короткую строку, подмассив или какое-то значение на их основе.
-- задача
-  _Для массива, состоящего из n целых чисел, найдите непрерывный подмассив заданной длины k, который имеет максимальное среднее значение. Нужно вывести максимальное среднее значение._
+- если в задаче просят найти самую длинную/короткую строку, подмассив или какое-то значение на их основе.
 
-  - Брутфорс
+**Задача**
+_Для массива, состоящего из n целых чисел, найдите непрерывный подмассив заданной длины k, который имеет максимальное среднее значение. Нужно вывести максимальное среднее значение._
 
-    ````jsx
-    function findMaxAverage(nums, k) {
-    let maxAverage = Number.MIN_VALUE;
+- <details>
+  <summary>Брутфорс </summary>
 
-        	for (let i = 0; i < nums.length - k + 1; i += 1) {
-        		let sum = 0; // сумма следующих k элементо
+  ```jsx
+  function findMaxAverage(nums, k) {
+  	let maxAverage = Number.MIN_VALUE;
 
-        		for (let j = i; j < i + k; j += 1) {
-        			sum += nums[j];
-        		}
-        		const average = sum / k;
-        		maxAverage = Math.max(maxAverage, average);
-        	}
+  	for (let i = 0; i < nums.length - k + 1; i += 1) {
+  		let sum = 0; // сумма следующих k элементо
 
-        	return maxAverage;
-        }
+  		for (let j = i; j < i + k; j += 1) {
+  			sum += nums[j];
+  		}
+  		const average = sum / k;
+  		maxAverage = Math.max(maxAverage, average);
+  	}
 
-        console.assert(findMaxAverage([1, 12, -5, -6, 50, 3], 4) === 12.75);
-        ```
+  	return maxAverage;
+  }
 
-    ![Untitled](img/Untitled%205.png)
-    Чтобы переиспользовать рассчитанную для предыдущего подмассива сумму, достаточно вычесть элемент выпадающий из окна и добавить новый, попавший в окно.
-    ````
+  console.assert(findMaxAverage([1, 12, -5, -6, 50, 3], 4) === 12.75);
+  ```
+
+  <details>
+
+![Untitled](Untitled%205.png)
+
+Чтобы переиспользовать рассчитанную для предыдущего подмассива сумму, достаточно вычесть элемент выпадающий из окна и добавить новый, попавший в окно.
 
 ```jsx
 function findMaxAverage(nums: number[], k: number): number {
