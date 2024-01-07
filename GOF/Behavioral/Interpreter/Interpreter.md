@@ -1,5 +1,7 @@
 [Паттерны](../../Patterns.md)
 
+# Interpreter
+
 tags:
 
 - #architecture

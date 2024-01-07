@@ -1,5 +1,7 @@
 [Паттерны](../../Patterns.md)
 
+# Chain Of Responsibility
+
 tags:
 
 - #architecture

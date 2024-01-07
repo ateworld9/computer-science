@@ -1,5 +1,7 @@
 [Паттерны](../../Patterns.md)
 
+# Composite
+
 tags:
 
 - #architecture

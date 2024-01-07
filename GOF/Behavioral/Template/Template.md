@@ -1,5 +1,7 @@
 [Паттерны](../../Patterns.md)
 
+# Template Method
+
 tags:
 
 - #architecture

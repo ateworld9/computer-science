@@ -1,5 +1,7 @@
 [Паттерны](../../Patterns.md)
 
+# Фабричный метод
+
 tags:
 
 - #architecture

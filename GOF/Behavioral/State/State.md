@@ -1,5 +1,7 @@
 [Паттерны](../../Patterns.md)
 
+# State
+
 tags:
 
 - #architecture

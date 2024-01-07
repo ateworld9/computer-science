@@ -1,4 +1,7 @@
 [Паттерны](../../Patterns.md)
+
+# Adapter
+
 tags:
 
 - #architecture

@@ -1,5 +1,7 @@
 [Паттерны](../../Patterns.md)
 
+# Facade
+
 tags:
 
 - #architecture
