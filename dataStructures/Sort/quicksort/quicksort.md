@@ -1,6 +1,6 @@
 [Алгоритмы и Структуры данных](../../DataStructures_and_Algorithms.md)
 
-# Быстрая
+# Быстрая сортировка
 
 Обший алгоритм:
 ![Untitled](./Untitled.png)

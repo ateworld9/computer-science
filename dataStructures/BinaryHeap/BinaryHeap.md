@@ -2,7 +2,7 @@
 
 # Бинарная куча
 
-![BinaryHeap | 400](./BinaryHeap.png)
+<img src="./BinaryHeap.png" width="400">
 
 Свойства:
 
