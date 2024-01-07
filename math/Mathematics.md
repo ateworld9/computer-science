@@ -308,8 +308,9 @@ $x \vee 1 = 1$
 
 $x \vee 0 = x$
 
-**Другие
-$\neg\neg x = x$**
+**Другие**
+
+$\neg\neg x = x$
 
 $x \oplus 1 = \neg x$
 
