@@ -1,32 +1,37 @@
 'use strict';
 
-// Synchronous function to Promise-returning
+// Callback-last function to Promise-returning
 
-const promisifySync =
+const promisify =
 	(fn) =>
-	(...args) => {
-		try {
-			const result = fn(...args);
-			if (result instanceof Error) return Promise.reject(result);
-			else return Promise.resolve(result);
-		} catch (error) {
-			return Promise.reject(error);
-		}
-	};
+	(...args) =>
+		new Promise((resolve, reject) => {
+			fn(...args, (err, data) => {
+				if (err) reject(err);
+				else resolve(data);
+			});
+		});
 
 // Usage
 
-const twice = (x) => x * 2;
-const twicePromise = promisifySync(twice);
+const twiceCallback = (x, callback) => {
+	callback(null, x * 2);
+};
+const twicePromise = promisify(twiceCallback);
 
-const half = (x) => x / 2;
-const halfPromise = promisifySync(half);
+const halfCallback = (x, callback) => {
+	callback(null, x / 2);
+};
+const halfPromise = promisify(halfCallback);
 
-const result = half(twice(100));
-console.dir({ sync: result });
+twiceCallback(100, (e, value) => {
+	halfCallback(value, (e, result) => {
+		console.dir({ callbackLast: result });
+	});
+});
 
 twicePromise(100)
 	.then((value) => halfPromise(value))
 	.then((result) => {
-		console.dir({ promise: result });
+		console.dir({ promisified: result });
 	});

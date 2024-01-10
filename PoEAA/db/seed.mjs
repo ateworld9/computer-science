@@ -1,33 +1,54 @@
-import { db } from './db.mjs';
+import { all, db } from './db.mjs';
 
-// await db.run('DROP TABLE person;');
+db.serialize(function () {
+	all('DROP TABLE person;')
+		.then((rows) => {
+			console.log(rows);
+		})
+		.catch((err) => {
+			console.log('CREATE table', err.message);
+		});
 
-await db.run(`
-	CREATE TABLE IF NOT EXISTS person (
-		contact_id INTEGER PRIMARY KEY,
+	all(
+		`
+		CREATE TABLE IF NOT EXISTS person (
+		person_id INTEGER PRIMARY KEY,
 		first_name TEXT NOT NULL,
 		last_name TEXT NOT NULL,
 		email TEXT NOT NULL UNIQUE
-	);
-	`);
+		);
+		`,
+	)
+		.then((rows) => {
+			console.log(rows);
+		})
+		.catch((err) => {
+			console.log('CREATE table', err.message);
+		});
 
-const res = await db.run(`
-	INSERT INTO person (first_name, last_name, email)
-	VALUES 
+	all(
+		`
+		INSERT INTO person (first_name, last_name, email)
+		VALUES
 		('Dmitiy', 'Vahrameev', 'vahrameev.work@gmail.com'),
 		('Admin', 'Adminov', 'admin@gmail.com'),
 		('Anton', 'Antonov', '3@gmail.com'),
 		('Timur', 'Chochiev', 'chochiev@gmail.com'),
 		('Ivan', 'Novikov', 'ubah@gmail.com');
-`);
+		`,
+	)
+		.then((rows) => {
+			console.log(rows);
+		})
+		.catch((err) => {
+			console.log('insert to person', err.message);
+		});
 
-console.log(res);
-
-db.all(`SELECT * FROM person;`, [], (err, rows) => {
-	if (err) {
-		return console.log(err.message);
-	}
-	console.log(rows);
+	all('SELECT * FROM person;')
+		.then((rows) => {
+			console.log(rows);
+		})
+		.catch((err) => {
+			console.log('select in', err.message);
+		});
 });
-
-db.close();
