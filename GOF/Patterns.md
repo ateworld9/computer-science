@@ -1,7 +1,6 @@
-tags:
+[База знаний](../README.md)
 
-- #architecture
-- #patterns
+# GoF Паттерны
 
 | **Порождающие**                                                    | **Структурные**                                  | **Поведенческие**                                                                      |
 | ------------------------------------------------------------------ | ------------------------------------------------ | -------------------------------------------------------------------------------------- |
@@ -16,3 +15,8 @@ tags:
 |                                                                    |                                                  | [Strategy](./Behavioral/Strategy/Strategy.md)                                          |
 |                                                                    |                                                  | [Template](./Behavioral/Template/Template.md)                                          |
 |                                                                    |                                                  | [Visitor](./Behavioral/Visitor/Visitor.md)                                             |
+
+tags:
+
+- #architecture
+- #patterns
