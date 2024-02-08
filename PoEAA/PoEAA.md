@@ -7,9 +7,9 @@
 <img src="./BL_complexity_x_time.png" width="500" />
 
 [Transaction Script](./DomainLogic/Transaction/Transaction.md)  
-[Domain Model]()  
-[Table Module]()  
-[Service Layer]()
+[Domain Model](./DomainLogic/DomainModel/DomainModel.md)  
+[Table Module](./DomainLogic/TableModule/TableModule.md)  
+[Service Layer](./DomainLogic/ServiceLayer/ServiceLayer.md)
 
 ### Data Source
 

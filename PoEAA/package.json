@@ -10,6 +10,8 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"currency.js": "^2.0.4",
+		"dayjs": "^1.11.10",
 		"sqlite3": "^5.1.7-rc.0"
 	}
 }

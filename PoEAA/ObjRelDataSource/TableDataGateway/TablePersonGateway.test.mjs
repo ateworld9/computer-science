@@ -1,5 +1,5 @@
 import test from 'node:test';
-import { initPersonsDB } from '../../db/seed.mjs';
+import { initPersonsDB } from '../initPersonsDb.mjs';
 import { PersonGateway } from './TablePersonGateway.mjs';
 import assert from 'node:assert';
 import {
@@ -50,7 +50,7 @@ const personsResult = [
 ];
 
 test('TablePersonGateway tests', async (t) => {
-	const connect = connectDB(
+	const connect = await connectDB(
 		'./ObjRelDataSource/TableDataGateway/persons.db',
 		initPersonsDB,
 		persons,
@@ -58,6 +58,7 @@ test('TablePersonGateway tests', async (t) => {
 	);
 
 	const gateway = new PersonGateway(connect);
+
 	await t.test('findAll ', async () => {
 		const result = await gateway.findAll();
 		assert.deepStrictEqual(result, personsResult);

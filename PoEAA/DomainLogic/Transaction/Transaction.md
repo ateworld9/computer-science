@@ -14,4 +14,6 @@ Transaction Script - Процедура, получает на вход инфо
 
 - Если нескольким транзакциям необходимо осуществлять схожие функции, возникает дублирование кода.
 
+![Transaction Revenue Scheme](transaction_revenue_scheme.png)
+
 ![Task](../RevenueRecognition.md)

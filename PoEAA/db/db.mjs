@@ -14,11 +14,25 @@ export const connectDB = async (
 				console.error(err.message);
 				reject();
 			} else {
-				console.log('Connected to the person database.');
+				console.log('Connected to the database.');
 			}
 		});
 		resolve(connect);
 	});
+
+	function run(sql, params = []) {
+		return new Promise(function (resolve, reject) {
+			const DB = db.run(sql, params, function (err) {
+				if (err) {
+					// console.log('Error running sql ' + sql);
+					// console.log(err);
+					reject(err);
+				} else {
+					resolve({ id: this.lastID, changes: this.changes });
+				}
+			});
+		});
+	}
 
 	function get(sql, params = []) {
 		return new Promise(function (resolve, reject) {
@@ -27,20 +41,6 @@ export const connectDB = async (
 					reject(err);
 				} else {
 					resolve(result);
-				}
-			});
-		});
-	}
-
-	function run(sql, params = []) {
-		return new Promise(function (resolve, reject) {
-			db.run(sql, params, function (err) {
-				if (err) {
-					// console.log('Error running sql ' + sql);
-					// console.log(err);
-					reject(err);
-				} else {
-					resolve({ id: this.lastID, changes: this.changes });
 				}
 			});
 		});
@@ -60,10 +60,22 @@ export const connectDB = async (
 		});
 	}
 
+	function prepare(sql, params = []) {
+		return new Promise(function (resolve, reject) {
+			const stmt = db.prepare(sql, params, function (err) {
+				if (err !== null) {
+					reject(err);
+				}
+			});
+			resolve(stmt);
+		});
+	}
+
 	const DB = {
 		get,
 		all,
 		run,
+		prepare,
 		serialize: db.serialize.bind(db),
 		parallelize: db.parallelize.bind(db),
 	};

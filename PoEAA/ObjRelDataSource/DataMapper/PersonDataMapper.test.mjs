@@ -1,7 +1,7 @@
-import { inspect } from 'util';
 import { PersonMapper } from './PersonDataMapper.mjs';
 import { connectDB } from '../../db/db.mjs';
-import { initPersonsDB } from '../../db/seed.mjs';
+import { initPersonsDB } from '../initPersonsDb.mjs';
+import test from 'node:test';
 
 const persons = [
 	['Dmitiy', 'Vahrameev', 'vahrameev.work@gmail.com'],
@@ -19,7 +19,9 @@ const connect = await connectDB(
 );
 const personMapper = new PersonMapper(connect);
 
-const person = await personMapper.findById(1);
-console.log(person);
-const person2 = await personMapper.findById(1);
-console.log(person2);
+// const person = await personMapper.findById(1);
+// console.log(person);
+// const person2 = await personMapper.findById(1);
+// console.log(person2);
+// TODO tests
+test('DataMapper test', { todo: true });

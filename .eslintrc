@@ -16,7 +16,7 @@
 		"eslint-config-prettier",
 		"eslint:recommended"
 	],
-	"plugins": ["json", "eslint-plugin-prettier"],
+	"plugins": ["json", "eslint-plugin-prettier", "@typescript-eslint"],
 	"rules": {
 		"prettier/prettier": "error",
 		"no-unused-vars": "warn"

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert';
-import { initPersonsDB } from '../../db/seed.mjs';
+import { initPersonsDB } from '../initPersonsDb.mjs';
 import { PersonFinder, PersonGateway } from './RowPersonGateway.mjs';
 import { createPersonsRegistry } from '../Registry.mjs';
 import { connectDB } from '../../db/db.mjs';
@@ -54,7 +54,7 @@ const personAdapter = (person) => ({
 });
 
 test('RowPersonGateway tests', async (t) => {
-	const connect = connectDB(
+	const connect = await connectDB(
 		'./ObjRelDataSource/RowDataGateway/persons.db',
 		initPersonsDB,
 		persons,

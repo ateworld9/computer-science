@@ -1,25 +1,54 @@
-export async function initPersonsDB(DB, InitData) {
+export async function initRevenueRecognitionsDB(DB, InitData) {
 	// DB.serialize(function () {
-	await DB.all('DROP TABLE IF EXISTS person;')
+	await DB.run('DROP TABLE IF EXISTS revenue_recognitions;')
 		.then(() => {
-			console.log('table person dropped');
+			console.log('table revenue_recognitions dropped');
 		})
 		.catch((err) => {
-			console.log('DROP table', err.message);
+			console.log('ERR DROP table revenue_recognitions', err.message);
 		});
 
-	await DB.all(
+	await DB.run('DROP TABLE IF EXISTS contracts;')
+		.then(() => {
+			console.log('table contracts dropped');
+		})
+		.catch((err) => {
+			console.log('ERR DROP table contracts', err.message);
+		});
+
+	await DB.run('DROP TABLE IF EXISTS products;')
+		.then(() => {
+			console.log('table products dropped');
+		})
+		.catch((err) => {
+			console.log('ERR DROP table products', err.message);
+		});
+
+	await DB.run(
 		'CREATE TABLE IF NOT EXISTS products (' +
 			'product_id INTEGER PRIMARY KEY, ' +
 			'name TEXT NOT NULL, ' +
-			'type TEXT NOT NULL, ' +
+			'type TEXT NOT NULL ' +
 			')',
 	)
 		.then(() => {
 			console.log('table products created');
 		})
 		.catch((err) => {
-			console.log('CREATE table products', err.message);
+			console.log('ERR CREATE table products', err.message);
+		});
+
+	await DB.all(
+		'INSERT INTO products (name, type) VALUES ' +
+			"('Excel', 'Sheets'), " +
+			"('Word', 'WordProcessor'), " +
+			"('MS SQL Server', 'DBMS') ",
+	)
+		.then(() => {
+			console.log('table products filled');
+		})
+		.catch((err) => {
+			console.log('ERR INSERT products', err.message);
 		});
 
 	await DB.all(
@@ -34,7 +63,19 @@ export async function initPersonsDB(DB, InitData) {
 			console.log('table contracts created');
 		})
 		.catch((err) => {
-			console.log('CREATE table', err.message);
+			console.log('ERR CREATE contracts table', err.message);
+		});
+	await DB.all(
+		'INSERT INTO contracts (product_id, revenue, date_signed) VALUES ' +
+			"(1, 10000000, '2023-01-01'), " +
+			"(2, 1000000, '2023-05-01'), " +
+			"(3, 10000000, '2023-09-01') ",
+	)
+		.then(() => {
+			console.log('table contracts filled');
+		})
+		.catch((err) => {
+			console.log('ERR INSERT contracts', err.message);
 		});
 
 	await DB.all(
@@ -46,22 +87,9 @@ export async function initPersonsDB(DB, InitData) {
 			')',
 	)
 		.then(() => {
-			console.log('table contracts created');
+			console.log('table revenue_recognitions created');
 		})
 		.catch((err) => {
-			console.log('CREATE table', err.message);
+			console.log('ERR CREATE table revenue_recognitions ', err.message);
 		});
-
-	await DB.all(
-		`INSERT INTO person (firstname, lastname, email) VALUES ${InitData.map(
-			(row) => `(${row.map((col) => `'${col}'`).join(', ')})`,
-		).join(', ')}`,
-	)
-		.then(() => {
-			console.log('table person filled');
-		})
-		.catch((err) => {
-			console.log('INSERT INTO person', err.message);
-		});
-	// });
 }
