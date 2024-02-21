@@ -1,5 +1,3 @@
-/* eslint-disable class-methods-use-this */
-
 // visualisation https://www.cs.usfca.edu/~galles/visualization/Heap.html
 class Heap {
 	constructor(comparator) {

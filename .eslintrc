@@ -6,17 +6,19 @@
 	},
 	"parserOptions": {
 		"ecmaVersion": 2022,
-		// "ecmaFeatures": {
-		//   "jsx": true
-		// },
+		"ecmaFeatures": {
+			"jsx": true
+		},
 		"sourceType": "module"
 	},
 	"extends": [
 		"plugin:json/recommended",
 		"eslint-config-prettier",
-		"eslint:recommended"
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:react-hooks/recommended"
 	],
-	"plugins": ["json", "eslint-plugin-prettier", "@typescript-eslint"],
+	"plugins": ["json", "eslint-plugin-prettier", "@typescript-eslint", "react"],
 	"rules": {
 		"prettier/prettier": "error",
 		"no-unused-vars": "warn"
