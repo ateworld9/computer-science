@@ -1,12 +1,14 @@
+import { DB } from '../db/db.js';
+
 const persons = [
-	['Dmitiy', 'Vahrameev', 'vahrameev.work@gmail.com'],
+	['Dmitriy', 'Vahrameev', 'vahrameev.work@gmail.com'],
 	['Admin', 'Adminov', 'admin@gmail.com'],
 	['Anton', 'Antonov', '3@gmail.com'],
 	['Timur', 'Chochiev', 'chochiev@gmail.com'],
 	['Ivan', 'Novikov', 'ubah@gmail.com'],
 ];
 
-export async function initPersonsDB(DB, personsInitData = persons) {
+export async function initPersonsDB(DB: DB, personsInitData = persons) {
 	// DB.serialize(function () {
 	await DB.all('DROP TABLE IF EXISTS person;')
 		.then(() => {
@@ -18,9 +20,9 @@ export async function initPersonsDB(DB, personsInitData = persons) {
 
 	await DB.all(
 		'CREATE TABLE IF NOT EXISTS person (' +
-			'person_id INTEGER PRIMARY KEY, ' +
-			'firstname TEXT NOT NULL, ' +
-			'lastname TEXT NOT NULL, ' +
+			'id INTEGER PRIMARY KEY, ' +
+			'first_name TEXT NOT NULL, ' +
+			'last_name TEXT NOT NULL, ' +
 			'email TEXT NOT NULL UNIQUE' +
 			')',
 	)
@@ -32,7 +34,7 @@ export async function initPersonsDB(DB, personsInitData = persons) {
 		});
 
 	await DB.all(
-		`INSERT INTO person (firstname, lastname, email) VALUES ${personsInitData
+		`INSERT INTO person (first_name, last_name, email) VALUES ${personsInitData
 			.map((person) => `(${person.map((el) => `'${el}'`).join(', ')})`)
 			.join(', ')}`,
 	)

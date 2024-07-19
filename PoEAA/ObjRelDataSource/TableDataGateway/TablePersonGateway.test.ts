@@ -1,12 +1,14 @@
 import test from 'node:test';
-import { initPersonsDB } from '../initPersonsDb.mjs';
-import { PersonGateway } from './TablePersonGateway.mjs';
 import assert from 'node:assert';
+
+import { connectDB } from '../../db/db.js';
+import { initPersonsDB } from '../initPersonsDb.js';
 import {
 	SQLConstraintUniqueException,
 	SQLException,
-} from '../../errors/SQLException.mjs';
-import { connectDB } from '../../db/db.mjs';
+} from '../../errors/SQLException.js';
+
+import { PersonGateway } from './TablePersonGateway.js';
 
 const persons = [
 	['Dmitiy', 'Vahrameev', 'vahrameev.work@gmail.com'],
@@ -18,31 +20,31 @@ const persons = [
 
 const personsResult = [
 	{
-		person_id: 1,
+		id: 1,
 		firstname: 'Dmitiy',
 		lastname: 'Vahrameev',
 		email: 'vahrameev.work@gmail.com',
 	},
 	{
-		person_id: 2,
+		id: 2,
 		firstname: 'Admin',
 		lastname: 'Adminov',
 		email: 'admin@gmail.com',
 	},
 	{
-		person_id: 3,
+		id: 3,
 		firstname: 'Anton',
 		lastname: 'Antonov',
 		email: '3@gmail.com',
 	},
 	{
-		person_id: 4,
+		id: 4,
 		firstname: 'Timur',
 		lastname: 'Chochiev',
 		email: 'chochiev@gmail.com',
 	},
 	{
-		person_id: 5,
+		id: 5,
 		firstname: 'Ivan',
 		lastname: 'Novikov',
 		email: 'ubah@gmail.com',
@@ -97,7 +99,7 @@ test('TablePersonGateway tests', async (t) => {
 	await t.test('update ', async () => {
 		const person = await gateway.findById(3);
 		await gateway.update(
-			person.person_id,
+			person.id,
 			person.firstname,
 			person.lastname,
 			'antonov@gmail.com',
@@ -112,7 +114,7 @@ test('TablePersonGateway tests', async (t) => {
 	await t.test('insert', async (t) => {
 		await t.test('to success', async () => {
 			const newPerson = {
-				person_id: 6,
+				id: 6,
 				firstname: 'Ilya',
 				lastname: 'Zoreev',
 				email: 'tivoobweokom@mail.ru',
@@ -127,7 +129,7 @@ test('TablePersonGateway tests', async (t) => {
 
 		await t.test('to throw unique', async () => {
 			const newPerson = {
-				person_id: 7,
+				id: 7,
 				firstname: 'Ilya',
 				lastname: 'Zoreev',
 				email: 'tivoobweokom@mail.ru',

@@ -1,13 +1,14 @@
+import test from 'node:test';
+import assert from 'assert';
+
+import { connectDB } from '../../db/db.js';
+import { initRevenueRecognitionsDB } from '../initRevenueRecognitions.js';
+
 import {
 	ContractsGateway,
 	RecognitionsGateway,
 	RecognitionsService,
-} from './Transaction.mjs';
-
-import { connectDB } from '../../db/db.mjs';
-import { initRevenueRecognitionsDB } from '../initRevenueRecognitions.mjs';
-import test from 'node:test';
-import assert from 'assert';
+} from './Transaction.js';
 
 const connection = await connectDB(
 	'./DomainLogic/Transaction/revenue.db',

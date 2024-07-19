@@ -1,22 +1,39 @@
 import currency from 'currency.js';
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 
-import { SQLException } from '../../errors/SQLException.mjs';
-import { ApplicationException } from '../../errors/ApplicationException.mjs';
+import { SQLException } from '../../errors/SQLException.js';
+import { ApplicationException } from '../../errors/ApplicationException.js';
+
+import type { DB } from '../../db/db.js';
+
+interface SQLRecognition {
+	contract_id: number;
+	amount: number;
+	recognized_on: number | string;
+}
+
+interface SQLContract {
+	contract_id: number;
+	product_id: number;
+	revenue: number;
+	date_signed: number | string;
+	type: string;
+}
 
 export class RecognitionsGateway {
-	constructor(connection) {
+	connection: DB;
+	constructor(connection: DB) {
 		this.connection = connection;
 	}
-	static findRecognitionsStatement =
+	private static findRecognitionsStatement =
 		'SELECT amount ' +
 		'FROM revenue_recognitions ' +
 		'WHERE contract_id = $contractId ' +
 		'AND recognized_on <= $recognizedOn ;';
-	async findRecognitionsFor(contractId, asOf) {
+	async findRecognitionsFor(contractId: number, asOf: number | string | Dayjs) {
 		let resultSet;
 		try {
-			resultSet = await this.connection.all(
+			resultSet = await this.connection.all<SQLRecognition>(
 				RecognitionsGateway.findRecognitionsStatement,
 				{
 					$contractId: contractId,
@@ -24,16 +41,23 @@ export class RecognitionsGateway {
 				},
 			);
 		} catch (error) {
-			throw new SQLException(error.message);
+			throw new SQLException(
+				(error as Error).message,
+				RecognitionsGateway.findRecognitionsStatement,
+			);
 		}
 		return resultSet;
 	}
 
-	static insertRecognitionStatement =
+	private static insertRecognitionStatement =
 		'INSERT INTO revenue_recognitions ' +
 		'(contract_id,amount,recognized_on) ' +
 		'VALUES ($contractId, $amount, $recognizedOn); ';
-	async insertRecognition(contractId, amount, asOf) {
+	async insertRecognition(
+		contractId: number,
+		amount: number,
+		asOf: number | string | Dayjs,
+	) {
 		try {
 			return await this.connection.run(
 				RecognitionsGateway.insertRecognitionStatement,
@@ -45,7 +69,7 @@ export class RecognitionsGateway {
 			);
 		} catch (error) {
 			throw new SQLException(
-				error.message,
+				(error as Error).message,
 				RecognitionsGateway.insertRecognitionStatement,
 			);
 		}
@@ -53,17 +77,18 @@ export class RecognitionsGateway {
 }
 
 export class ContractsGateway {
-	constructor(connection) {
+	connection: DB;
+	constructor(connection: DB) {
 		this.connection = connection;
 	}
-	static findContractByIdStatement =
+	private static findContractByIdStatement =
 		'SELECT c.contract_id, c.product_id, c.revenue, c.date_signed, p.type ' +
 		'FROM contracts c ' +
 		'JOIN products p on c.product_id = p.product_id ' +
 		'WHERE contract_id = $contractId;';
-	async findContract(contractId) {
+	async findContract(contractId: number) {
 		try {
-			return await this.connection.get(
+			return await this.connection.get<SQLContract>(
 				ContractsGateway.findContractByIdStatement,
 				{
 					$contractId: contractId,
@@ -71,7 +96,7 @@ export class ContractsGateway {
 			);
 		} catch (error) {
 			throw new SQLException(
-				error.message,
+				(error as Error).message,
 				ContractsGateway.findContractByIdStatement,
 			);
 		}
@@ -79,11 +104,19 @@ export class ContractsGateway {
 }
 
 export class RecognitionsService {
-	constructor(recognitionsGateway, contractsGateway) {
+	recognitionsGateway: RecognitionsGateway;
+	contractsGateway: ContractsGateway;
+	constructor(
+		recognitionsGateway: RecognitionsGateway,
+		contractsGateway: ContractsGateway,
+	) {
 		this.recognitionsGateway = recognitionsGateway;
 		this.contractsGateway = contractsGateway;
 	}
-	async recognizedRevenue(contractNumber, asOf) {
+	async recognizedRevenue(
+		contractNumber: number,
+		asOf: number | string | Dayjs,
+	) {
 		let result = 0;
 		let resultSet;
 		try {
@@ -92,7 +125,7 @@ export class RecognitionsService {
 				dayjs(asOf).format('YYYY-MM-DD'),
 			);
 		} catch (error) {
-			throw new ApplicationException(error);
+			throw new ApplicationException((error as Error).message);
 		}
 		resultSet.forEach(({ amount }) => {
 			result = currency(result).add(amount).value;
@@ -100,7 +133,7 @@ export class RecognitionsService {
 
 		return result;
 	}
-	async calculateRevenueRecognitions(contractNumber) {
+	async calculateRevenueRecognitions(contractNumber: number) {
 		let contract;
 		try {
 			contract = await this.contractsGateway.findContract(contractNumber);
@@ -162,7 +195,7 @@ export class RecognitionsService {
 					);
 			}
 		} catch (error) {
-			throw new ApplicationException(error);
+			throw new ApplicationException((error as Error).message);
 		}
 	}
 }

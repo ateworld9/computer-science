@@ -11,16 +11,25 @@
 		},
 		"sourceType": "module"
 	},
+	"parser": "@typescript-eslint/parser",
 	"extends": [
 		"plugin:json/recommended",
 		"eslint-config-prettier",
 		"eslint:recommended",
 		"plugin:react/recommended",
-		"plugin:react-hooks/recommended"
+		"plugin:react-hooks/recommended",
+		"plugin:require-extensions/recommended"
 	],
-	"plugins": ["json", "eslint-plugin-prettier", "@typescript-eslint", "react"],
+	"plugins": [
+		"json",
+		"eslint-plugin-prettier",
+		"@typescript-eslint",
+		"react",
+		"require-extensions"
+	],
 	"rules": {
 		"prettier/prettier": "error",
-		"no-unused-vars": "warn"
+		"no-unused-vars": "warn",
+		"no-dupe-class-members": "off"
 	}
 }

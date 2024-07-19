@@ -1,4 +1,6 @@
-export async function initRevenueRecognitionsDB(DB, InitData) {
+import { DB } from '../db/db.js';
+
+export async function initRevenueRecognitionsDB(DB: DB, InitData: any) {
 	// DB.serialize(function () {
 	await DB.run('DROP TABLE IF EXISTS revenue_recognitions;')
 		.then(() => {

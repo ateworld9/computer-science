@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"strict": true,
+		"esModuleInterop": true,
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"target": "ESNext",
+		"outDir": "dist"
+	},
+	"include": ["./index.ts"],
+	"exclude": ["node_modules"],
+	"ts-node": {
+		"esm": true
+	}
+}

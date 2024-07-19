@@ -7,7 +7,7 @@
 <img src="./BL_complexity_x_time.png" width="500" />
 
 [Transaction Script](./DomainLogic/Transaction/Transaction.md)  
-[Domain Model](./DomainLogic/DomainModel/DomainModel.md)  
+[Domain Model [TODO] ](./DomainLogic/DomainModel/DomainModel.md)  
 [Table Module](./DomainLogic/TableModule/TableModule.md)  
 [Service Layer](./DomainLogic/ServiceLayer/ServiceLayer.md)
 
@@ -20,23 +20,24 @@
 
 ### Object-Relational Behavioral Patterns
 
+[Unit of Work](./ObjRelBehavioral/UnitOfWork/UnitOfWork.md)
 [Identity Map](./ObjRelBehavioral/IdentityMap/IdentityMap.md)
 
 ### Object-Relational Structural Patterns
 
-[Identity Field]()
-[Foreign Key Mapping]()
-[Association Table Mapping]()
-[Dependent Mapping]()
-[Embedded Value]()
-[Serialized LOB]()
+[Identity Field]()  
+[Foreign Key Mapping]()  
+[Association Table Mapping]()  
+[Dependent Mapping]()  
+[Embedded Value]()  
+[Serialized LOB]()  
 []()
 
 ### Object-Relational Metadata Mapping Patterns
 
-[Metadata Mapping]()
-[Query Object]()
-[Repository]()
+[Metadata Mapping](./ObjRelMetadataMapping/MetadataMapping/MetadataMapping.md)  
+[Query Object](./ObjRelMetadataMapping/QueryObject/QueryObject.md)  
+[Repository](./ObjRelMetadataMapping/Repository/Repository.md)
 
 ### Web Presentation Patterns
 
