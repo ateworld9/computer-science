@@ -3,8 +3,7 @@
 # Patterns of Enterprise Application Architecture
 
 ### Domain Logic
-
-<img src="./BL_complexity_x_time.png" width="500" />
+![](BL_complexity_x_time.png)
 
 [Transaction Script](./DomainLogic/Transaction/Transaction.md)  
 [Domain Model [TODO] ](./DomainLogic/DomainModel/DomainModel.md)  

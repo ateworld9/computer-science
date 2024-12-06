@@ -30,6 +30,7 @@
 	"rules": {
 		"prettier/prettier": "error",
 		"no-unused-vars": "warn",
-		"no-dupe-class-members": "off"
+		"no-dupe-class-members": "off",
+		"require-extensions/require-extensions": "off"
 	}
 }

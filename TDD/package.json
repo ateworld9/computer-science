@@ -1,0 +1,19 @@
+{
+	"name": "tdd",
+	"version": "1.0.0",
+	"description": "Книга Экстремальное программирование Разработка через тестирование(TDD) Кент Бек",
+	"main": "index.js",
+	"engines": {
+		"node": "22"
+	},
+	"scripts": {
+		"dev": "tsx index.ts",
+		"test": "tsx --test ./src/**/*.spec.*"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"tsx": "^4.19.2"
+	}
+}
